@@ -1,7 +1,4 @@
-<!--miniprogram/pages/index/index.wxml-->
-<!-- <text>miniprogram/pages/index/index.wxml</text> -->
-<text class="c1" bindtap="totest">Lorem ipsum dolor sit amet.</text>
-<text class="c1" bindtap="totest2">to res</text>
+<!--miniprogram/pages/testeditor/testeditor.wxml-->
 <!-- <editor id="editor" 
 		class="ql-container" 
 		placeholder="qwq" 
