@@ -5,7 +5,7 @@
 <image src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/a1.png" alt="qwq"></image>
 <view>qwqq</view>
 <!-- <editor id="editor" 
-		class="ql-container" 
+		class="ql-container"  
 		placeholder="qwq" 
 		bindstatuschange="onStatusChange"
 		 bindready="onEditorReady">
