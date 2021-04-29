@@ -1,3 +1,29 @@
+.sele_range{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: wheat;
+  color: black;
+  z-index: 10;
+}
+
+.sele_block{
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  background-color: wheat;
+  height: 200px;
+  z-index: 10;
+}
+
+.on{
+  display: inline;
+}
+
+.off{
+  display: none;
+}
+
 .body-main-box {
   position: relative;
   overflow: hidden;

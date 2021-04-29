@@ -1,5 +1,6 @@
 let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
+let BALLTOP = 100;
 Page({
   data: {
     isFront1: true,
@@ -8,7 +9,7 @@ Page({
     animationData1: {},
     animationData2: {},
     animationData3: {},
-    ballTop1: 80,
+    ballTop1: BALLTOP,
     ballTop2: 230,
     ballTop3: 220,
     ballWidth1: 680,
@@ -18,8 +19,15 @@ Page({
     index2: 2,
     index3: 1,
     statusBarHeight: getApp().globalData.statusBarHeight,
+    sele_on:false,
   },
   onLoad(options) {},
+
+  sele_range(){
+    // console.log('123',x)
+    var x=this.data.sele_on
+    this.setData({sele_on:!x})
+  },
 
   /**
    *  卡片1手势
@@ -218,7 +226,7 @@ Page({
 
     setTimeout(() => {
       this.setData({
-        ballTop1: 80,
+        ballTop1: BALLTOP,
         ballLeft1: -302.5,
         ballWidth1: 605,
         index1: 1,
@@ -232,6 +240,8 @@ Page({
         ballLeft3: -320,
         ballWidth3: 640,
         index3: 2,
+
+        isFront1:true,
       })
     }, 500);
   },

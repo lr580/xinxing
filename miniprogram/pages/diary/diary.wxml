@@ -1,2 +1,3 @@
 <!--miniprogram/pages/diary/diary.wxml-->
 <text>miniprogram/pages/diary/diary.wxml</text>
+<view bindtap="postz">点我发帖!</view>

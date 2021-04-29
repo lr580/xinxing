@@ -4,7 +4,8 @@
     "pages/Me/Me",
     "pages/diary/diary",
     "pages/discover/discover",
-    "pages/like/like"
+    "pages/like/like",
+    "pages/postp/postp"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -17,28 +18,26 @@
     "backgroundColor": "#F6F6F6",
     "selectedColor": "#36f9f5",
     "color": "#000000",
-    "position":"bottom",
-    "list":[
+    "position": "bottom",
+    "list": [
       {
-        "pagePath":"pages/discover/discover",
-        "text":"探索",
-        "iconPath":"./img/discover.png",
-        "selectedIconPath":"./img/discover!.png"
+        "pagePath": "pages/discover/discover",
+        "text": "探索",
+        "iconPath": "./img/discover.png",
+        "selectedIconPath": "./img/discover!.png"
       },
       {
-        "pagePath":"pages/diary/diary",
-        "text":"心路",
-        "iconPath":"./img/up.png",
-        "selectedIconPath":"./img/up!.png"
+        "pagePath": "pages/diary/diary",
+        "text": "心路",
+        "iconPath": "./img/up.png",
+        "selectedIconPath": "./img/up!.png"
       },
-   
       {
-        "pagePath":"pages/Me/Me",
-        "text":"我",
-        "iconPath":"./img/me.png",
-        "selectedIconPath":"./img/me!.png"
+        "pagePath": "pages/Me/Me",
+        "text": "我",
+        "iconPath": "./img/me.png",
+        "selectedIconPath": "./img/me!.png"
       }
-    
     ]
   },
   "sitemapLocation": "sitemap.json",

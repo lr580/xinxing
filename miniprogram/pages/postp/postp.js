@@ -1,4 +1,4 @@
-// miniprogram/pages/diary/diary.js
+// miniprogram/pages/postp/postp.js
 Page({
 
   /**
@@ -20,13 +20,6 @@ Page({
    */
   onReady: function () {
 
-  },
-
-  postz(){
-    console.log('123')
-    wx.navigateTo({
-      url: '/pages/postp/postp',
-    })
   },
 
   /**

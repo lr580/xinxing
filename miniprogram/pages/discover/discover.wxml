@@ -1,5 +1,14 @@
 <!--miniprogram/pages/discover/discover.wxml-->
 <!-- <text>miniprogram/pages/discover/discover.wxml</text> -->
+<view class="sele_range" bindtap="sele_range">
+  点我选择省市
+</view>
+
+<view class="sele_block" wx:if="{{sele_on}}">
+  <view>省：(下拉选择框)</view>
+  <view>市：(下拉选择框)</view>
+</view>
+
 <view class="body-main-box" style="background-color:skyblue;">
   <!-- 第一张 -->
   <view class="body-swiper" bindtouchstart="touchstart1" bindtouchend="touchend1"
