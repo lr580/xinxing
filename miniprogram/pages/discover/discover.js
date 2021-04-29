@@ -8,7 +8,7 @@ Page({
     animationData1: {},
     animationData2: {},
     animationData3: {},
-    ballTop1: 240,
+    ballTop1: 80,
     ballTop2: 230,
     ballTop3: 220,
     ballWidth1: 680,
@@ -218,7 +218,7 @@ Page({
 
     setTimeout(() => {
       this.setData({
-        ballTop1: 220,
+        ballTop1: 80,
         ballLeft1: -302.5,
         ballWidth1: 605,
         index1: 1,
