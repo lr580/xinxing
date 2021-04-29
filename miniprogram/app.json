@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/Me/Me",
     "pages/diary/diary",
     "pages/discover/discover",
@@ -10,13 +9,13 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f7fff7",
+    "navigationBarBackgroundColor": "#4ecdc4",
     "navigationBarTitleText": "心行FindMyself",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "backgroundColor": "#F6F6F6",
-    "selectedColor": "#36f9f5",
+    "selectedColor": "#ffe66d",
     "color": "#000000",
     "position": "bottom",
     "list": [

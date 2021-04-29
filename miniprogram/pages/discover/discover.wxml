@@ -9,14 +9,14 @@
   <view>市：(下拉选择框)</view>
 </view>
 
-<view class="body-main-box" style="background-color:skyblue;">
+<view class="body-main-box">
   <!-- 第一张 -->
   <view class="body-swiper" bindtouchstart="touchstart1" bindtouchend="touchend1"
     style="z-index:{{index1}};top:{{ballTop1}}rpx;  margin-left:{{ballLeft1}}rpx;width:{{ballWidth1}}rpx;"
     animation="{{animationData1}}">
     <!-- 正面 -->
     <block wx:if="{{isFront1}}">
-      <view class="body-container" style="background-color:#f17925">
+      <view class="body-container">
         <text style="text-align:center">卡片1正面</text>
         <image class="avatar"
           src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/normal/test (1).png"></image>
