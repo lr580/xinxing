@@ -1,0 +1,5 @@
+<view class="a" style="text-align: center;">
+  <canvas class="backLottie" id="c1" type="2d" style="width: 200rpx; height: 200rpx;background-color:black">
+    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+  </canvas>
+</view>

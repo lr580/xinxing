@@ -1,36 +1,12 @@
-# 数据格式
+# 云开发 quickstart
 
-## 城市
+这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
 
-存储在云开发-集合city内，
+- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
+- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
+- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
 
-城市对象的属性：
+## 参考文档
 
-- _id ID号，用于数据库查询以及旅游地点归属关系确认
-- belong number，属于哪个省，现阶段都为1，即广东省
-- position array，元素为两个numer，先后代表经纬度(可选)
-- attration array，元素为number，代表其下景点的_id值
-- intro string，城市简介(可选)
+- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
-## 旅游地点
-
-存储在云开发-集合attration内。
-
-旅游地点对象的属性：
-
-- \_id string,ID号，用于数据库查询
-- belong number，属于哪个市id
-- detail array，元素属性为string 小景点分布概览
-- intro string，景点介绍
-- mark number，评分(可选)
-- name string，景点名字
-- pic string 景点图片url路径的最后一段，如：`a1.png` ，其url必须真实有效，且图片存储在云存储的attra文件夹内，文件名字规定为`a`加上\_id。后缀为`jpg,png,gif,tiff`的一种。
-- position string，景点位置
-- prize array，元素属性为string，景点资质
-- special array，元素属性为string，景点特色关键字
-
-## 用户
-
-
-
-## 帖子

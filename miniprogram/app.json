@@ -1,26 +1,45 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/im/im",
-    "pages/im/room/room",
-    "pages/testeditor/editor"
+    "pages/Me/Me",
+    "pages/diary/diary",
+    "pages/discover/discover",
+    "pages/like/like"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarBackgroundColor": "#f7fff7",
+    "navigationBarTitleText": "心行FindMyself",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#F6F6F6",
+    "selectedColor": "#36f9f5",
+    "color": "#000000",
+    "position":"bottom",
+    "list":[
+      {
+        "pagePath":"pages/discover/discover",
+        "text":"探索",
+        "iconPath":"./img/discover.png",
+        "selectedIconPath":"./img/discover!.png"
+      },
+      {
+        "pagePath":"pages/diary/diary",
+        "text":"心路",
+        "iconPath":"./img/up.png",
+        "selectedIconPath":"./img/up!.png"
+      },
+   
+      {
+        "pagePath":"pages/Me/Me",
+        "text":"我",
+        "iconPath":"./img/me.png",
+        "selectedIconPath":"./img/me!.png"
+      }
+    
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

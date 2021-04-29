@@ -14,8 +14,6 @@ App({
       })
     }
 
-    this.globalData = {
-      pathc:"cloud://scnuyjx-7gmvlqwfe64c446a.7363-scnuyjx-7gmvlqwfe64c446a-1304878008/",
-    }
+    this.globalData = {}
   }
 })

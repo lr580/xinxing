@@ -1,0 +1,6 @@
+.backLottie{
+  border-radius: 30px;
+}
+.a{
+  color: red;
+}
