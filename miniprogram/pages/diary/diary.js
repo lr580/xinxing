@@ -25,7 +25,8 @@ Page({
   postz(){
     console.log('123')
     wx.navigateTo({
-      url: '/pages/postp/postp',
+      // url: '/pages/postp/postp',
+      url:'/pages/testeditor/editor'
     })
   },
 

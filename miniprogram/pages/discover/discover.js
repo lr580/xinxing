@@ -20,6 +20,7 @@ Page({
     index3: 1,
     statusBarHeight: getApp().globalData.statusBarHeight,
     sele_on:false,
+    
   },
   onLoad(options) {},
 

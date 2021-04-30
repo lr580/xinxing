@@ -11,11 +11,27 @@ App({
         //   如不填则使用默认环境（第一个创建的环境）
         // env: 'my-env-id',
         traceUser: true,
+      }).then(req => {
+        
       })
+      const db = wx.cloud.database()
+      const _ = db.command;
+      db.collection('city').doc('default').get().then(res => {
+        console.log(res.data)
+        this.globalData.num_city = res.data.num_city
+        this.globalData.num_province = res.data.num_province
+        this.globalData.num_attration = res.data.num_attration
+      }).catch(rws=>{
+        wx.showToast({
+          title: 'error',
+          icon:'none',
+        })
+      })
+
     }
 
     this.globalData = {
-      pathc:'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/',
+      pathc: 'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/',
     }
   }
 })

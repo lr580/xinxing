@@ -1,5 +1,15 @@
 # 数据格式
 
+## 省
+
+存储在云开发-集合province内，
+
+省对象属性：
+
+- _id ID号，用于数据库查询以及市归属关系确认
+- cities array，元素为number，代表其下市的_id值
+- name string，省的名字
+
 ## 城市
 
 存储在云开发-集合city内，
