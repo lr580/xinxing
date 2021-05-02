@@ -3,3 +3,4 @@
     hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
   </canvas>
 </view>
+<view bindtap="qabo">请宁点沃登录</view>

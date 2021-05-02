@@ -19,10 +19,47 @@ Page({
     index2: 2,
     index3: 1,
     statusBarHeight: getApp().globalData.statusBarHeight,
+
     sele_on:false,
-    
+    city:[],//city对象指针
+    now_city:0,//现在选择的city的_id
+    previews:[],
   },
-  onLoad(options) {},
+  onLoad(options) {
+    this.update_sele()
+  },
+
+  update_sele(){
+    // console.log(this.data.city)
+    // var tcopy=[]
+    const km=getApp().globalData
+    // for(let i=0;i<km.city.length;++i){
+    //   tcopy.push(km.city[i])
+    // }
+    this.setData({
+      province:km.province,
+      city:km.city,
+      attration:km.attration,
+    })
+    if(this.data.province.length){
+      // this.data.city[0].checked = true
+      this.setData({
+        now_city:0,
+      })
+    }
+    this.load_attration()
+    // console.log(this.data.city,getApp().globalData.city)
+  },
+
+  sele_city(p){
+    // console.log(p.detail.value)
+    now_city=Number(p.detail.value)
+    this.load_attration()
+  },
+
+  load_attration(){
+
+  },
 
   sele_range(){
     // console.log('123',x)

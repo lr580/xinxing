@@ -6,7 +6,13 @@
 
 <view class="sele_block" wx:if="{{sele_on}}">
   <view>省：(下拉选择框)</view>
+  <radio checked>广东省</radio>
   <view>市：(下拉选择框)</view>
+  <radio-group bindchange="sele_city">
+    <view wx:for="{{city}}">
+      <radio value="{{index}}" checked="{{index===0}}">{{item.name}}</radio>
+    </view>
+  </radio-group>
 </view>
 
 <view class="body-main-box">
