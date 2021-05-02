@@ -3,4 +3,10 @@
     hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
   </canvas>
 </view>
-<view bindtap="qabo">请宁点沃登录</view>
+<view bindtap="qabo" wx:if="{{unRegistered}}">请宁点沃登录</view>
+<view wx:else>
+  <image src="{{user.avatarUrl}}"></image>
+  <view>昵称：{{user.nickName}}</view>
+  <view>所在省份：{{user.province}}</view>
+  <view>所在城市：{{user.city}}</view>
+</view>

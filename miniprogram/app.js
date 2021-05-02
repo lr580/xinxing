@@ -1,4 +1,5 @@
 //app.js
+// var mejs = require('/pages/Me/Me.js')
 App({
   onLaunch: function () {
     const km = this//this
@@ -20,9 +21,9 @@ App({
         })
 
         const db = wx.cloud.database()
-        const _ = db.command;
+        const _ = db.command
         // const km = getApp() //or this in app.js
-        
+
         db.collection('global').doc('default').get().then(res => {
           // console.log(res.data)
           km.globalData.num_city = res.data.num_city
@@ -34,24 +35,24 @@ App({
           const batch_province = Math.ceil(res.data.num_province / epoch)
           const batch_attration = Math.ceil(res.data.num_attration / epoch)
           const deban = true //加载失败后是否解除禁用状态
-          const cmp = function(){
-            return function(a,b){
-              return Number(a['_id'])-Number(b['_id'])
+          const cmp = function () {
+            return function (a, b) {
+              return Number(a['_id']) - Number(b['_id'])
             }
           }
           var city_obj = []
           var attration_obj = []
           var province_obj = []
-          var finish_deal = function(){
+          var finish_deal = function () {
             // console.log('qwq')
             province_obj.sort(cmp())
             city_obj.sort(cmp())
             attration_obj.sort(cmp())
-            km.globalData.province=province_obj
-            km.globalData.city=city_obj
-            km.globalData.attration=attration_obj
+            km.globalData.province = province_obj
+            km.globalData.city = city_obj
+            km.globalData.attration = attration_obj
             // console.log(km.globalData)
-            
+
             // console.log(province_obj)
             // console.log(city_obj)
             // console.log(attration_obj)
@@ -61,73 +62,73 @@ App({
           var progress_bar = 0
           var tot_progress_bar = batch_city + batch_province + batch_attration
 
-          for(let i=0;i<batch_city;++i){
+          for (let i = 0; i < batch_city; ++i) {
             var this_batch = []
-            for(let j=i*epoch;j<Math.min(res.data.num_city,i*epoch+epoch);++j){
+            for (let j = i * epoch; j < Math.min(res.data.num_city, i * epoch + epoch); ++j) {
               this_batch.push(String(j))
             }
             // console.log(this_batch)
-            db.collection('city').where({_id:_.in(this_batch)}).get().then(rea=>{
+            db.collection('city').where({ _id: _.in(this_batch) }).get().then(rea => {
               // console.log(rea)
-              for(let i=0;i<rea.data.length;++i){
+              for (let i = 0; i < rea.data.length; ++i) {
                 city_obj.push(rea.data[i])
               }
-              if(++progress_bar==tot_progress_bar){
+              if (++progress_bar == tot_progress_bar) {
                 finish_deal()
               }
-            }).catch(rwa=>{
+            }).catch(rwa => {
               wx.showToast({
                 title: '读取城市数据失败，请检查您的网络并重新进入程序！',
                 icon: 'none',
               })
-              if(deban) wx.hideLoading()
+              if (deban) wx.hideLoading()
             })
           }
 
-          for(let i=0;i<batch_province;++i){
+          for (let i = 0; i < batch_province; ++i) {
             var this_batch = []
-            for(let j=i*epoch;j<Math.min(res.data.num_province,i*epoch+epoch);++j){
+            for (let j = i * epoch; j < Math.min(res.data.num_province, i * epoch + epoch); ++j) {
               this_batch.push(String(j))
             }
             // console.log(this_batch)
-            db.collection('province').where({_id:_.in(this_batch)}).get().then(rea=>{
+            db.collection('province').where({ _id: _.in(this_batch) }).get().then(rea => {
               // console.log(rea)
-              for(let i=0;i<rea.data.length;++i){
+              for (let i = 0; i < rea.data.length; ++i) {
                 province_obj.push(rea.data[i])
               }
-              if(++progress_bar==tot_progress_bar){
+              if (++progress_bar == tot_progress_bar) {
                 finish_deal()
               }
-            }).catch(rwa=>{
+            }).catch(rwa => {
               wx.showToast({
                 title: '读取省份数据失败，请检查您的网络并重新进入程序！',
                 icon: 'none',
               })
-              if(deban) wx.hideLoading()
+              if (deban) wx.hideLoading()
             })
           }
 
-          for(let i=0;i<batch_attration;++i){
+          for (let i = 0; i < batch_attration; ++i) {
             var this_batch = []
-            for(let j=i*epoch;j<Math.min(res.data.num_attration,i*epoch+epoch);++j){
+            for (let j = i * epoch; j < Math.min(res.data.num_attration, i * epoch + epoch); ++j) {
               this_batch.push(String(j))
             }
             // console.log(this_batch)
-            db.collection('attration').where({_id:_.in(this_batch)}).get().then(rea=>{
+            db.collection('attration').where({ _id: _.in(this_batch) }).get().then(rea => {
               // console.log(rea)
-              for(let i=0;i<rea.data.length;++i){
+              for (let i = 0; i < rea.data.length; ++i) {
                 attration_obj.push(rea.data[i])
               }
-              if(++progress_bar==tot_progress_bar){
+              if (++progress_bar == tot_progress_bar) {
                 finish_deal()
               }
-            }).catch(rwa=>{
+            }).catch(rwa => {
               wx.showToast({
                 title: '读取景点数据失败，请检查您的网络并重新进入程序！',
                 icon: 'none',
               })
             })
-            if(deban) wx.hideLoading()
+            if (deban) wx.hideLoading()
           }
 
 
@@ -137,15 +138,56 @@ App({
             title: '获取数据失败，请检查您的网络',
             icon: 'none',
           })
-          if(deban) wx.hideLoading()
+          if (deban) wx.hideLoading()
+        })
+
+        wx.cloud.callFunction({
+          name: 'getOpenId',
+        }).then(res => {
+          // console.log('res',res)
+          var openid = res.result.userInfo.openId
+          km.globalData.openid = openid
+          console.log('open id', openid)
+          
+          // thee.qabo(openid)
+
+          db.collection('user').doc(openid).get().then(ret => {
+            km.globalData.user = ret.data
+            km.cb(ret.data)//而不是km.fn，因为fn是绑定cb……cb才是执行函数
+          }).catch(rwt => {
+            km.globalData.user = null
+            console.log('用户尚未授权过头像和昵称。')
+          })
+
+        }).catch(rws => {
+          // console.log('broke down',rws)
+          wx.showToast({
+            title: '请求获取用户信息失败！',
+            icon: 'none',
+          })
         })
       }).catch(rwq => {
-
+        wx.showToast({
+          title: '服务器异常',
+          icon: 'none',
+        })
       })
     }
+
+
 
     this.globalData = {
       pathc: 'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/',
     }
-  }
+  },
+
+  fn:function(cb){
+    this.cb=cb
+  },
+  // hg:function(v){
+  //   this.v=v
+  //   if(this.cb!=null){
+  //     this.cb(v)
+  //   }
+  // }
 })

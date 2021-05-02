@@ -43,4 +43,16 @@
 
 ## 用户
 
+存储在云开发-集合user内。
+
+属性：
+
+- _id 取openId，是一串string
+- city string，用户所在城市的拼音(可能可以用于初始化探索板块，但暂时不打算实体化)，首字母大写
+- nickName string，微信昵称
+- province string 用户所在的省份拼音，首字母大写
+- avatarUrl string 用户头像完整url
+
+
+
 ## 帖子
