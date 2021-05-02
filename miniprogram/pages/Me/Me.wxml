@@ -9,4 +9,6 @@
   <view>昵称：{{user.nickName}}</view>
   <view>所在省份：{{user.province}}</view>
   <view>所在城市：{{user.city}}</view>
+  <view>我喜欢的景点_id(仅调试时可见)：{{user.like}}</view>
+  <view>我不喜欢的景点_id(仅调试时可见)：{{user.dislike}}</view>
 </view>

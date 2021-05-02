@@ -10,44 +10,48 @@
   <view>市：(下拉选择框)</view>
   <radio-group bindchange="sele_city">
     <view wx:for="{{city}}">
-      <radio value="{{index}}" checked="{{index===0}}">{{item.name}}</radio>
+      <radio value="{{index}}" checked="{{index===now_city}}">{{item.name}}</radio>
     </view>
   </radio-group>
 </view>
-
-<view class="body-main-box">
+<!-- {{front}} -->
+<view wx:if="{{front==-1}}">
+  <image class="avatar" src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png">
+  </image>
+</view>
+<view class="body-main-box" wx:else>
+<!-- {{front}} -->
   <!-- 第一张 -->
   <view class="body-swiper" bindtouchstart="touchstart1" bindtouchend="touchend1"
     style="z-index:{{index1}};top:{{ballTop1}}rpx;  margin-left:{{ballLeft1}}rpx;width:{{ballWidth1}}rpx;"
     animation="{{animationData1}}">
+    <!-- {{front}} -->
     <!-- 正面 -->
     <block wx:if="{{isFront1}}">
       <view class="body-container">
-        <text style="text-align:center">卡片1正面</text>
+        <text style="text-align:center">{{attration[front].name}}</text>
         <image class="avatar"
-          src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/normal/test (1).png"></image>
+          src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[front].pic}}">
+        </image>
         <view>
-          <view>景点名字：{{}}</view>
-          <view>评分：{{}}</view>
-          <view>特色：{{}}</view>
-          <view>地点：{{}}</view>
+          <view>评分：{{attration[front].mark}}</view>
+          <view>特色：{{attration[front].special}}</view>
+          <view>地点：{{attration[front].position}}</view>
         </view>
       </view>
     </block>
     <!-- 反面 -->
     <block wx:else>
       <view class="body-container">
-        <text style="text-align:center">卡片1反面</text>
+        <text style="text-align:center">{{attration[front].name}}</text>
         <!-- <image class="avatar2" src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/normal/test (4).png"></image> -->
-        <view>景点名字：{{}}</view>
-        <view>评分：{{}}</view>
-        <view>特色：{{}}</view>
-        <view>地点：{{}}</view>
-        <view>详细介绍：{{}}</view>
-        <view>分布：{{}}</view>
-        <view>资质：{{}}</view>
+        <view>评分：{{attration[front].mark}}</view>
+        <view>特色：{{attration[front].special}}</view>
+        <view>地点：{{attration[front].position}}</view>
+        <view>详细介绍：{{attration[front].intro}}</view>
+        <view>分布：{{attration[front].detail}}</view>
+        <view>资质：{{attration[front].prize}}</view>
       </view>
     </block>
   </view>
-
 </view>

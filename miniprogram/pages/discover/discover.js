@@ -1,6 +1,7 @@
 let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
 let BALLTOP = 100;
+const km = getApp()
 Page({
   data: {
     isFront1: true,
@@ -20,51 +21,105 @@ Page({
     index3: 1,
     statusBarHeight: getApp().globalData.statusBarHeight,
 
-    sele_on:false,
-    city:[],//city对象指针
-    now_city:0,//现在选择的city的_id
-    previews:[],
+    sele_on: false,
+    city: [],//city对象指针
+    attration: [],
+    now_city: 0,//现在选择的city的_id
+    now_attration: [],
+    front: -1,//当前能看到的景点卡片_id，-1代表无
   },
   onLoad(options) {
     this.update_sele()
   },
 
-  update_sele(){
+  update_sele() {
     // console.log(this.data.city)
     // var tcopy=[]
-    const km=getApp().globalData
+    const km = getApp().globalData
     // for(let i=0;i<km.city.length;++i){
     //   tcopy.push(km.city[i])
     // }
     this.setData({
-      province:km.province,
-      city:km.city,
-      attration:km.attration,
+      province: km.province,
+      city: km.city,
+      attration: km.attration,
     })
-    if(this.data.province.length){
+    if (this.data.province.length) {
       // this.data.city[0].checked = true
       this.setData({
-        now_city:0,
+        now_city: 0,
+        sele_on: false,
       })
     }
     this.load_attration()
     // console.log(this.data.city,getApp().globalData.city)
   },
 
-  sele_city(p){
+  sele_city(p) {
     // console.log(p.detail.value)
-    now_city=Number(p.detail.value)
+    this.data.now_city = Number(p.detail.value)
+    // this.data.sele_on = false
+    this.setData({
+      sele_on: false,
+      now_city: Number(p.detail.value),
+    })
     this.load_attration()
   },
 
-  load_attration(){
+  load_attration() {
+    function shuffle(arr) {
+      let i = arr.length;
+      while (i) {
+        let j = Math.floor(Math.random() * i--);
+        [arr[j], arr[i]] = [arr[i], arr[j]];
+      }
+    }
 
+    var now_city = this.data.now_city
+    console.log('nc', now_city)
+    var cor = []
+    for (let i = 0; i < km.globalData.num_attration; ++i) {
+      // console.log(km.globalData.attration[i].belong)
+      if (km.globalData.attration[i].belong == now_city) {
+        cor.push(i)
+      }
+    }
+    // console.log(cor)
+    shuffle(cor)
+    console.log(cor)
+    // console.log(cor)
+    this.setData({
+      now_attration: cor,
+      front: cor[0],
+    })
+    // console.log('qwq')
   },
 
-  sele_range(){
+  sele_range() {
     // console.log('123',x)
-    var x=this.data.sele_on
-    this.setData({sele_on:!x})
+    var x = this.data.sele_on
+    this.setData({ sele_on: !x })
+  },
+
+  next_attration(){
+    var temp = this.data.now_attration.slice(1,)
+    var idx=-1
+    if(temp.length!=0){
+      idx=temp[0]
+    }
+    this.setData({
+      now_attration: temp,
+      front: idx,
+    })
+    // console.log('last', idx, temp)
+  },
+
+  go_left(){
+    this.next_attration()
+  },
+
+  go_right(){
+    this.next_attration()
   },
 
   /**
@@ -97,11 +152,19 @@ Page({
         // 如更tmX<0，即(离开点的X)-(起始点X)小于0 ，判定为左滑
         if (tmX < 0) {
           console.log("左滑=====");
+          // this.go_left()
+          setTimeout(() => {
+            this.go_left()
+          }, 450);
           // 执行左滑动画
           this.Animation1(-500);
           // 如更tmX>0，即(离开点的X)-(起始点X)大于0 ，判定为右滑
         } else {
           console.log("右滑=====");
+          // this.go_right()
+          setTimeout(() => {
+            this.go_right()
+          }, 450);
           // 执行右滑动画
           this.Animation1(500);
         }
@@ -279,8 +342,9 @@ Page({
         ballWidth3: 640,
         index3: 2,
 
-        isFront1:true,
+        isFront1: true,
       })
+      
     }, 500);
   },
 
