@@ -4,7 +4,10 @@
     "pages/diary/diary",
     "pages/discover/discover",
     "pages/like/like",
-    "pages/postp/postp"
+    "pages/postp/postp",
+    "pages/myattra/myattra",
+    "pages/advice/advice",
+    "pages/help/help"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -18,7 +21,8 @@
     "selectedColor": "#ffe66d",
     "color": "#000000",
     "position": "bottom",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/discover/discover",
         "text": "探索",
         "iconPath": "./img/discover.png",

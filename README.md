@@ -54,6 +54,7 @@
 - avatarUrl string 用户头像完整url
 - like array，元素为number，喜欢的景点的_id
 - dislike array，元素为number，不喜欢的景点_id
+- gone array，元素为number，已经去过的景点_id
 
 
 

@@ -1,6 +1,6 @@
 .sele_range {
   position: absolute;
-  top: 20px;
+  top: 5px;
   left: 20px;
   background-color: wheat;
   color: black;

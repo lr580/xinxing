@@ -11,4 +11,8 @@
   <view>所在城市：{{user.city}}</view>
   <view>我喜欢的景点_id(仅调试时可见)：{{user.like}}</view>
   <view>我不喜欢的景点_id(仅调试时可见)：{{user.dislike}}</view>
+  <view>我去过的景点_id(仅调试时可见)：{{user.gone}}</view>
 </view>
+<view bindtap="to_myattra">点我跳往“我的景点”页面</view>
+<view bindtap="to_advice">点我跳往“意见反馈”页面</view>
+<view bindtap="to_help">点我跳往“帮助”页面</view>

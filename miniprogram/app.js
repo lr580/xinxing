@@ -141,7 +141,7 @@ App({
           if (deban) wx.hideLoading()
         })
 
-        wx.cloud.callFunction({
+        wx.cloud.callFunction({ //点击过快切换到探索区有小概率会导致产生bugs，暂不打算修复
           name: 'getOpenId',
         }).then(res => {
           // console.log('res',res)

@@ -95,6 +95,7 @@ Page({
           avatarUrl: res.userInfo.avatarUrl,
           like: [],
           dislike: [],
+          gone:[],
         }
 
         // datax['_id'] = km.globalData.openid
@@ -148,6 +149,24 @@ Page({
         title: 'error',
         icon: 'none',
       })
+    })
+  },
+
+  to_myattra(){
+    wx.navigateTo({
+      url: '/pages/myattra/myattra',
+    })
+  },
+
+  to_advice(){
+    wx.navigateTo({
+      url: '/pages/advice/advice',
+    })
+  },
+
+  to_help(){
+    wx.navigateTo({
+      url: '/pages/help/help',
     })
   },
 })
