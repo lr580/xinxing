@@ -148,7 +148,7 @@ App({
           var openid = res.result.userInfo.openId
           km.globalData.openid = openid
           console.log('open id', openid)
-          
+
           // thee.qabo(openid)
 
           db.collection('user').doc(openid).get().then(ret => {
@@ -181,8 +181,16 @@ App({
     }
   },
 
-  fn:function(cb){
-    this.cb=cb
+  fn: function (cb) {
+    this.cb = cb
+  },
+
+  fn2: function (cb2) {
+    this.cb2 = cb2
+  },
+
+  fn3: function (cb3) {
+    this.cb3 = cb3
   },
   // hg:function(v){
   //   this.v=v

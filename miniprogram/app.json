@@ -18,8 +18,7 @@
     "selectedColor": "#ffe66d",
     "color": "#000000",
     "position": "bottom",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/discover/discover",
         "text": "探索",
         "iconPath": "./img/discover.png",

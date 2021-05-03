@@ -43,7 +43,7 @@
           <view>地点：{{attration[front].position}}</view>
         </view>
       </view>
-      <view wx:else  class="body-container">
+      <view wx:else class="body-container">
         <image class="avatar"
           src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png">
         </image>

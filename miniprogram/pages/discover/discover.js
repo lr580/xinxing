@@ -2,6 +2,8 @@ let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
 let BALLTOP = 100;
 const km = getApp()
+const db = wx.cloud.database()
+const _ = db.command
 Page({
   data: {
     isFront1: true,
@@ -80,7 +82,13 @@ Page({
     var cor = []
     for (let i = 0; i < km.globalData.num_attration; ++i) {
       // console.log(km.globalData.attration[i].belong)
+      // console.log('kmnm',km.globalData.user)
       if (km.globalData.attration[i].belong == now_city) {
+        if (km.globalData.user != null) {
+          if (km.globalData.user.like.indexOf(i) != -1 || km.globalData.user.dislike.indexOf(i) != -1) {
+            continue
+          }
+        }
         cor.push(i)
       }
     }
@@ -102,14 +110,14 @@ Page({
     this.setData({ sele_on: !x })
   },
 
-  next_attration(){
-    if(this.data.now_attration.length==1){
+  next_attration() {
+    if (this.data.now_attration.length == 1) {
       return
     }
     var temp = this.data.now_attration.slice(1,)
-    var idx=-1
-    if(temp.length!=0){
-      idx=temp[0]
+    var idx = -1
+    if (temp.length != 0) {
+      idx = temp[0]
     }
     this.setData({
       now_attration: temp,
@@ -118,11 +126,48 @@ Page({
     // console.log('last', idx, temp)
   },
 
-  go_left(){
+  go_left() {
+
+    var front = Number(this.data.front)
+    if (front != -1) {
+      km.globalData.user.dislike.push(front)
+      db.collection('user').doc(km.globalData.openid).update({
+        data: {
+          dislike: _.push(front)
+        }
+      }).then(res => {
+        //console.log('suc')
+        //km.cb()
+        km.cb(km.globalData.user)
+      }).catch(rws => {
+        wx.showToast({
+          title: '存储用户记录失败！',
+          icon: 'none',
+        })
+      })
+    }
     this.next_attration()
   },
 
-  go_right(){
+  go_right() {
+
+    var front = Number(this.data.front)
+    // console.log('ef', front)
+    if (front != -1) {
+      km.globalData.user.like.push(front)
+      db.collection('user').doc(km.globalData.openid).update({
+        data: {
+          like: _.push(front)
+        }
+      }).then(res => {
+        km.cb(km.globalData.user)
+      }).catch(rws => {
+        wx.showToast({
+          title: '存储用户记录失败！',
+          icon: 'none',
+        })
+      })
+    }
     this.next_attration()
   },
 
@@ -348,7 +393,7 @@ Page({
 
         isFront1: true,
       })
-      
+
     }, 500);
   },
 

@@ -50,6 +50,12 @@ Page({
       }
     )
 
+    /*app.fn2(
+      function (x,y) {
+        
+      }
+    )*/
+
     return
     wx.cloud.callFunction({
       name: 'getOpenId',
@@ -88,20 +94,21 @@ Page({
           nickName: res.userInfo.nickName,
           avatarUrl: res.userInfo.avatarUrl,
           like: [],
-          unlike: [],
+          dislike: [],
         }
 
         // datax['_id'] = km.globalData.openid
-        console.log(datax, km.globalData.openid)
+        // console.log(datax, km.globalData.openid)
         db.collection('user').add({
           data: datax
         }).then(rec => {
-          console.log('reccccccccc', rec)
+          // console.log('reccccccccc', rec)
           // app.cb(rec.data)
           thee.setData({
             unRegistered: false,
             user: datax,
           })
+          km.globalData.user = datax
         }).catch(rwc => {
           wx.showToast({
             title: '存储用户信息失败，请重试！',

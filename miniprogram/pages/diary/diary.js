@@ -22,11 +22,11 @@ Page({
 
   },
 
-  postz(){
+  postz() {
     console.log('123')
     wx.navigateTo({
       // url: '/pages/postp/postp',
-      url:'/pages/testeditor/editor'
+      url: '/pages/testeditor/editor'
     })
   },
 
