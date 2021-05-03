@@ -1,5 +1,9 @@
 <!--miniprogram/pages/discover/discover.wxml-->
 <!-- <text>miniprogram/pages/discover/discover.wxml</text> -->
+<view class="sele_skip" bindtap="go_skip">
+  跳过
+</view>
+
 <view class="sele_range" bindtap="sele_range">
   点我选择省市
 </view>

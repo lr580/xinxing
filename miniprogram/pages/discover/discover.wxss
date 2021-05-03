@@ -1,4 +1,4 @@
-.sele_range{
+.sele_range {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -7,7 +7,7 @@
   z-index: 10;
 }
 
-.sele_block{
+.sele_block {
   position: absolute;
   top: 40px;
   left: 10px;
@@ -16,11 +16,19 @@
   z-index: 10;
 }
 
-.on{
+.sele_skip{
+  position: absolute;
+  top: 20px;
+  left: 260px;
+  background-color: wheat;
+  z-index: 10;
+}
+
+.on {
   display: inline;
 }
 
-.off{
+.off {
   display: none;
 }
 
@@ -81,12 +89,12 @@
   border-radius: 10px;
 }
 
-.avatar{
+.avatar {
   width: 100%;
   height: 820rpx;
 }
 
-.avatar2{
+.avatar2 {
   width: 100%;
   height: 820rpx;
 }

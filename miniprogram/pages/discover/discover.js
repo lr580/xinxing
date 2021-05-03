@@ -126,11 +126,23 @@ Page({
     // console.log('last', idx, temp)
   },
 
+  go_skip() {
+    if (this.data.now_attration.length != 1) {
+      this.next_attration()
+    }
+    else {
+      wx.showToast({
+        title: '当前已经没有待发现的景点了',
+        icon: 'none',
+      })
+    }
+  },
+
   go_left() {
 
     var front = Number(this.data.front)
     if (front != -1) {
-      km.globalData.user.dislike.push(front)
+      if (km.globalData.user != null) { km.globalData.user.dislike.push(front) }
       db.collection('user').doc(km.globalData.openid).update({
         data: {
           dislike: _.push(front)
@@ -140,6 +152,10 @@ Page({
         //km.cb()
         km.cb(km.globalData.user)
       }).catch(rws => {
+        if (km.user == null) {
+          console.log('用户未登录')
+          return
+        }
         wx.showToast({
           title: '存储用户记录失败！',
           icon: 'none',
@@ -154,7 +170,7 @@ Page({
     var front = Number(this.data.front)
     // console.log('ef', front)
     if (front != -1) {
-      km.globalData.user.like.push(front)
+      if (km.globalData.user != null) { km.globalData.user.like.push(front) }
       db.collection('user').doc(km.globalData.openid).update({
         data: {
           like: _.push(front)
@@ -162,6 +178,10 @@ Page({
       }).then(res => {
         km.cb(km.globalData.user)
       }).catch(rws => {
+        if (km.user == null) {
+          console.log('用户未登录')
+          return
+        }
         wx.showToast({
           title: '存储用户记录失败！',
           icon: 'none',

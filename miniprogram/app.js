@@ -178,6 +178,7 @@ App({
 
     this.globalData = {
       pathc: 'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/',
+      openid:null,
     }
   },
 
