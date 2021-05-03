@@ -1,2 +1,70 @@
 <!--miniprogram/pages/myattra/myattra.wxml-->
 <text>miniprogram/pages/myattra/myattra.wxml</text>
+<view>
+  <radio-group bindchange="sele_block">
+    <view>
+
+      <radio value="{{0}}" checked="{{now_block==0}}">我感兴趣的景点</radio>
+      <text wx:if="{{now_block==0}}">(现在选择)</text>
+    </view>
+    <view>
+
+      <radio value="{{1}}" checked="{{now_block==1}}">我不感兴趣的景点</radio>
+      <text wx:if="{{now_block==1}}">(现在选择)</text>
+    </view>
+  </radio-group>
+</view>
+
+<view>
+  <view wx:for="{{fked}}">
+    <view>{{index}}</view>
+    <view>景点名称：{{attration[fked[index]].name}}</view>
+    <!-- {{detail_on[index]}} -->
+    <view id="{{fked[index]}}" bindtap="deny_tag">取消设置标签“{{now_block==0?'我感兴趣':'我不感兴趣'}}”</view> 
+    <view>您{{gone[index]?'已':'未'}}去过该景点</view>
+    <view id="{{index}}" bindtap="change_gone">将该景点设置为{{gone[index]?'未':'已'}}去过</view>
+    <!-- 如有余力，还可以设置移动到对立面，但是不想弄，感觉没必要 -->
+
+    <view wx:if="{{detail_on[index]==false}}" id="{{index}}" bindtap="detail_onz">点我展开</view>
+    <view wx:else>
+      <view id="{{index}}" bindtap="detail_offz">点我折叠</view>
+      <image src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[fked[index]].pic}}">
+      </image>
+      <view>地点：{{attration[fked[index]].position}}</view>
+      <view>评分：{{attration[fked[index]].mark}}</view>
+      <view>介绍：{{attration[fked[index]].intro}}</view>
+      <view>特色：{{attration[fked[index]].special}}</view>
+      <view>资质：{{attration[fked[index]].prize}}</view>
+      <view>子景点：{{attration[fked[index]].detail}}</view>
+    </view>
+  </view>
+  <view wx:if="{{fked.length==0}}">空空如也！</view>
+</view>
+
+
+
+
+
+
+
+<!-- <template name="eattra">
+  <!-- <view>{{item.name}}</view> 
+  <image
+  src="{{pathc+pic}}">
+  </image>
+  <view>景点名字：{{name}}</view>
+</template> -->
+<!-- <view>
+  <view wx:if="{{now_block==0}}"> -->
+<!-- <view wx:for="{{user.like}}">
+      <view>{{city[index].name}}</view>
+    </view> -->
+<!-- <template is="eattra" data="{{...item}}"></template> -->
+<!-- <view wx:for="{{user.like}}" >
+      <view>{{index+1}}</view> -->
+<!-- <template is="eattra" data="{{...attration[item]}}"></template> -->
+
+<!-- <view>&nbsp;</view>
+    </view>
+  </view> -->
+<!-- </view> -->

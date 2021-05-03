@@ -12,7 +12,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //做一点测试：下面的代码可删掉
+    // wx.showToast({
+    //   title: '加载1',
+    //   mask: true,
+    // })
+    // setTimeout(() => {
+    //   wx.showToast({
+    //     title: '加载2',
+    //     mask: true,
+    //   })
+    // }, 500);
+    // setTimeout(() => {
+    //   wx.hideLoading({
+    //     success: (res) => { },
+    //   })
+    // }, 2000);
   },
 
   /**

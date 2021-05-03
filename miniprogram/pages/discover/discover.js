@@ -85,7 +85,8 @@ Page({
       // console.log('kmnm',km.globalData.user)
       if (km.globalData.attration[i].belong == now_city) {
         if (km.globalData.user != null) {
-          if (km.globalData.user.like.indexOf(i) != -1 || km.globalData.user.dislike.indexOf(i) != -1) {
+          if (km.globalData.user.like.indexOf(i) != -1 || km.globalData.user.dislike.indexOf(i) != -1
+            || km.globalData.user.gone.indexOf(i) != -1) {
             continue
           }
         }

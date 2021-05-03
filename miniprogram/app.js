@@ -3,6 +3,7 @@
 App({
   onLaunch: function () {
     const km = this//this
+    const deban = true //加载失败后是否解除禁用状态
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -34,7 +35,7 @@ App({
           const batch_city = Math.ceil(res.data.num_city / epoch)
           const batch_province = Math.ceil(res.data.num_province / epoch)
           const batch_attration = Math.ceil(res.data.num_attration / epoch)
-          const deban = true //加载失败后是否解除禁用状态
+          
           const cmp = function () {
             return function (a, b) {
               return Number(a['_id']) - Number(b['_id'])
@@ -145,6 +146,10 @@ App({
           name: 'getOpenId',
         }).then(res => {
           // console.log('res',res)
+          wx.showLoading({
+            title: '载入用户信息',
+            mask: true,
+          })
           var openid = res.result.userInfo.openId
           km.globalData.openid = openid
           console.log('open id', openid)
@@ -154,9 +159,15 @@ App({
           db.collection('user').doc(openid).get().then(ret => {
             km.globalData.user = ret.data
             km.cb(ret.data)//而不是km.fn，因为fn是绑定cb……cb才是执行函数
+            wx.hideLoading({
+              success: (res) => {},
+            })
           }).catch(rwt => {
             km.globalData.user = null
             console.log('用户尚未授权过头像和昵称。')
+            if(deban) wx.hideLoading({
+              success: (res) => {},
+            })
           })
 
         }).catch(rws => {

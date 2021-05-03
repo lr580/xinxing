@@ -95,7 +95,7 @@ Page({
           avatarUrl: res.userInfo.avatarUrl,
           like: [],
           dislike: [],
-          gone:[],
+          gone: [],
         }
 
         // datax['_id'] = km.globalData.openid
@@ -152,19 +152,26 @@ Page({
     })
   },
 
-  to_myattra(){
+  to_myattra() {
+    if (this.data.user == null) {
+      wx.showToast({
+        title: '请先授权登录',
+        icon: 'none',
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/myattra/myattra',
     })
   },
 
-  to_advice(){
+  to_advice() {
     wx.navigateTo({
       url: '/pages/advice/advice',
     })
   },
 
-  to_help(){
+  to_help() {
     wx.navigateTo({
       url: '/pages/help/help',
     })
