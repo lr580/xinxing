@@ -16,6 +16,7 @@
     "navigationBarTitleText": "心行FindMyself",
     "navigationBarTextStyle": "black"
   },
+
   "tabBar": {
     "backgroundColor": "#F6F6F6",
     "selectedColor": "#ffe66d",
