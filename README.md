@@ -52,6 +52,8 @@
 - nickName string，微信昵称
 - province string 用户所在的省份拼音，首字母大写
 - avatarUrl string 用户头像完整url
+- like array，元素为number，喜欢的景点的_id
+- dislike array，元素为number，不喜欢的景点_id
 
 
 

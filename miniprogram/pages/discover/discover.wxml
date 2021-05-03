@@ -15,12 +15,12 @@
   </radio-group>
 </view>
 <!-- {{front}} -->
-<view wx:if="{{front==-1}}">
+<view wx:if="{{false&&front==-1}}">
   <image class="avatar" src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png">
   </image>
 </view>
 <view class="body-main-box" wx:else>
-<!-- {{front}} -->
+  <!-- {{front}} -->
   <!-- 第一张 -->
   <view class="body-swiper" bindtouchstart="touchstart1" bindtouchend="touchend1"
     style="z-index:{{index1}};top:{{ballTop1}}rpx;  margin-left:{{ballLeft1}}rpx;width:{{ballWidth1}}rpx;"
@@ -28,10 +28,14 @@
     <!-- {{front}} -->
     <!-- 正面 -->
     <block wx:if="{{isFront1}}">
-      <view class="body-container">
+      <view class="body-container" wx:if="{{front!=-1}}">
         <text style="text-align:center">{{attration[front].name}}</text>
         <image class="avatar"
-          src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[front].pic}}">
+          src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[front].pic}}"
+          wx:if="{{front!=-1}}">
+        </image>
+        <image class="avatar"
+          src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png" wx:else>
         </image>
         <view>
           <view>评分：{{attration[front].mark}}</view>
@@ -39,10 +43,15 @@
           <view>地点：{{attration[front].position}}</view>
         </view>
       </view>
+      <view wx:else  class="body-container">
+        <image class="avatar"
+          src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png">
+        </image>
+      </view>
     </block>
     <!-- 反面 -->
     <block wx:else>
-      <view class="body-container">
+      <view class="body-container" wx:if="{{front!=-1}}">
         <text style="text-align:center">{{attration[front].name}}</text>
         <!-- <image class="avatar2" src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/normal/test (4).png"></image> -->
         <view>评分：{{attration[front].mark}}</view>
@@ -51,6 +60,11 @@
         <view>详细介绍：{{attration[front].intro}}</view>
         <view>分布：{{attration[front].detail}}</view>
         <view>资质：{{attration[front].prize}}</view>
+      </view>
+      <view wx:else class="body-container">
+        <image class="avatar"
+          src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png">
+        </image>
       </view>
     </block>
   </view>

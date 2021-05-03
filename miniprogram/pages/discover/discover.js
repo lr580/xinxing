@@ -86,6 +86,7 @@ Page({
     }
     // console.log(cor)
     shuffle(cor)
+    cor.push(-1)
     console.log(cor)
     // console.log(cor)
     this.setData({
@@ -102,6 +103,9 @@ Page({
   },
 
   next_attration(){
+    if(this.data.now_attration.length==1){
+      return
+    }
     var temp = this.data.now_attration.slice(1,)
     var idx=-1
     if(temp.length!=0){
