@@ -1,6 +1,61 @@
 .backLottie{
   border-radius: 30px;
+  /* height: 200rpx;
+  width: 200rpx; */
 }
 .a{
-  color: red;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.signupTxt{
+  color: #000;
+  margin-top: 400rpx;
+  font-weight: 1000;
+  font-size: 50rpx;
+}
+
+.userInfo{
+  margin-top: 50rpx;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.head{
+  
+}
+
+.head image{
+  width: 200rpx;
+  height: 200rpx;
+  border: 2px #4ecdc4 solid;
+  border-radius: 50%;
+}
+
+.name{
+  color: #4ecdc4;
+  margin-top: 20rpx;
+  font-weight: 800;
+  font-size: 35rpx;
+}
+
+.live{
+  height: 50rpx;
+  align-items: center;
+  color: grey;
+}
+
+.live image{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.func{}
+
+.a2{
+  font-size: 5rpx;
 }

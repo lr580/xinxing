@@ -23,7 +23,7 @@ Page({
       this.ani = lottie.loadAnimation({
         loop: true,
         autoplay: true,
-        animationData: require('../lotties/meBack'),
+        animationData: require('../lotties/signup'),
         rendererSettings: {
           context,
         },

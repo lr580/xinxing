@@ -1,18 +1,39 @@
-<view class="a" style="text-align: center;">
-  <canvas class="backLottie" id="c1" type="2d" style="width: 200rpx; height: 200rpx;background-color:black">
-    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+<view bindtap="qabo" wx:if="{{unRegistered}}">
+  <view class="a" style="text-align: center;">
+  <view>
+  <canvas class="backLottie" id="c1" type="2d" style="width:600rpx; height: 600rpx;">
+    <view class="signupTxt">登录</view>
   </canvas>
 </view>
-<view bindtap="qabo" wx:if="{{unRegistered}}">请宁点沃登录</view>
+</view></view>
 <view wx:else>
-  <image src="{{user.avatarUrl}}"></image>
-  <view>昵称：{{user.nickName}}</view>
-  <view>所在省份：{{user.province}}</view>
-  <view>所在城市：{{user.city}}</view>
-  <view>我喜欢的景点_id(仅调试时可见)：{{user.like}}</view>
+  <view class="userInfo">
+    <view class="head"><image src="{{user.avatarUrl}}"></image></view>
+    <view class="name">{{user.nickName}}</view>
+    <view class="live">
+      <image src="/img/liveIn.png"></image>
+      
+      {{user.province}} {{user.city}}
+    
+    </view>
+
+</view>
+<view class="func">
+<view>我喜欢的景点_id(仅调试时可见)：{{user.like}}</view>
   <view>我不喜欢的景点_id(仅调试时可见)：{{user.dislike}}</view>
   <view>我去过的景点_id(仅调试时可见)：{{user.gone}}</view>
+  <van-cell-group>
+
+<van-cell size="large" bindtap='to_myattra' wx:if="{{!nwInfo}}" icon="/img/scene.png" title="我的景点" is-link />
+
+<van-cell size="large" bindtap='to_advice' wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link />
+
+<van-cell size="large" bindtap='to_help' wx:if="{{!nwInfo}}" icon="/img/help.png" title="帮助" is-link />
+</van-cell-group>
+
 </view>
-<view bindtap="to_myattra">点我跳往“我的景点”页面</view>
-<view bindtap="to_advice">点我跳往“意见反馈”页面</view>
-<view bindtap="to_help">点我跳往“帮助”页面</view>
+  </view> 
+  
+ 
+  
