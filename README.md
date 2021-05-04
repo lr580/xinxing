@@ -2,6 +2,20 @@
 
 **所有_id编号从0开始！**
 
+## 全局数据
+
+存在云开发-集合global内，
+
+### default
+
+唯一数据，其属性如下：
+
+- _id = default
+- num_attration 景点数目
+- num_city 城市数目
+- num_province 省份数目
+- num_diary 用户日志总数，用于分配\_id
+
 ## 省
 
 存储在云开发-集合province内，
@@ -55,7 +69,20 @@
 - like array，元素为number，喜欢的景点的_id
 - dislike array，元素为number，不喜欢的景点_id
 - gone array，元素为number，已经去过的景点_id
+- diary array，元素为number，发表的旅行日志\_id
 
 
 
 ## 帖子
+
+存储在云开发-集合diary内，每个记录代表一篇旅行日志，其属性如下：
+
+- \_id string 取当下(未更新前的)num\_diary，之后num\_diary自增
+- user number，发帖的用户\_id
+- content string，帖子内容，为富文本，可以为空，则只有去过的纪录而没有日志
+- time Date，发帖时间
+- att\_id number 景点对应的id，如果不存在(即景点不在数据库内)，为-1
+- att_name string 景点名字 不必与\_id对应
+
+
+
