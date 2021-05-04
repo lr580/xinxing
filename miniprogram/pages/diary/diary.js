@@ -10,6 +10,9 @@ Page({
   data: {
     user: null,
     diary: null,
+    attration:null,
+    looking: [],
+    diaryDate: [],
   },
 
   /**
@@ -24,13 +27,27 @@ Page({
     return temp
   },
 
+  upd_look(){
+    var temp = []
+    for (let i = 0; i < km.globalData.diary.length; ++i) {
+      temp.push(false)
+    }
+    return temp
+  },
+
+
+
   onLoad: function (options) {
     var thee = this
+    var temp = []
+    
     var hg = function () {
       thee.setData({
         user: km.globalData.user,
         diary: km.globalData.diary,
+        attration: km.globalData.attration,
         diaryDate: thee.upd_date(),
+        looking: thee.upd_look(),
       })
     }
     km.cb2 = hg
@@ -62,6 +79,10 @@ Page({
   look(v) {
     var idx = Number(v.currentTarget.id)
     console.log(idx)
+    this.data.looking[idx]=!this.data.looking[idx]
+    this.setData({
+      looking:this.data.looking,
+    })
   },
 
   edit(v) {
@@ -100,19 +121,19 @@ Page({
           km.globalData.user.diary.splice(km.globalData.user.diary.indexOf(Number(thee.data.diary[idx]['_id'])), 1)
           // console.log('fuck',thee.data.user.diary)
           var still = false
-          for(let i=0;i<thee.data.diary.length;++i){
-            if(i==idx) {continue}
+          for (let i = 0; i < thee.data.diary.length; ++i) {
+            if (i == idx) { continue }
             // console.log(thee.data.diary[i]['att_id'],attid,i,idx)
-            if(thee.data.diary[i]['att_id']==attid){
-              still=true
+            if (thee.data.diary[i]['att_id'] == attid) {
+              still = true
               break
             }
           }
           km.globalData.diary.splice(idx, 1)
-          if(!still){
-            km.globalData.user.gone.splice(km.globalData.user.gone.indexOf(attid),1)
+          if (!still) {
+            km.globalData.user.gone.splice(km.globalData.user.gone.indexOf(attid), 1)
           }
-          console.log(thee.data.user.gone, still)
+          // console.log(thee.data.user.gone, still)
           // return
           db.collection('user').doc(km.globalData.openid).update({
             data: {
@@ -163,9 +184,16 @@ Page({
 
   postz() {
     // console.log('123')
+    if (!km.globalData.user) {
+      wx.showToast({
+        title: '请您先登录再使用“心路”功能',
+        icon: 'none',
+      })
+      return
+    }
     wx.navigateTo({
       // url: '/pages/postp/postp',
-      url: '/pages/testeditor/editor'
+      url: '/pages/testeditor/editor?edit=0',
     })
   },
 

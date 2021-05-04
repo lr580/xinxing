@@ -1,8 +1,0 @@
-<!--miniprogram/pages/testeditor/testeditor.wxml-->
-<!-- <editor id="editor" 
-		class="ql-container" 
-		placeholder="qwq" 
-		bindstatuschange="onStatusChange"
-		 bindready="onEditorReady">
-</editor>
-<view class="action text-green" bindtap="getContent">发表</view> -->

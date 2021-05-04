@@ -5,11 +5,15 @@
 <view wx:if="{{!diary.length}}">您尚未记录过任何足迹！</view>
 <view wx:else>
   <view wx:for="{{diary}}">
-    <view>{{index}}</view>
+    <view>{{index+1}}</view>
     <view wx:if="{{index==0||diaryDate[index]!=diaryDate[index-1]}}">{{diaryDate[index]}}</view>
-    <view>{{diary[index].att_id}} {{diary[index].att_name}}</view>
+    <view>景点名：{{attration[diary[index].att_id].name}} </view>
+    <view>记录名：{{diary[index].att_name}}</view>
     <view wx:if="{{diary[index].content}}">
-      <view id="{{index}}" bindtap="look">点我查看日志详情</view>
+      <view id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>
+      <view wx:if="{{looking[index]}}">
+        <rich-text nodes="{{diary[index].content}}"></rich-text>
+      </view>
     </view>
     <view wx:else>这个景点只有足迹没有日记呢</view>
     <view id="{{index}}" bindtap="edit">编辑</view>
