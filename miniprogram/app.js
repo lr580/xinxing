@@ -167,14 +167,17 @@ App({
             var obj_diary = []
             // console.log('bb',batch, ret.data.diary)
             const tot_bar = batch
+            
             var fin_rdiary = function () {
               obj_diary.sort(cmp())
+              obj_diary.reverse()
               km.globalData.diary = obj_diary
               wx.hideLoading({
                 success: (res) => { },
               })
               // console.log('sssuc', km.globalData.diary)
             }
+            if(tot_bar==0){fin_rdiary()}
             for (let i = 0; i < batch; ++i) {
               var temp = []
               for (let j = i * epoch; j < Math.min(epoch * (i + 1), ret.data.diary.length); ++j) {
@@ -369,7 +372,7 @@ App({
     var del_id = []
     for (let i = 0; i < km.globalData.diary.length; ++i) {
       let ii = Number(km.globalData.diary[i]._id)
-      if (idx == km.globalData.diary[i].att_id) {
+      if (idx == km.globalData.diary[i].att_id && km.globalData.diary[i].content != '') {
         del_id.push(ii)
       } else {
         temp_d.push(km.globalData.diary[i])
@@ -410,5 +413,19 @@ App({
         success: (res) => { },
       })
     })
+  },
+
+  date2str(x) {
+    let s = '', t = ''
+    s += String(x.getFullYear())
+    s += '/'
+    t = String(x.getDate() + 1)
+    if (t.length < 1) { s += '0' + t }
+    else { s += t }
+    s += '/'
+    t = String(x.getDay() + 1)
+    if (t.length < 1) { s += '0' + t }
+    else { s += t }
+    return s
   },
 })
