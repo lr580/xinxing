@@ -305,7 +305,7 @@ Page({
       datax['_id'] = this.data.now_id
     }
     // if(this.data.edit){
-
+//
     // }
     // console.log(datax)
     km.diaryz(datax,this.data.edit)
