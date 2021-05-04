@@ -167,7 +167,7 @@ App({
             var obj_diary = []
             // console.log('bb',batch, ret.data.diary)
             const tot_bar = batch
-            
+
             var fin_rdiary = function () {
               obj_diary.sort(cmp())
               obj_diary.reverse()
@@ -177,7 +177,7 @@ App({
               })
               // console.log('sssuc', km.globalData.diary)
             }
-            if(tot_bar==0){fin_rdiary()}
+            if (tot_bar == 0) { fin_rdiary() }
             for (let i = 0; i < batch; ++i) {
               var temp = []
               for (let j = i * epoch; j < Math.min(epoch * (i + 1), ret.data.diary.length); ++j) {
@@ -231,6 +231,11 @@ App({
     this.globalData = {
       pathc: 'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/',
       openid: null,
+      diary: [],
+      city: [],
+      province: [],
+      attration: [],
+      user: null,
     }
   },
 

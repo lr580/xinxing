@@ -6,13 +6,13 @@
 <view wx:else>
   <view wx:for="{{diary}}">
     <view>{{index}}</view>
-    <view>{{diaryDate[index]}}</view>
+    <view wx:if="{{index==0||diaryDate[index]!=diaryDate[index-1]}}">{{diaryDate[index]}}</view>
     <view>{{diary[index].att_id}} {{diary[index].att_name}}</view>
     <view wx:if="{{diary[index].content}}">
-      <view>点我查看日志详情</view>
+      <view id="{{index}}" bindtap="look">点我查看日志详情</view>
     </view>
     <view wx:else>这个景点只有足迹没有日记呢</view>
-    <view>编辑</view>
-    <view>删除</view>
+    <view id="{{index}}" bindtap="edit">编辑</view>
+    <view id="{{index}}" bindtap="del">删除</view>
   </view>
 </view>

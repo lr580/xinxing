@@ -1,4 +1,5 @@
 const app = getApp()
+const km = getApp()
 import lottie from 'lottie-miniprogram'
 const db = wx.cloud.database()
 const _ = db.command
@@ -129,6 +130,11 @@ Page({
         })
       }
     })
+  },
+
+  onShow(){
+    // console.log('qwq')
+    km.cb(km.globalData.user)
   },
 
   // upd_af_init(){
