@@ -163,7 +163,7 @@ Page({
         }
       }
       this.data.user.gone = temp
-      
+      km.del_diaryz(iidx)
     } else {
       hg['gone'] = _.push(iidx)
       this.data.user.gone.push(iidx)

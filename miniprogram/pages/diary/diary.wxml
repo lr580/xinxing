@@ -2,3 +2,5 @@
 <text>miniprogram/pages/diary/diary.wxml</text>
 <view bindtap="postz">点我记录新的足迹!</view>
 <view>我的足迹</view>
+{{diary.length}}{{user.nickName}}
+<view>qwq</view>
