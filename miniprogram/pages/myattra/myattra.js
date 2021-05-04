@@ -163,9 +163,12 @@ Page({
         }
       }
       this.data.user.gone = temp
+      
     } else {
       hg['gone'] = _.push(iidx)
       this.data.user.gone.push(iidx)
+      let datax = km.empty_diaryz(iidx)
+      km.diaryz(datax)
     }
     db.collection('user').doc(km.globalData.openid).update({
       data: hg

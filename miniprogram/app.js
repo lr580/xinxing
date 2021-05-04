@@ -30,12 +30,13 @@ App({
           km.globalData.num_city = res.data.num_city
           km.globalData.num_province = res.data.num_province
           km.globalData.num_attration = res.data.num_attration
+          km.globalData.num_diary = res.data.num_diary
 
           const epoch = 20
           const batch_city = Math.ceil(res.data.num_city / epoch)
           const batch_province = Math.ceil(res.data.num_province / epoch)
           const batch_attration = Math.ceil(res.data.num_attration / epoch)
-          
+
           const cmp = function () {
             return function (a, b) {
               return Number(a['_id']) - Number(b['_id'])
@@ -160,13 +161,13 @@ App({
             km.globalData.user = ret.data
             km.cb(ret.data)//而不是km.fn，因为fn是绑定cb……cb才是执行函数
             wx.hideLoading({
-              success: (res) => {},
+              success: (res) => { },
             })
           }).catch(rwt => {
             km.globalData.user = null
             console.log('用户尚未授权过头像和昵称。')
-            if(deban) wx.hideLoading({
-              success: (res) => {},
+            if (deban) wx.hideLoading({
+              success: (res) => { },
             })
           })
 
@@ -189,7 +190,7 @@ App({
 
     this.globalData = {
       pathc: 'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/',
-      openid:null,
+      openid: null,
     }
   },
 
@@ -210,4 +211,108 @@ App({
   //     this.cb(v)
   //   }
   // }
+
+  empty_diaryz: function (idx, nam) {
+    // console.log('ts',idx,nam)
+    if (idx == -1) {
+      if (nam == undefined) {
+        nam = '景点'
+      }
+    }
+    else if (nam == undefined) {
+      nam = this.globalData.attration[idx].name
+    }
+    // console.log('ts',idx,nam)
+    var obj = {}
+    obj['time'] = new Date()
+    obj['_id'] = String(this.globalData.num_diary)
+    obj['user'] = this.globalData.openid
+    obj['att_id'] = idx
+    obj['att_name'] = nam
+    obj['content'] = ''
+    // console.log('generated', obj)
+    return obj
+  },
+
+  cb2(x){
+    
+  },
+
+  diaryz: function (datax) {
+    const db = wx.cloud.database()
+    const deban = true 
+    const km = this
+    const _ = db.command
+    var bar = 0
+    const tot_bar = 3
+    var fin = function () {
+      km.globalData.num_diary++
+      km.cb2(km.globalData.user)
+      // console.log('qwq',datax)
+      wx.hideLoading({
+        success: (res) => { },
+      })
+    }
+    wx.showLoading({
+      title: '更新中',
+      mask: true,
+    })
+    db.collection('global').doc('default').update({
+      data: {
+        num_diary: _.inc(1)
+      }
+    }).then(res => {
+      // ++bar
+      // console.log('g',bar)
+      if (++bar == tot_bar) { fin() }
+    }).catch(rws => {
+      console.log('gF',rws)
+      wx.showToast({
+        title: '更新数据失败！',
+        icon: 'none',
+      })
+      if (deban) wx.hideLoading({
+        success: (res) => { },
+      })
+    })
+
+    if(datax['att_id']!=-1){
+      km.globalData.user.diary.push(km.globalData.num_diary)
+      db.collection('user').doc(String(km.globalData.openid)).update({
+        data:{
+          diary:_.push(km.globalData.num_diary)
+        }
+      }).then(res=>{
+        // console.log('u',bar)
+        if (++bar == tot_bar) { fin() }
+      }).catch(rws=>{
+        console.log('uF',rws)
+        wx.showToast({
+          title: '更新数据失败！',
+          icon: 'none',
+        })
+        if (deban) wx.hideLoading({
+          success: (res) => { },
+        })
+      })
+    }else{
+      if (++bar == tot_bar) { fin() }
+    }
+
+    db.collection('diary').add({
+      data: datax,
+    }).then(res=>{
+      // console.log('d',bar)
+      if (++bar == tot_bar) { fin() }
+    }).catch(rws=>{
+      console.log('dF',rws)
+      wx.showToast({
+        title: '更新数据失败！',
+        icon: 'none',
+      })
+      if (deban) wx.hideLoading({
+        success: (res) => { },
+      })
+    })
+  },
 })

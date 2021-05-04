@@ -96,6 +96,7 @@ Page({
           like: [],
           dislike: [],
           gone: [],
+          diary: [],
         }
 
         // datax['_id'] = km.globalData.openid
@@ -111,6 +112,7 @@ Page({
           })
           km.globalData.user = datax
         }).catch(rwc => {
+          console.log('err',rwc)
           wx.showToast({
             title: '存储用户信息失败，请重试！',
             icon: 'none',
