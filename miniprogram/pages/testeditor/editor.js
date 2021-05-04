@@ -13,7 +13,7 @@ Page({
     isIOS: false,
     img_num: 0,//当前图片数目
     now_id: -1,
-    xxx: '<p><img data-cloud="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/diary/-1_0.png" width="50%" src="https://6c72-lr580c-6gotth6z00871312-1304870229.tcb.qcloud.la/diary/-1_0.png"></p><p><br></p>',
+    // xxx: '<p><img data-cloud="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/diary/-1_0.png" width="50%" src="https://6c72-lr580c-6gotth6z00871312-1304870229.tcb.qcloud.la/diary/-1_0.png"></p><p><br></p>',
     s_att_id: -1,
     s_att_name: '',
     s_time: '',
@@ -23,6 +23,8 @@ Page({
     city: [],
     attration: [],
     s_tg: [],
+    edit: 0,
+    idx: -1,
   },
   id_onz() {
     this.setData({
@@ -69,7 +71,7 @@ Page({
     })
     // console.log('qqq', this.data.s_att_id)
   },
-  input_s_att_name(e){
+  input_s_att_name(e) {
     this.setData({
       s_att_name: e.detail.value,
     })
@@ -83,6 +85,7 @@ Page({
     this.setData({
       city: km.globalData.city,
       attration: km.globalData.attration,
+      edit: options.edit,
     })
     if (options.edit == 0) {
       this.setData({
@@ -90,9 +93,27 @@ Page({
         s_time: km.date2str(new Date()),
       })
     } else {
+      console.log(options)
+      var idx = Number(options.id)
       this.setData({
-        now_id: Number(options.id),
+        now_id: km.globalData.diary[idx]._id,//Number(options.id),
+        s_time: km.date2str(new Date(km.globalData.diary[idx]['time'])),
+        s_att_id: km.globalData.diary[idx].att_id,
+        s_att_name: km.globalData.diary[idx].att_name,
+        articleContent: km.globalData.diary[idx].content,
+        idx: idx,
       })
+      // var that = this
+      // var thee = this
+      // setTimeout(() => {
+      //   if (thee.data.edit != 0) {
+      //     console.log('qwq ,',km.globalData.diary[thee.data.idx].content)
+      //     thee.editorCtx.setContents({
+      //       html: km.globalData.diary[thee.data.idx].content,
+      //     })
+      //   }
+      // }, 10);
+
     }
     console.log(this.data.now_id)
     this.sele_city({ detail: { value: 0 } })
@@ -113,6 +134,7 @@ Page({
           success() {
             that.updatePosition(keyboardHeight)
             that.editorCtx.scrollIntoView()
+            // console.log('wewew/e')
           }
         })
       }, duration)
@@ -134,9 +156,19 @@ Page({
   },
   onEditorReady() {
     const that = this
+    var thee = that
     wx.createSelectorQuery().select('#editor').context(function (res) {
       that.editorCtx = res.context
-    }).exec()
+    }).exec(res => {
+      if (thee.data.edit != 0) {
+        // console.log('qwq ,', km.globalData.diary[thee.data.idx].content)
+        thee.editorCtx.setContents({
+          html: km.globalData.diary[thee.data.idx].content,
+        })
+      }
+    })//.then(res=>{
+    // console.log('123')
+    //})
 
   },
   blur() {
@@ -207,7 +239,7 @@ Page({
           filePath: res.tempFilePaths[0],
           cloudPath: hp,
           success: function (ret) {
-            console.log('succc', hp)
+            // console.log('succc', hp)
             that.editorCtx.insertImage({
               src: whp,//res.tempFilePaths[0],
               // data: {
@@ -259,10 +291,24 @@ Page({
     // this.setData({
     //   s_att_name
     // })
-    console.log('qwq', this.data.s_att_name, this.data.s_att_id)
-    var datax = km.empty_diaryz(this.data.s_att_id, this.data.s_att_name)
+    var thee = this
+    if(this.data.edit){
+      this.setData({
+        now_id: km.globalData.diary[thee.data.idx]._id
+      })
+    }
+    console.log('qwq', this.data.s_att_name, this.data.s_att_id, this.data.now_id)
+    var datax = km.empty_diaryz(this.data.s_att_id, this.data.s_att_name, this.data.edit)
     datax['content'] = this.data.articleContent
-    km.diaryz(datax)
+    if(this.data.edit){
+      datax['time'] = km.globalData.diary[this.data.idx]['time']
+      datax['_id'] = this.data.now_id
+    }
+    // if(this.data.edit){
+
+    // }
+    // console.log(datax)
+    km.diaryz(datax,this.data.edit)
     wx.navigateBack({
       delta: 0,
     })

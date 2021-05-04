@@ -283,7 +283,8 @@ App({
 
   },
 
-  diaryz: function (datax) {
+  diaryz: function (datax, edit) {
+    console.log('wwwwww',datax,edit)
     const db = wx.cloud.database()
     const deban = true
     const km = this
@@ -291,7 +292,7 @@ App({
     var bar = 0
     const tot_bar = 3
     var fin = function () {
-      km.globalData.num_diary++
+      if (edit != 1) km.globalData.num_diary++
       km.cb2(km.globalData.user)
       // console.log('qwq',km.globalData.user)
       wx.hideLoading({
@@ -302,9 +303,11 @@ App({
       title: '更新中',
       mask: true,
     })
+    var gg = (Number(edit != 1))
+    console.log('gg',gg)
     db.collection('global').doc('default').update({
       data: {
-        num_diary: _.inc(1)
+        num_diary: _.inc(gg)
       }
     }).then(res => {
       // ++bar
@@ -321,11 +324,34 @@ App({
       })
     })
 
-    if (datax['att_id'] != -1) {
+    if (1) { //datax['att_id'] != -1
       km.globalData.user.diary.push(km.globalData.num_diary)
+      var newgone = []
+      if (edit == 1) {
+        var still = false
+        for (let i = 0; i < km.globalData.diary.length; ++i) {
+          if (datax['_id'] == i) { continue }
+          if (km.globalData.diary[i]['att_id'] == datax['att_id']) {
+            still = true
+            break
+          }
+        }
+        console.log('st1', still)
+        if (datax['att_id'] == -1) { still = true }
+        console.log('st2', still)
+        // if(still) {gone=km.globalData.user.gone}
+        // else 
+        if (!still) {
+          km.globalData.user.gone.splice(km.globalData.user.gone.indexOf(datax['att_id']), 1)
+        }
+        newgone = km.globalData.user.gone
+      } else {
+        newgone = km.globalData.user.gone
+      }
       db.collection('user').doc(String(km.globalData.openid)).update({
         data: {
-          diary: _.push(km.globalData.num_diary)
+          diary: _.push(km.globalData.num_diary),
+          gone: newgone,
         }
       }).then(res => {
         // console.log('u',bar)
@@ -344,22 +370,42 @@ App({
       if (++bar == tot_bar) { fin() }
     }
 
-    km.globalData.diary.push(datax)
-    db.collection('diary').add({
-      data: datax,
-    }).then(res => {
-      // console.log('d',bar)
-      if (++bar == tot_bar) { fin() }
-    }).catch(rws => {
-      console.log('dF', rws)
-      wx.showToast({
-        title: '更新数据失败！',
-        icon: 'none',
+    km.globalData.diary.unshift(datax)
+    if (edit == 1) {
+      var __id = datax['_id']
+      delete datax['_id']
+      db.collection('diary').doc(__id).update({
+        data: datax,
+      }).then(res => {
+        console.log('dbuntu',bar, __id)
+        if (++bar == tot_bar) { fin() }
+      }).catch(rws => {
+        console.log('dF', rws)
+        wx.showToast({
+          title: '更新数据失败！',
+          icon: 'none',
+        })
+        if (deban) wx.hideLoading({
+          success: (res) => { },
+        })
       })
-      if (deban) wx.hideLoading({
-        success: (res) => { },
+    } else {
+      db.collection('diary').add({
+        data: datax,
+      }).then(res => {
+        // console.log('d',bar)
+        if (++bar == tot_bar) { fin() }
+      }).catch(rws => {
+        console.log('dF', rws)
+        wx.showToast({
+          title: '更新数据失败！',
+          icon: 'none',
+        })
+        if (deban) wx.hideLoading({
+          success: (res) => { },
+        })
       })
-    })
+    }
   },
 
   del_diaryz(idx) {

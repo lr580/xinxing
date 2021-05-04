@@ -39,7 +39,7 @@ Page({
 
   onLoad: function (options) {
     var thee = this
-    var temp = []
+    // var temp = []
     
     var hg = function () {
       thee.setData({
@@ -86,8 +86,22 @@ Page({
   },
 
   edit(v) {
+    if (!km.globalData.user) {
+      wx.showToast({
+        title: '请您先登录再使用“心路”功能',
+        icon: 'none',
+      })
+      return
+    }
     var idx = Number(v.currentTarget.id)
     console.log(idx)
+
+    wx.navigateTo({
+      // url: '/pages/testeditor/editor?edit=1&s_att_id='+String(this.data.diary[idx].att_id)
+      // +'&s_att_name='+String(this.data.diary[idx].att_name)+'&s_time='+km.date2str(this.data.diary[idx].time)+
+      // '&s_content='+String(this.data.diary[idx].content)+'&s_id='+String(this.data.diary[idx]._id),
+      url: '/pages/testeditor/editor?edit=1&id='+String(idx),//+String(this.data.diary[idx]._id),
+    })
   },
 
   del(v) {
@@ -171,9 +185,9 @@ Page({
     })
   },
 
-  delz(idx) {
+  // delz(idx) {
 
-  },
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
