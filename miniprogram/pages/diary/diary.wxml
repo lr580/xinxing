@@ -1,3 +1,18 @@
 <!--miniprogram/pages/diary/diary.wxml-->
 <text>miniprogram/pages/diary/diary.wxml</text>
-<view bindtap="postz">点我发帖!</view>
+<view bindtap="postz">点我记录新的足迹!</view>
+<view>我的足迹</view>
+<view wx:if="{{!diary.length}}">您尚未记录过任何足迹！</view>
+<view wx:else>
+  <view wx:for="{{diary}}">
+    <view>{{index}}</view>
+    <view>{{diaryDate[index]}}</view>
+    <view>{{diary[index].att_id}} {{diary[index].att_name}}</view>
+    <view wx:if="{{diary[index].content}}">
+      <view>点我查看日志详情</view>
+    </view>
+    <view wx:else>这个景点只有足迹没有日记呢</view>
+    <view>编辑</view>
+    <view>删除</view>
+  </view>
+</view>

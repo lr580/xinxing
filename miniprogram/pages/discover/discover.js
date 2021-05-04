@@ -78,7 +78,7 @@ Page({
     }
 
     var now_city = this.data.now_city
-    console.log('nc', now_city)
+    // console.log('nc', now_city)
     var cor = []
     for (let i = 0; i < km.globalData.num_attration; ++i) {
       // console.log(km.globalData.attration[i].belong)
@@ -96,7 +96,7 @@ Page({
     // console.log(cor)
     shuffle(cor)
     cor.push(-1)
-    console.log(cor)
+    // console.log(cor)
     // console.log(cor)
     this.setData({
       now_attration: cor,
@@ -198,8 +198,8 @@ Page({
   touchstart1: function (event) {
     touchDotX = event.touches[0].pageX; // 获取触摸时的原点
     touchDotY = event.touches[0].pageY;
-    console.log("起始点的坐标X:" + touchDotX);
-    console.log("起始点的坐标Y:" + touchDotY);
+    // console.log("起始点的坐标X:" + touchDotX);
+    // console.log("起始点的坐标Y:" + touchDotY);
   },
   // 移动结束处理动画
   touchend1: function (event) {
@@ -214,14 +214,14 @@ Page({
     let absY = Math.abs(tmY);
     //起始点的坐标(x0,y0)和手指离开时的坐标(x1,y1)之间的距离
     let delta = Math.sqrt(absX * absX + absY * absY);
-    console.log('起始点和离开点距离:' + delta + 'px');
+    // console.log('起始点和离开点距离:' + delta + 'px');
     // 如果delta超过60px（可以视情况自己微调）,判定为手势触发
     if (delta >= 60) {
       // 如果 |x0-x1|>|y0-y1|,即absX>abxY,判定为左右滑动
       if (absX > absY) {
         // 如更tmX<0，即(离开点的X)-(起始点X)小于0 ，判定为左滑
         if (tmX < 0) {
-          console.log("左滑=====");
+          // console.log("左滑=====");
           // this.go_left()
           setTimeout(() => {
             this.go_left()
@@ -230,7 +230,7 @@ Page({
           this.Animation1(-500);
           // 如更tmX>0，即(离开点的X)-(起始点X)大于0 ，判定为右滑
         } else {
-          console.log("右滑=====");
+          // console.log("右滑=====");
           // this.go_right()
           setTimeout(() => {
             this.go_right()
@@ -242,20 +242,20 @@ Page({
       } else {
         // 如更tmY<0，即(离开点的Y)-(起始点Y)小于0 ，判定为上滑
         if (tmY < 0) {
-          console.log("上滑动=====");
+          // console.log("上滑动=====");
           this.setData({
             isFront1: !this.data.isFront1
           });
           // 如更tmY>0，即(离开点的Y)-(起始点Y)大于0 ，判定为下滑
         } else {
-          console.log("下滑动=====");
+          // console.log("下滑动=====");
           this.setData({
             isFront1: !this.data.isFront1
           });
         }
       }
     } else {
-      console.log("手势未触发=====");
+      // console.log("手势未触发=====");
     }
 
     // 让上一张卡片展现正面（如果之前翻转过的话）

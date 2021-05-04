@@ -1,5 +1,10 @@
 //app.js
 // var mejs = require('/pages/Me/Me.js')
+const cmp = function () {
+  return function (a, b) {
+    return Number(a['_id']) - Number(b['_id'])
+  }
+}
 App({
   onLaunch: function () {
     const km = this//this
@@ -30,17 +35,14 @@ App({
           km.globalData.num_city = res.data.num_city
           km.globalData.num_province = res.data.num_province
           km.globalData.num_attration = res.data.num_attration
+          km.globalData.num_diary = res.data.num_diary
 
           const epoch = 20
           const batch_city = Math.ceil(res.data.num_city / epoch)
           const batch_province = Math.ceil(res.data.num_province / epoch)
           const batch_attration = Math.ceil(res.data.num_attration / epoch)
-          
-          const cmp = function () {
-            return function (a, b) {
-              return Number(a['_id']) - Number(b['_id'])
-            }
-          }
+
+
           var city_obj = []
           var attration_obj = []
           var province_obj = []
@@ -159,14 +161,53 @@ App({
           db.collection('user').doc(openid).get().then(ret => {
             km.globalData.user = ret.data
             km.cb(ret.data)//而不是km.fn，因为fn是绑定cb……cb才是执行函数
-            wx.hideLoading({
-              success: (res) => {},
-            })
+            var bar = 0
+            const epoch = 20
+            const batch = Math.ceil(ret.data.diary.length / epoch)
+            var obj_diary = []
+            // console.log('bb',batch, ret.data.diary)
+            const tot_bar = batch
+            
+            var fin_rdiary = function () {
+              obj_diary.sort(cmp())
+              obj_diary.reverse()
+              km.globalData.diary = obj_diary
+              wx.hideLoading({
+                success: (res) => { },
+              })
+              // console.log('sssuc', km.globalData.diary)
+            }
+            if(tot_bar==0){fin_rdiary()}
+            for (let i = 0; i < batch; ++i) {
+              var temp = []
+              for (let j = i * epoch; j < Math.min(epoch * (i + 1), ret.data.diary.length); ++j) {
+                temp.push(String(ret.data.diary[j]))
+              }
+              // console.log('tt',temp)
+              db.collection('diary').where({ _id: _.in(temp) }).get().then(rea => {
+                for (let k = 0; k < rea.data.length; ++k) {
+                  obj_diary.push(rea.data[k])
+                }
+                if (++bar == tot_bar) fin_rdiary()
+              }).catch(rwa => {
+                if (deban) wx.hideLoading({
+                  success: (res) => { },
+                })
+                console.log('读取日志失败', rwa)
+                wx.showToast({
+                  title: '读取心路板块数据失败',
+                  icon: 'none',
+                })
+              })
+            }
+            // wx.hideLoading({
+            //   success: (res) => { },
+            // })
           }).catch(rwt => {
             km.globalData.user = null
             console.log('用户尚未授权过头像和昵称。')
-            if(deban) wx.hideLoading({
-              success: (res) => {},
+            if (deban) wx.hideLoading({
+              success: (res) => { },
             })
           })
 
@@ -189,7 +230,7 @@ App({
 
     this.globalData = {
       pathc: 'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/',
-      openid:null,
+      openid: null,
     }
   },
 
@@ -210,4 +251,181 @@ App({
   //     this.cb(v)
   //   }
   // }
+
+  empty_diaryz: function (idx, nam) {
+    // console.log('ts',idx,nam)
+    if (idx == -1) {
+      if (nam == undefined) {
+        nam = '景点'
+      }
+    }
+    else if (nam == undefined) {
+      nam = this.globalData.attration[idx].name
+    }
+    // console.log('ts',idx,nam)
+    var obj = {}
+    obj['time'] = new Date()
+    obj['_id'] = String(this.globalData.num_diary)
+    obj['user'] = this.globalData.openid
+    obj['att_id'] = idx
+    obj['att_name'] = nam
+    obj['content'] = ''
+    // console.log('generated', obj)
+    return obj
+  },
+
+  cb2(x) {
+
+  },
+
+  diaryz: function (datax) {
+    const db = wx.cloud.database()
+    const deban = true
+    const km = this
+    const _ = db.command
+    var bar = 0
+    const tot_bar = 3
+    var fin = function () {
+      km.globalData.num_diary++
+      km.cb2(km.globalData.user)
+      // console.log('qwq',km.globalData.user)
+      wx.hideLoading({
+        success: (res) => { },
+      })
+    }
+    wx.showLoading({
+      title: '更新中',
+      mask: true,
+    })
+    db.collection('global').doc('default').update({
+      data: {
+        num_diary: _.inc(1)
+      }
+    }).then(res => {
+      // ++bar
+      // console.log('g',bar)
+      if (++bar == tot_bar) { fin() }
+    }).catch(rws => {
+      console.log('gF', rws)
+      wx.showToast({
+        title: '更新数据失败！',
+        icon: 'none',
+      })
+      if (deban) wx.hideLoading({
+        success: (res) => { },
+      })
+    })
+
+    if (datax['att_id'] != -1) {
+      km.globalData.user.diary.push(km.globalData.num_diary)
+      db.collection('user').doc(String(km.globalData.openid)).update({
+        data: {
+          diary: _.push(km.globalData.num_diary)
+        }
+      }).then(res => {
+        // console.log('u',bar)
+        if (++bar == tot_bar) { fin() }
+      }).catch(rws => {
+        console.log('uF', rws)
+        wx.showToast({
+          title: '更新数据失败！',
+          icon: 'none',
+        })
+        if (deban) wx.hideLoading({
+          success: (res) => { },
+        })
+      })
+    } else {
+      if (++bar == tot_bar) { fin() }
+    }
+
+    km.globalData.diary.push(datax)
+    db.collection('diary').add({
+      data: datax,
+    }).then(res => {
+      // console.log('d',bar)
+      if (++bar == tot_bar) { fin() }
+    }).catch(rws => {
+      console.log('dF', rws)
+      wx.showToast({
+        title: '更新数据失败！',
+        icon: 'none',
+      })
+      if (deban) wx.hideLoading({
+        success: (res) => { },
+      })
+    })
+  },
+
+  del_diaryz(idx) {
+    const db = wx.cloud.database()
+    const deban = true
+    const km = this
+    const _ = db.command
+
+    wx.showLoading({
+      title: '更新中……',
+    })
+    console.log(idx)
+    var temp_ud = []
+    var temp_d = []
+    var del_id = []
+    for (let i = 0; i < km.globalData.diary.length; ++i) {
+      let ii = Number(km.globalData.diary[i]._id)
+      if (idx == km.globalData.diary[i].att_id && km.globalData.diary[i].content != '') {
+        del_id.push(ii)
+      } else {
+        temp_d.push(km.globalData.diary[i])
+      }
+    }
+    console.log('s1', temp_d, del_id)
+    for (let i = 0; i < km.globalData.user.diary.length; ++i) {
+      let save = true
+      let ii = km.globalData.user.diary[i]
+      for (let j = 0; j < del_id.length; ++j) {
+        if (ii == del_id[j]) {
+          save = false
+          break
+        }
+      }
+      if (save) {
+        temp_ud.push(ii)
+      }
+    }
+    km.globalData.user.diary = temp_ud
+    km.globalData.diary = temp_d
+    console.log('s2', temp_ud, km.globalData.user.diary, km.globalData.diary)
+    db.collection('user').doc(km.globalData.openid).update({
+      data: {
+        diary: temp_ud
+      }
+    }).then(res => {
+      wx.hideLoading({
+        success: (res) => { },
+      })
+    }).catch(rws => {
+      wx.showToast({
+        title: '数据更新失败！',
+        icon: 'none',
+      })
+      console.log('del_diary', rws)
+      if (deban) wx.hideLoading({
+        success: (res) => { },
+      })
+    })
+  },
+
+  date2str(x) {
+    let s = '', t = ''
+    s += String(x.getFullYear())
+    s += '/'
+    t = String(x.getDate() + 1)
+    if (t.length < 1) { s += '0' + t }
+    else { s += t }
+    s += '/'
+    t = String(x.getDay() + 1)
+    if (t.length < 1) { s += '0' + t }
+    else { s += t }
+    return s
+  },
 })
