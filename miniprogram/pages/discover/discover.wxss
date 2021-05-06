@@ -41,6 +41,7 @@
 }
 
 .body-swiper {
+  margin-top: 80rpx;
   width: 680rpx;
   height: 900rpx;
   left: 50%;
@@ -48,10 +49,13 @@
   margin-left: -340rpx;
   z-index: 3;
   box-sizing: border-box;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.62), 0 0 60px rgba(0, 0, 0, 0.06) inset;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.62), 0 0 40px rgba(0, 0, 0, 0.06) inset;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.62), 0 0 40px rgba(0, 0, 0, 0.06) inset;
-  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  /* -webkit-box-shadow: 0 1px 4px rgba(43, 43, 43, 0.62), 0 0 60px rgba(0, 0, 0, 0.06) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.62), 0 0 40px rgba(0, 0, 0, 0.06) inset; */
+  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.62), 0 0 40px rgba(0, 0, 0, 0.06) inset; */
+  border: 2px red solid;
+  /* border-radius: 12px; */
 }
 
 /* .body-swiper2 {
@@ -83,12 +87,13 @@
 } */
 
 .body-container {
-  width: 100%;
-  height: 900rpx;
+  width: 80%;
+  height: 700rpx;
   display: flex;
   flex-direction: column;
   background-color: #fff;
   border-radius: 10px;
+  border: 2rpx solid blue;
 }
 
 .avatar {

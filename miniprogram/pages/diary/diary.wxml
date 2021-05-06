@@ -1,8 +1,14 @@
-<!--miniprogram/pages/diary/diary.wxml-->
-<text>miniprogram/pages/diary/diary.wxml</text>
-<view bindtap="postz">点我记录新的足迹!</view>
-<view>我的足迹</view>
-<view wx:if="{{!diary.length}}">您尚未记录过任何足迹！</view>
+
+<view class="myFoot">
+  <image src="/img/foot.png"></image>
+足迹</view>
+<view class="addPost" bindtap="postz">
+<image src="/img/addPost.png"></image></view>
+<view style="flex-direction: column;" wx:if="{{!diary.length}}">
+  
+  <view class="empty"><image src="/img/empty.png"></image></view>
+  <view class="emptyTxt">您还没有足迹呢，快去记录吧！</view>
+</view>
 <view wx:else>
   <view wx:for="{{diary}}">
     <view>{{index+1}}</view>

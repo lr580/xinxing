@@ -39,3 +39,59 @@
 .ql-active {
   color: #06c;
 }
+
+.addPost{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+left: 620rpx;
+top: 50rpx;
+  background-color: #b7dadb9c;
+}
+
+.addPost image{
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.myFoot{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 35rpx;
+  padding: 40rpx;
+}
+
+.myFoot image{
+  height: 50rpx;
+  width: 50rpx;
+  padding: 10rpx;
+}
+
+.empty{
+  height: 400rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top:300rpx;
+}
+
+.empty image{
+  height: 350rpx;
+  width: 350rpx;
+}
+
+.emptyTxt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:30rpx;
+  color: gray;
+  font-weight: 200;
+}

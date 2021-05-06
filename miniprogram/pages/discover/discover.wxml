@@ -21,10 +21,15 @@
   </radio-group>
 </view>
 <!-- {{front}} -->
+
+
+
 <view wx:if="{{false&&front==-1}}">
   <image class="avatar" src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png">
   </image>
 </view>
+
+
 <view class="body-main-box" wx:else>
   <!-- {{front}} -->
   <!-- 第一张 -->

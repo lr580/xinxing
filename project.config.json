@@ -67,6 +67,12 @@
         {
           "name": "discover",
           "pathName": "pages/discover/discover",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "diary",
+          "pathName": "pages/diary/diary",
           "scene": null
         }
       ]
