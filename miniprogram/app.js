@@ -8,6 +8,7 @@ const cmp = function () {
 App({
   onLaunch: function () {
     const km = this//this
+    km.cb=function(){}
     const deban = true //加载失败后是否解除禁用状态
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -206,6 +207,7 @@ App({
           }).catch(rwt => {
             km.globalData.user = null
             console.log('用户尚未授权过头像和昵称。')
+            console.log(rwt)
             if (deban) wx.hideLoading({
               success: (res) => { },
             })
