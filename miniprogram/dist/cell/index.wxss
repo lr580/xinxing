@@ -64,7 +64,8 @@
 .van-cell__title,
 .van-cell__value {
   -webkit-flex: 1;
-  flex: 1
+  flex: 1;
+  padding:2rpx;
 }
 
 .van-cell__title:empty,
@@ -131,8 +132,8 @@
 }
 
 .van-cell--large {
-  padding-top: 12px;
-  padding-top: var(--cell-large-vertical-padding, 12px);
+  padding-top: 14px;
+  padding-top: var(--cell-large-vertical-padding, 14px);
   padding-bottom: 12px;
   padding-bottom: var(--cell-large-vertical-padding, 12px)
 }
