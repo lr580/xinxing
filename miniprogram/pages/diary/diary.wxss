@@ -95,3 +95,10 @@ top: 50rpx;
   color: gray;
   font-weight: 200;
 }
+
+.Astate{
+  border-top: solid 1rpx rgba(128, 128, 128, 0.582);
+  display: flex;
+  align-items: center;
+ padding: 10rpx;
+}

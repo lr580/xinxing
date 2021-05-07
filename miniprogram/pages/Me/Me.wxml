@@ -1,8 +1,6 @@
-<view class="myBackground1">
-  <image src="/img/white.png"></image>
-<view class="myBackground2"><image src="/img/myback.png"></image></view>  
-</view>
+
 <view bindtap="qabo" wx:if="{{unRegistered}}">
+  
   <view class="a" style="text-align: center;">
   <view>
   <canvas class="backLottie" id="c1" type="2d" style="width:600rpx; height: 600rpx;">
@@ -11,6 +9,10 @@
 </view>
 </view></view>
 <view wx:else>
+  <view class="myBackground1">
+  <image src="/img/white.png"></image>
+<view class="myBackground2"><image src="/img/myback.png"></image></view>  
+</view>
   <view class="userInfo">
     <view class="head"><image src="{{user.avatarUrl}}"></image></view>
     <view class="name">{{user.nickName}}</view>
@@ -30,7 +32,7 @@
   <view>我去过的景点_id(仅调试时可见)：{{user.gone}}</view> -->
   <van-cell-group>
 
-<van-cell size="large" bindtap='to_myattra' wx:if="{{!nwInfo}}" icon="/img/scene.png" title="我的景点" is-link />
+<van-cell  size="large" bindtap='to_myattra' wx:if="{{!nwInfo}}" icon="/img/scene.png" title="我的景点" is-link />
 
 <van-cell size="large" bindtap='to_advice' wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link />
 

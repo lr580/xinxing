@@ -9,13 +9,69 @@
   <view class="empty"><image src="/img/empty.png"></image></view>
   <view class="emptyTxt">您还没有足迹呢，快去记录吧！</view>
 </view>
+
+
+
 <view wx:else>
   <view wx:for="{{diary}}">
-    <view>{{index+1}}</view>
+    <!-- <view>{{index+1}}</view>
     <view wx:if="{{index==0||diaryDate[index]!=diaryDate[index-1]}}">{{diaryDate[index]}}</view>
     <view>景点名：{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}} </view>
-    <view>记录名：{{diary[index].att_name}}</view>
-    <view wx:if="{{diary[index].content}}">
+    <view>记录名：{{diary[index].att_name}}</view> -->
+
+    <view class="cu-timeline">
+  <!-- <view class="cu-time">{{diaryDate[index]}}</view> -->
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
+        <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
+      </view>
+      <!-- <view class="margin-top">这是第一次，我家的铲屎官走了这么久。久到足足有三天！！ 在听到他的脚步声响在楼梯间的那一刻，我简直想要破门而出，对着他狠狠地吼上10分钟，然后再看心情要不要他进门。</view> -->
+      <view wx:if="{{diary[index].content}}">
+      <view id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>
+      <view class="margin-top" wx:if="{{looking[index]}}">
+        <rich-text nodes="{{diary[index].content}}"></rich-text>
+      </view>
+    </view>
+    <view class="margin-top" wx:else>这个景点只有足迹没有日记呢</view>
+    <view class="Astate">
+
+    <view id="{{index}}" bindtap="edit">
+      <image style="width:40rpx;height:40rpx;margin-left:400rpx" src="/img/editor.png"></image>
+    </view>
+    <view id="{{index}}" bindtap="del">
+      <image style="width:40rpx;height:40rpx;margin-left:50rpx" src="/img/delete.png"></image>
+    </view>
+  </view>
+      
+    </view>
+  </view>
+  <view class="cu-item text-cyan">
+    <view class="bg-cyan shadow-blur content">
+      <view class="cu-list menu-avatar radius">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{user.avatarUrl}});">
+            <view class="cu-tag badge">99+</view>
+          </view>
+          <view class="content">
+            <view class="text-grey">{{user.nickName}}
+              <view class="cu-tag round orange sm">SVIP</view>
+            </view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-redpacket_fill text-red"></text> 收到红包</view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">22:20</view>
+            <text class="cuIcon-notice_forbid_fill text-gray"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+    <!-- <view wx:if="{{diary[index].content}}">
       <view id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>
       <view wx:if="{{looking[index]}}">
         <rich-text nodes="{{diary[index].content}}"></rich-text>
@@ -23,6 +79,6 @@
     </view>
     <view wx:else>这个景点只有足迹没有日记呢</view>
     <view id="{{index}}" bindtap="edit">编辑</view>
-    <view id="{{index}}" bindtap="del">删除</view>
+    <view id="{{index}}" bindtap="del">删除</view> -->
   </view>
 </view>

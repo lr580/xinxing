@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import "main.wxss";
+@import "icon.wxss";
 .container {
   display: flex;
   flex-direction: column;
@@ -20,7 +22,7 @@ button::after{
 
 
 page {
-  background: #f7fff7;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
