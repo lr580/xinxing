@@ -82,3 +82,16 @@
   height: 200rpx;
   margin-top: 200rpx;
 }
+
+.feedback{
+  z-index: 100;
+  position: fixed; 
+  height: 50px;
+  margin-left: 100px;  
+}
+
+.feedback2{
+  line-height: 100px;
+  /* z-index: 0; */
+  /* position: fixed; */
+}

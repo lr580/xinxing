@@ -32,9 +32,11 @@
   <view>我去过的景点_id(仅调试时可见)：{{user.gone}}</view> -->
   <van-cell-group>
 
-<van-cell  size="large" bindtap='to_myattra' wx:if="{{!nwInfo}}" icon="/img/scene.png" title="我的景点" is-link />
-
-<van-cell size="large" bindtap='to_advice' wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link />
+<view>
+    <van-cell  size="large" bindtap='to_myattra' wx:if="{{!nwInfo}}" icon="/img/scene.png" title="我的景点" is-link />
+    <button open-type="feedback" style="width:500px" class="feedback"></button>
+  </view>
+<van-cell size="large" wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link class="feedback2"/>
 
 <van-cell size="large" bindtap='to_help' wx:if="{{!nwInfo}}" icon="/img/help.png" title="帮助" is-link />
 </van-cell-group>
