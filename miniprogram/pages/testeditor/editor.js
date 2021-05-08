@@ -295,10 +295,30 @@ Page({
     // console.log(e.detail.html)
   },
   mytj() {
-    console.log(this.data.articleContent)
+    // console.log(this.data.articleContent)
     // this.setData({
     //   s_att_name
     // })
+    if (this.data.s_att_name == '') {
+      if (this.data.s_att_id != -1) {
+        this.setData({
+          s_att_name: km.globalData.attration[Number(this.data.s_att_id)].name
+        })
+      } else {
+        this.setData({
+          s_att_name: '未知景点'
+        })
+      }
+    }
+    console.log('nr',this.data.articleContent)
+    if (this.data.articleContent == '') {
+      wx.showToast({
+        title: '日志内容不得为空！',
+        icon: 'none',
+      })
+      return
+    }
+
     var thee = this
 
     if (this.data.edit == 1) {
@@ -326,12 +346,12 @@ Page({
       delta: 0,
     })
   },
-  onUnload(){
-    if(!this.data.newed && this.data.edit!=1){
+  onUnload() {
+    if (!this.data.newed && this.data.edit != 1) {
       console.log('inc -1')
       db.collection('global').doc('default').update({
-        data:{
-          num_diary:_.inc(-1)
+        data: {
+          num_diary: _.inc(-1)
         }
       })
     }
