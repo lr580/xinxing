@@ -93,7 +93,7 @@ Page({
         now_id: km.globalData.num_diary,
         s_time: km.date2str(new Date()),
       })
-      console.log('inc 1')
+      // console.log('inc 1')
       db.collection('global').doc('default').update({
         data: {
           num_diary: _.inc(1)
@@ -101,14 +101,19 @@ Page({
       })
     } else {
       console.log(options)//, km.globalData.diary)
-
       var idx = Number(options.id)
+
+      let nr = km.globalData.diary[idx].content
+      let img_nr = nr.match(/<img[^>]*>/g)
+      console.log(img_nr)
+
       this.setData({
         now_id: km.globalData.diary[idx]._id,//Number(options.id),
         s_time: km.date2str(new Date(km.globalData.diary[idx]['time'])),
         s_att_id: km.globalData.diary[idx].att_id,
         s_att_name: km.globalData.diary[idx].att_name,
         articleContent: km.globalData.diary[idx].content,
+        img_num: img_nr.length,
         idx: idx,
       })
       // var that = this
@@ -257,6 +262,9 @@ Page({
               width: '50%',
               success: function () {
                 // console.log('insert image success')
+                that.setData({
+                  img_num:1+that.data.img_num,
+                })
                 wx.hideLoading({
                   success: (res) => { },
                 })
@@ -310,7 +318,7 @@ Page({
         })
       }
     }
-    console.log('nr',this.data.articleContent)
+    // console.log('nr',this.data.articleContent)
     if (this.data.articleContent == '') {
       wx.showToast({
         title: '日志内容不得为空！',
@@ -322,12 +330,12 @@ Page({
     var thee = this
 
     if (this.data.edit == 1) {
-      console.log(this.data.edit, this.data.idx)
+      // console.log(this.data.edit, this.data.idx)
       this.setData({
         now_id: km.globalData.diary[thee.data.idx]._id
       })
     }
-    console.log('qwq', this.data.s_att_name, this.data.s_att_id, this.data.now_id)
+    // console.log('qwq', this.data.s_att_name, this.data.s_att_id, this.data.now_id)
     var datax = km.empty_diaryz(this.data.s_att_id, this.data.s_att_name, this.data.edit)
     datax['content'] = this.data.articleContent
     if (this.data.edit == 1) {
@@ -348,7 +356,7 @@ Page({
   },
   onUnload() {
     if (!this.data.newed && this.data.edit != 1) {
-      console.log('inc -1')
+      // console.log('inc -1')
       db.collection('global').doc('default').update({
         data: {
           num_diary: _.inc(-1)
