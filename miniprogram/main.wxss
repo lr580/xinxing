@@ -2077,10 +2077,11 @@ button.icon.lg {
 }
 
 .cu-timeline>.cu-item>.content {
-	padding: 30rpx;
-	border-radius: 6rpx;
+	padding: 25rpx;
+	border-radius: 10rpx;
 	display: block;
 	line-height: 1.6;
+	font-weight: 600;
 }
 
 .cu-timeline>.cu-item>.content:not([class*="bg-"]) {

@@ -290,7 +290,7 @@ App({
   },
 
   diaryz: function (datax, edit) {
-    datax['_id'] = Number(datax['_id'])
+    // datax['_id'] = Number(datax['_id'])
     console.log('wwwwww', datax, edit)
     const db = wx.cloud.database()
     const deban = true
