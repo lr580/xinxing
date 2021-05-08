@@ -55,6 +55,7 @@ Page({
     this.hg=hg
     km.cb2 = hg
     km.cb2()
+    console.log(km.globalData.user)
     // thee.setData({
     //   user: km.globalData.user,
     //   diary: km.globalData.diary,
@@ -88,7 +89,7 @@ Page({
 
   look(v) {
     var idx = Number(v.currentTarget.id)
-    console.log(idx)
+    // console.log(idx)
     this.data.looking[idx]=!this.data.looking[idx]
     this.setData({
       looking:this.data.looking,

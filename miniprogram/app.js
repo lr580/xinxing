@@ -175,6 +175,7 @@ App({
               obj_diary.sort(cmp())
               obj_diary.reverse()
               km.globalData.diary = obj_diary
+              // console.log('??',obj_diary)
               wx.hideLoading({
                 success: (res) => { },
               })
@@ -188,6 +189,7 @@ App({
               }
               // console.log('tt',temp)
               db.collection('diary').where({ _id: _.in(temp) }).get().then(rea => {
+                // console.log(rea.data)
                 for (let k = 0; k < rea.data.length; ++k) {
                   obj_diary.push(rea.data[k])
                 }
@@ -370,7 +372,7 @@ App({
       }
       km.globalData.user.gone = newgone
       var diaryhg
-      if (edit == 1) {
+      if (edit != 1) {
         diaryhg = _.push(km.globalData.num_diary)
       } else {
         diaryhg = km.globalData.user.diary
@@ -399,7 +401,7 @@ App({
 
     if(edit != 1)km.globalData.diary.unshift(datax)
     if (edit == 1) {
-      km.globalData.diary[tgi]['att_id'] = datax['att_id']
+      km.globalData.diary[tgi]['att_id'] = String(datax['att_id'])
       km.globalData.diary[tgi]['att_name'] = datax['att_name']
       km.globalData.diary[tgi]['content'] = datax['content']
       var __id = datax['_id']
