@@ -97,10 +97,11 @@ top: 50rpx;
 }
 
 .Astate{
-  border-top: solid 1rpx rgba(128, 128, 128, 0.582);
+  
   display: flex;
   align-items: center;
  padding: 10rpx;
+ margin-left:400rpx
 }
 
 .AAcontent{
