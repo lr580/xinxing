@@ -25,6 +25,7 @@ Page({
     s_tg: [],
     edit: 0,
     idx: -1,
+    newed: false,
   },
   id_onz() {
     this.setData({
@@ -91,6 +92,12 @@ Page({
       this.setData({
         now_id: km.globalData.num_diary,
         s_time: km.date2str(new Date()),
+      })
+      console.log('inc 1')
+      db.collection('global').doc('default').update({
+        data: {
+          num_diary: _.inc(1)
+        }
       })
     } else {
       console.log(options)//, km.globalData.diary)
@@ -293,7 +300,7 @@ Page({
     //   s_att_name
     // })
     var thee = this
-    
+
     if (this.data.edit == 1) {
       console.log(this.data.edit, this.data.idx)
       this.setData({
@@ -312,8 +319,21 @@ Page({
     // }
     // console.log(datax)
     km.diaryz(datax, this.data.edit)
+    this.setData({
+      newed: true,
+    })
     wx.navigateBack({
       delta: 0,
     })
-  }
+  },
+  onUnload(){
+    if(!this.data.newed && this.data.edit!=1){
+      console.log('inc -1')
+      db.collection('global').doc('default').update({
+        data:{
+          num_diary:_.inc(-1)
+        }
+      })
+    }
+  },
 })

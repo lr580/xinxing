@@ -297,7 +297,7 @@ App({
     const km = this
     const _ = db.command
     var bar = 0
-    const tot_bar = 3
+    const tot_bar = 2
     var fin = function () {
       // console.log('fff')
       if (edit != 1) km.globalData.num_diary++
@@ -311,26 +311,26 @@ App({
       title: '更新中',
       mask: true,
     })
-    var gg = (Number(edit != 1))
-    console.log('gg', gg)
-    db.collection('global').doc('default').update({
-      data: {
-        num_diary: _.inc(gg)
-      }
-    }).then(res => {
-      // ++bar
-      // console.log('g',bar)
-      if (++bar == tot_bar) { fin() }
-    }).catch(rws => {
-      console.log('gF', rws)
-      wx.showToast({
-        title: '更新数据失败！',
-        icon: 'none',
-      })
-      if (deban) wx.hideLoading({
-        success: (res) => { },
-      })
-    })
+    // var gg = (Number(edit != 1))
+    // console.log('gg', gg)
+    // db.collection('global').doc('default').update({
+    //   data: {
+    //     num_diary: _.inc(gg)
+    //   }
+    // }).then(res => {
+    //   // ++bar
+    //   // console.log('g',bar)
+    //   if (++bar == tot_bar) { fin() }
+    // }).catch(rws => {
+    //   console.log('gF', rws)
+    //   wx.showToast({
+    //     title: '更新数据失败！',
+    //     icon: 'none',
+    //   })
+    //   if (deban) wx.hideLoading({
+    //     success: (res) => { },
+    //   })
+    // })
 
     if (1) { //datax['att_id'] != -1
       if (edit != 1) km.globalData.user.diary.push(km.globalData.num_diary)
