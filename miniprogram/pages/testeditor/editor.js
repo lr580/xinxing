@@ -292,7 +292,9 @@ Page({
     //   s_att_name
     // })
     var thee = this
-    if(this.data.edit){
+    
+    if (this.data.edit == 1) {
+      console.log(this.data.edit, this.data.idx)
       this.setData({
         now_id: km.globalData.diary[thee.data.idx]._id
       })
@@ -300,15 +302,15 @@ Page({
     console.log('qwq', this.data.s_att_name, this.data.s_att_id, this.data.now_id)
     var datax = km.empty_diaryz(this.data.s_att_id, this.data.s_att_name, this.data.edit)
     datax['content'] = this.data.articleContent
-    if(this.data.edit){
+    if (this.data.edit == 1) {
       datax['time'] = km.globalData.diary[this.data.idx]['time']
       datax['_id'] = this.data.now_id
     }
     // if(this.data.edit){
-//
+    //
     // }
     // console.log(datax)
-    km.diaryz(datax,this.data.edit)
+    km.diaryz(datax, this.data.edit)
     wx.navigateBack({
       delta: 0,
     })

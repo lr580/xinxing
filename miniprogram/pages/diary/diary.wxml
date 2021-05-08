@@ -1,12 +1,15 @@
-
 <view class="myFoot">
   <image src="/img/foot.png"></image>
-足迹</view>
+  足迹
+</view>
 <view class="addPost" bindtap="postz">
-<image src="/img/addPost.png"></image></view>
+  <image src="/img/addPost.png"></image>
+</view>
 <view style="flex-direction: column;" wx:if="{{!diary.length}}">
-  
-  <view class="empty"><image src="/img/empty.png"></image></view>
+
+  <view class="empty">
+    <image src="/img/empty.png"></image>
+  </view>
   <view class="emptyTxt">您还没有足迹呢，快去记录吧！</view>
 </view>
 
@@ -20,69 +23,69 @@
     <view>记录名：{{diary[index].att_name}}</view> -->
 
     <view class="cu-timeline">
-  <!-- <view class="cu-time">{{diaryDate[index]}}</view> -->
-  <view class="cu-item">
-    <view class="content">
-      <view class="cu-capsule radius">
-        <view class="cu-tag bg-cyan">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
-        <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
-      </view>
-     
-      <view  wx:if="{{diary[index].content}}">
-      <view id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>
-      <view class="margin-top" wx:if="{{looking[index]}}">
-        <rich-text nodes="{{diary[index].content}}"></rich-text>
-      </view>
-    </view>
-    <view class="margin-top" wx:else>这个景点只有足迹没有日记呢</view>
-    <view class="Astate">
+      <!-- <view class="cu-time">{{diaryDate[index]}}</view> -->
+      <view class="cu-item">
+        <view class="content">
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-cyan">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
+            <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
+          </view>
 
-    <view id="{{index}}" bindtap="edit">
-      <image style="width:40rpx;height:40rpx;margin-left:400rpx" src="/img/editor.png"></image>
-    </view>
-    <view id="{{index}}" bindtap="del">
-      <image style="width:40rpx;height:40rpx;margin-left:50rpx" src="/img/delete.png"></image>
-    </view>
-  </view>
-      
-    </view>
-  </view>
-  <view class="cu-item text-cyan">
-    <view class="bg-cyan shadow-blur content">
-      <view class="cu-list menu-avatar radius">
-        
-        <view class="AAcontent">   
-          <!-- <view class="cu-avatar round lg" style="background-image:url({{user.avatarUrl}});">
+          <view wx:if="{{diary[index].content}}">
+            <view id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>
+            <view class="margin-top" wx:if="{{looking[index]}}">
+              <rich-text nodes="{{diary[index].content}}"></rich-text>
+            </view>
+          </view>
+          <view class="margin-top" wx:else>这个景点只有足迹没有日记呢</view>
+          <view class="Astate">
+
+            <view id="{{index}}" bindtap="edit">
+              <image style="width:40rpx;height:40rpx;margin-left:400rpx" src="/img/editor.png"></image>
+            </view>
+            <view id="{{index}}" bindtap="del">
+              <image style="width:40rpx;height:40rpx;margin-left:50rpx" src="/img/delete.png"></image>
+            </view>
+          </view>
+
+        </view>
+      </view>
+      <view class="cu-item text-cyan">
+        <view class="bg-cyan shadow-blur content">
+          <view class="cu-list menu-avatar radius">
+
+            <view class="AAcontent">
+              <!-- <view class="cu-avatar round lg" style="background-image:url({{user.avatarUrl}});">
           </view>
           <view class="content">
             <view class="text-grey">{{user.nickName}}hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh红红火火恍恍惚惚或或或或或或或或或或或或或或或或或或或或或或或或或或
             </view>
           </view> -->
-          <view class="cu-tag bg-cyan">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
-        <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
-          <view style="color:black;" id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>
-      <view class="margin-top" wx:if="{{looking[index]}}">
-        <rich-text style="color:black;" nodes="{{diary[index].content}}"></rich-text>
-      </view>
-      <view class="Astate">
+              <view class="cu-tag bg-cyan">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
+              <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
+              <view style="color:black;" id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>
+              <view class="margin-top" wx:if="{{looking[index]}}">
+                <rich-text style="color:black;" nodes="{{diary[index].content}}"></rich-text>
+              </view>
+              <view class="Astate">
 
-<view id="{{index}}" bindtap="edit">
-  <image style="width:40rpx;height:40rpx;margin-left:400rpx" src="/img/editor.png"></image>
-</view>
-<view id="{{index}}" bindtap="del">
-  <image style="width:40rpx;height:40rpx;margin-left:50rpx" src="/img/delete.png"></image>
-</view>
-</view>
+                <view id="{{index}}" bindtap="edit">
+                  <image style="width:40rpx;height:40rpx;margin-left:400rpx" src="/img/editor.png"></image>
+                </view>
+                <view id="{{index}}" bindtap="del">
+                  <image style="width:40rpx;height:40rpx;margin-left:50rpx" src="/img/delete.png"></image>
+                </view>
+              </view>
+            </view>
+
+
+
+
+
+          </view>
         </view>
-       
-  
-      
- 
-       
       </view>
     </view>
-  </view>
-</view>
 
     <!-- <view wx:if="{{diary[index].content}}">
       <view id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>

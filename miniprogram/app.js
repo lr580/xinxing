@@ -329,7 +329,7 @@ App({
     })
 
     if (1) { //datax['att_id'] != -1
-      km.globalData.user.diary.push(km.globalData.num_diary)
+      if(edit!=1) km.globalData.user.diary.push(km.globalData.num_diary)
       var newgone = []
       if (edit == 1) {
         var still = false
@@ -352,9 +352,15 @@ App({
       } else {
         newgone = km.globalData.user.gone
       }
+      var diaryhg
+      if(edit==1){
+        diaryhg = _.push(km.globalData.num_diary)
+      }else{
+        diaryhg = km.globalData.user.diary
+      }
       db.collection('user').doc(String(km.globalData.openid)).update({
         data: {
-          diary: _.push(km.globalData.num_diary),
+          diary: diaryhg,
           gone: newgone,
         }
       }).then(res => {
