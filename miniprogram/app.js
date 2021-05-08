@@ -335,7 +335,7 @@ App({
         var still = false
         for (let i = 0; i < km.globalData.diary.length; ++i) {
           if (datax['_id'] == i) { continue }
-          if (km.globalData.diary[i]['att_id'] == datax['att_id']) {
+          if (km.globalData.diary[i]['att_id'] == km.globalData.diary[datax['_id']['att_id']]){//datax['att_id']) {
             still = true
             break
           }
@@ -348,9 +348,15 @@ App({
         if (!still) {
           km.globalData.user.gone.splice(km.globalData.user.gone.indexOf(datax['att_id']), 1)
         }
+        if(km.globalData.user.gone.indexOf(datax['att_id'])==-1){
+          km.globalData.user.gone.push(datax['att_id'])
+        }
         newgone = km.globalData.user.gone
       } else {
         newgone = km.globalData.user.gone
+        if(newgone.indexOf(datax['att_id'])==-1){
+          newgone.push(datax['att_id'])
+        }
       }
       var diaryhg
       if (edit == 1) {
@@ -380,7 +386,7 @@ App({
       if (++bar == tot_bar) { fin() }
     }
 
-    km.globalData.diary.unshift(datax)
+    if(edit != 1)km.globalData.diary.unshift(datax)
     if (edit == 1) {
       var __id = datax['_id']
       delete datax['_id']

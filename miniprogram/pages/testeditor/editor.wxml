@@ -21,7 +21,8 @@
     <view wx:if="{{s_pro==0}}">
       <radio-group bindchange="sele_attra">
         <view wx:for="{{s_tg}}">
-          <radio value="{{item}}">{{attration[item].name}}</radio><!--hs xl bug-->
+          <radio value="{{item}}">{{attration[item].name}}</radio>
+          <!--hs xl bug-->
         </view>
       </radio-group>
     </view>
@@ -30,7 +31,7 @@
 <view wx:else>
   <view bindtap="id_onz">点我展开选项</view>
 </view>
-<view>景点名称：<input type="text" placeholder="请输入景点名字" value="{{s_att_name}}" bindinput="input_s_att_name"/></view>
+<view>景点名称：<input type="text" placeholder="请输入景点名字" value="{{s_att_name}}" bindinput="input_s_att_name" /></view>
 <view>旅行日期： {{s_time}}</view>
 <view class="page-body">
   <view class='wrapper'>

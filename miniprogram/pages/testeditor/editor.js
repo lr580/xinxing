@@ -93,7 +93,8 @@ Page({
         s_time: km.date2str(new Date()),
       })
     } else {
-      console.log(options)
+      console.log(options)//, km.globalData.diary)
+
       var idx = Number(options.id)
       this.setData({
         now_id: km.globalData.diary[idx]._id,//Number(options.id),
