@@ -7,6 +7,8 @@ const cmp = function () {
 }
 App({
   onLaunch: function () {
+    //this.globalData.user = null
+    //this.globalData.openid = null
     const km = this//this
     km.cb=function(){}
     const deban = true //加载失败后是否解除禁用状态
@@ -148,7 +150,7 @@ App({
         wx.cloud.callFunction({ //点击过快切换到探索区有小概率会导致产生bugs，暂不打算修复
           name: 'getOpenId',
         }).then(res => {
-          // console.log('res',res)
+          // console.log('operes',res)
           wx.showLoading({
             title: '载入用户信息',
             mask: true,
@@ -232,12 +234,12 @@ App({
 
     this.globalData = {
       pathc: 'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/',
-      openid: null,
+      //openid: null,
       diary: [],
       city: [],
       province: [],
       attration: [],
-      user: null,
+      //user: null,
     }
   },
 
