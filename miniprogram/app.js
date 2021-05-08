@@ -344,7 +344,7 @@ App({
             break
           }
         }
-        // console.log(km.globalData.diary[tgi])
+        console.log(km.globalData.diary[tgi])
         for (let i = 0; i < km.globalData.diary.length; ++i) {
           if (tgi == i) { continue } //datax['_id']
           if (km.globalData.diary[i]['att_id'] == km.globalData.diary[tgi]['att_id']){//datax['att_id']) {
@@ -353,12 +353,12 @@ App({
           }
         }
         console.log('st1', still)
-        if (datax['att_id'] == -1) { still = true }
-        console.log('st2', still)
+        // if (datax['att_id'] == -1) { still = true }
+        // console.log('st2', still)
         // if(still) {gone=km.globalData.user.gone}
         // else 
         if (!still) {
-          km.globalData.user.gone.splice(km.globalData.user.gone.indexOf(datax['att_id']), 1)
+          km.globalData.user.gone.splice(km.globalData.user.gone.indexOf(km.globalData.diary[tgi]['att_id']), 1)
         }
         if(km.globalData.user.gone.indexOf(datax['att_id'])==-1){
           km.globalData.user.gone.push(datax['att_id'])
@@ -401,7 +401,7 @@ App({
 
     if(edit != 1)km.globalData.diary.unshift(datax)
     if (edit == 1) {
-      km.globalData.diary[tgi]['att_id'] = String(datax['att_id'])
+      km.globalData.diary[tgi]['att_id'] = datax['att_id'] //String()
       km.globalData.diary[tgi]['att_name'] = datax['att_name']
       km.globalData.diary[tgi]['content'] = datax['content']
       var __id = datax['_id']
