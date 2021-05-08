@@ -10,6 +10,14 @@ App({
     //this.globalData.user = null
     //this.globalData.openid = null
     const km = this//this
+    var load_a = false, load_b = false
+    var deload = function(){
+      if(load_a&&load_b){
+        wx.hideLoading({
+          success: (res) => {},
+        })
+      }
+    }
     km.cb = function () { }
     const deban = true //加载失败后是否解除禁用状态
     if (!wx.cloud) {
@@ -63,7 +71,9 @@ App({
             // console.log(city_obj)
             // console.log(attration_obj)
             // console.log()
-            wx.hideLoading()
+            // wx.hideLoading()
+            load_a=true
+            deload()
           }
           var progress_bar = 0
           var tot_progress_bar = batch_city + batch_province + batch_attration
@@ -176,9 +186,11 @@ App({
               obj_diary.reverse()
               km.globalData.diary = obj_diary
               // console.log('??',obj_diary)
-              wx.hideLoading({
-                success: (res) => { },
-              })
+              load_b=true
+              deload()
+              // wx.hideLoading({
+              //   success: (res) => { },
+              // })
               // console.log('sssuc', km.globalData.diary)
             }
             if (tot_bar == 0) { fin_rdiary() }
@@ -291,12 +303,13 @@ App({
 
   diaryz: function (datax, edit) {
     // datax['_id'] = Number(datax['_id'])
-    console.log('wwwwww', datax, edit)
+    // console.log('wwwwww', datax, edit)
     const db = wx.cloud.database()
     const deban = true
     const km = this
     const _ = db.command
     var bar = 0
+    
     const tot_bar = 2
     var fin = function () {
       // console.log('fff')
@@ -344,7 +357,7 @@ App({
             break
           }
         }
-        console.log(km.globalData.diary[tgi])
+        // console.log(km.globalData.diary[tgi])
         for (let i = 0; i < km.globalData.diary.length; ++i) {
           if (tgi == i) { continue } //datax['_id']
           if (km.globalData.diary[i]['att_id'] == km.globalData.diary[tgi]['att_id']){//datax['att_id']) {
@@ -352,7 +365,7 @@ App({
             break
           }
         }
-        console.log('st1', still)
+        // console.log('st1', still)
         // if (datax['att_id'] == -1) { still = true }
         // console.log('st2', still)
         // if(still) {gone=km.globalData.user.gone}
@@ -409,7 +422,7 @@ App({
       db.collection('diary').doc(__id).update({
         data: datax,
       }).then(res => {
-        console.log('dbuntu', bar, __id)
+        // console.log('dbuntu', bar, __id)
         if (++bar == tot_bar) { fin() }
       }).catch(rws => {
         console.log('dF', rws)
@@ -449,7 +462,7 @@ App({
     wx.showLoading({
       title: '更新中……',
     })
-    console.log(idx)
+    // console.log(idx)
     var temp_ud = []
     var temp_d = []
     var del_id = []
@@ -461,7 +474,7 @@ App({
         temp_d.push(km.globalData.diary[i])
       }
     }
-    console.log('s1', temp_d, del_id)
+    // console.log('s1', temp_d, del_id)
     for (let i = 0; i < km.globalData.user.diary.length; ++i) {
       let save = true
       let ii = km.globalData.user.diary[i]
@@ -477,7 +490,7 @@ App({
     }
     km.globalData.user.diary = temp_ud
     km.globalData.diary = temp_d
-    console.log('s2', temp_ud, km.globalData.user.diary, km.globalData.diary)
+    // console.log('s2', temp_ud, km.globalData.user.diary, km.globalData.diary)
     db.collection('user').doc(km.globalData.openid).update({
       data: {
         diary: temp_ud
@@ -491,7 +504,7 @@ App({
         title: '数据更新失败！',
         icon: 'none',
       })
-      console.log('del_diary', rws)
+      // console.log('del_diary', rws)
       if (deban) wx.hideLoading({
         success: (res) => { },
       })
