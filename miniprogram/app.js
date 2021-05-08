@@ -10,7 +10,7 @@ App({
     //this.globalData.user = null
     //this.globalData.openid = null
     const km = this//this
-    km.cb=function(){}
+    km.cb = function () { }
     const deban = true //加载失败后是否解除禁用状态
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -288,7 +288,7 @@ App({
   },
 
   diaryz: function (datax, edit) {
-    console.log('wwwwww',datax,edit)
+    console.log('wwwwww', datax, edit)
     const db = wx.cloud.database()
     const deban = true
     const km = this
@@ -308,7 +308,7 @@ App({
       mask: true,
     })
     var gg = (Number(edit != 1))
-    console.log('gg',gg)
+    console.log('gg', gg)
     db.collection('global').doc('default').update({
       data: {
         num_diary: _.inc(gg)
@@ -329,7 +329,7 @@ App({
     })
 
     if (1) { //datax['att_id'] != -1
-      if(edit!=1) km.globalData.user.diary.push(km.globalData.num_diary)
+      if (edit != 1) km.globalData.user.diary.push(km.globalData.num_diary)
       var newgone = []
       if (edit == 1) {
         var still = false
@@ -353,9 +353,9 @@ App({
         newgone = km.globalData.user.gone
       }
       var diaryhg
-      if(edit==1){
+      if (edit == 1) {
         diaryhg = _.push(km.globalData.num_diary)
-      }else{
+      } else {
         diaryhg = km.globalData.user.diary
       }
       db.collection('user').doc(String(km.globalData.openid)).update({
@@ -387,7 +387,7 @@ App({
       db.collection('diary').doc(__id).update({
         data: datax,
       }).then(res => {
-        console.log('dbuntu',bar, __id)
+        console.log('dbuntu', bar, __id)
         if (++bar == tot_bar) { fin() }
       }).catch(rws => {
         console.log('dF', rws)
@@ -480,13 +480,14 @@ App({
     let s = '', t = ''
     s += String(x.getFullYear())
     s += '/'
-    t = String(x.getDate() + 1)
+    t = String(x.getMonth() + 1)
     if (t.length < 1) { s += '0' + t }
     else { s += t }
     s += '/'
-    t = String(x.getDay() + 1)
+    t = String(x.getDate())
     if (t.length < 1) { s += '0' + t }
     else { s += t }
+    // console.log(x,s)
     return s
   },
 })
