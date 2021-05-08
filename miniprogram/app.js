@@ -288,6 +288,7 @@ App({
   },
 
   diaryz: function (datax, edit) {
+    datax['_id'] = Number(datax['_id'])
     console.log('wwwwww', datax, edit)
     const db = wx.cloud.database()
     const deban = true
@@ -296,8 +297,9 @@ App({
     var bar = 0
     const tot_bar = 3
     var fin = function () {
+      // console.log('fff')
       if (edit != 1) km.globalData.num_diary++
-      km.cb2(km.globalData.user)
+      km.cb2()//km.globalData.user
       // console.log('qwq',km.globalData.user)
       wx.hideLoading({
         success: (res) => { },
@@ -333,9 +335,17 @@ App({
       var newgone = []
       if (edit == 1) {
         var still = false
+        var tgi = -1
         for (let i = 0; i < km.globalData.diary.length; ++i) {
-          if (datax['_id'] == i) { continue }
-          if (km.globalData.diary[i]['att_id'] == km.globalData.diary[datax['_id']['att_id']]){//datax['att_id']) {
+          if(km.globalData.diary[i]['_id']==datax['_id']){
+            tgi=i
+            break
+          }
+        }
+        // console.log(km.globalData.diary[tgi])
+        for (let i = 0; i < km.globalData.diary.length; ++i) {
+          if (tgi == i) { continue } //datax['_id']
+          if (km.globalData.diary[i]['att_id'] == km.globalData.diary[tgi]['att_id']){//datax['att_id']) {
             still = true
             break
           }
@@ -358,6 +368,7 @@ App({
           newgone.push(datax['att_id'])
         }
       }
+      km.globalData.user.gone = newgone
       var diaryhg
       if (edit == 1) {
         diaryhg = _.push(km.globalData.num_diary)
@@ -388,6 +399,9 @@ App({
 
     if(edit != 1)km.globalData.diary.unshift(datax)
     if (edit == 1) {
+      km.globalData.diary[tgi]['att_id'] = datax['att_id']
+      km.globalData.diary[tgi]['att_name'] = datax['att_name']
+      km.globalData.diary[tgi]['content'] = datax['content']
       var __id = datax['_id']
       delete datax['_id']
       db.collection('diary').doc(__id).update({

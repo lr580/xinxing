@@ -42,6 +42,7 @@ Page({
     // var temp = []
     
     var hg = function () {
+      // console.log('qwqq', km.globalData.diary)
       thee.setData({
         user: km.globalData.user,
         diary: km.globalData.diary,
@@ -49,7 +50,9 @@ Page({
         diaryDate: thee.upd_date(),
         looking: thee.upd_look(),
       })
+      // console.log('oh yes')
     }
+    this.hg=hg
     km.cb2 = hg
     km.cb2()
     // thee.setData({
@@ -62,7 +65,14 @@ Page({
 
   onShow: function () {
     // console.log('it live', km.globalData.user.diary)
-    km.cb2()
+    // console.log('this')
+    // km.cb2()
+    // console.log(this.)
+    if(typeof this.hg == 'function'){
+      // console.log('123')
+      this.hg()
+    }
+    // setTimeout(km.cb2, 1500);
     // this.setData({
     //   user: km.globalData.user,
     //   diary: km.globalData.diary,
@@ -94,7 +104,7 @@ Page({
       return
     }
     var idx = Number(v.currentTarget.id)
-    console.log(idx)
+    // console.log(idx)
 
     wx.navigateTo({
       // url: '/pages/testeditor/editor?edit=1&s_att_id='+String(this.data.diary[idx].att_id)
@@ -102,6 +112,8 @@ Page({
       // '&s_content='+String(this.data.diary[idx].content)+'&s_id='+String(this.data.diary[idx]._id),
       url: '/pages/testeditor/editor?edit=1&id='+String(idx),//+String(this.data.diary[idx]._id),
     })
+    // km.cb2()
+    // console.log('qwq')
   },
 
   del(v) {
@@ -209,6 +221,7 @@ Page({
       // url: '/pages/postp/postp',
       url: '/pages/testeditor/editor?edit=0',
     })
+    // km.cb2()
   },
 
   /**
