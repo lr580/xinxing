@@ -3940,3 +3940,11 @@ scroll-view.cu-steps .cu-item {
 .lines-white {
 	color: var(--white);
 }
+.cu-tag text{
+	width: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

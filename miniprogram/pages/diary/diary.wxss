@@ -97,7 +97,7 @@ top: 50rpx;
 }
 
 .Astate{
-  
+
   display: flex;
   align-items: center;
  padding: 10rpx;
@@ -110,4 +110,39 @@ top: 50rpx;
   background-color: rgb(255, 255, 255);
   border-radius: 10rpx;
   padding: 10rpx;
+}
+.title{
+  width: 75%;
+height: 50rpx;
+color: rgba(0, 0, 0, 0.589);
+display: flex;
+align-items: center;
+flex-wrap: nowrap;
+
+}
+.title image{
+  padding: 5rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.title text{
+  width: 90%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scene-text
+{
+  width: 70%;
+}
+
+.scene-text text{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -25,23 +25,34 @@
         <view class="bg-cyan  shadow-blur content">
           <view class="cu-list menu-avatar radius">
             <view class="AAcontent">
-              
-            <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
-            <view class="cu-tag bg-cyan">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
+            
             
         
-              <view class="text-l culcon-ellipse" style="color:black;" id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view>
+              <!-- <view class="text-l culcon-ellipse" style="color:black;" id="{{index}}" bindtap="look">点我{{looking[index]?'收起':'展开'}}日志详情</view> -->
+              <view style="display:flex;align-items: center;">
+              <view class="title">
+                <image src="/img/title.png"></image>
+                <text>{{diary[index].att_name}}</text>
+                
+              </view>
+              <button style="margin-left:20rpx;padding:8rpx 24rpx;font-size:20rpx;font-weight:200;height:50rpx;width:90rpx" bindtap="look" id="{{index}}" class="margin-sm shadow cu-btn round bg-gray shadow button-hover">{{looking[index]?'收起':'展开'}}</button>
+            </view>
+              <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
+            <view class="cu-tag bg-cyan">
+             <text style="width:100%">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</text> 
+            </view>
               <view class="margin-top" wx:if="{{looking[index]}}">
                 <rich-text style="color:black;" nodes="{{diary[index].content}}"></rich-text>
               </view>
-              <view style="height:1rpx;border-top: solid 1rpx rgba(128, 128, 128, 0.582);"></view>
+              
+              <view style="height:2rpx;border-top: solid 3rpx rgba(128, 128, 128, 0.582);margin-top:10rpx"></view>
               <view class="Astate">
-
+             
                 <view id="{{index}}" bindtap="edit">
-                  <image style="width:40rpx;height:40rpx;" src="/img/editor.png"></image>
+                  <image style="width:30rpx;height:30rpx;" src="/img/editor.png"></image>
                 </view>
                 <view id="{{index}}" bindtap="del">
-                  <image style="width:40rpx;height:40rpx;margin-left:30rpx" src="/img/delete.png"></image>
+                  <image style="width:30rpx;height:30rpx;margin-left:30rpx" src="/img/delete.png"></image>
                 </view>
               </view>
             </view>
@@ -54,11 +65,19 @@
           
             <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
             <view class="cu-tag bg-cyan">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
-            
+
         
           <view class="margin-top text-sm text-grey">这个景点只有足迹没有日记呢，快去记录吧</view>
-          <view class="Astate">   
-          </view>
+          <view style="height:2rpx;border-top: solid 3rpx rgba(128, 128, 128, 0.582);"></view>
+          <view class="Astate">
+             
+             <view id="{{index}}" bindtap="edit">
+               <image style="width:30rpx;height:30rpx;" src="/img/editor.png"></image>
+             </view>
+             <view id="{{index}}" bindtap="del">
+               <image style="width:30rpx;height:30rpx;margin-left:30rpx" src="/img/delete.png"></image>
+             </view>
+           </view>
 
         </view>
       </view>
