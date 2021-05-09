@@ -106,7 +106,7 @@ Page({
       let nr = km.globalData.diary[idx].content
       let img_nr = nr.match(/<img[^>]*>/g)
       console.log(img_nr)
-      if (img_nr == null) img_nr = ''
+      if (img_nr == null) img_nr = []
 
       this.setData({
         now_id: km.globalData.diary[idx]._id,//Number(options.id),
