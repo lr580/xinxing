@@ -106,6 +106,7 @@ Page({
       let nr = km.globalData.diary[idx].content
       let img_nr = nr.match(/<img[^>]*>/g)
       console.log(img_nr)
+      if (img_nr == null) img_nr = ''
 
       this.setData({
         now_id: km.globalData.diary[idx]._id,//Number(options.id),
@@ -263,7 +264,7 @@ Page({
               success: function () {
                 // console.log('insert image success')
                 that.setData({
-                  img_num:1+that.data.img_num,
+                  img_num: 1 + that.data.img_num,
                 })
                 wx.hideLoading({
                   success: (res) => { },
