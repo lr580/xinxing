@@ -73,6 +73,12 @@
         {
           "name": "diary",
           "pathName": "pages/diary/diary",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "lbt",
+          "pathName": "pages/lbt/lbt",
           "scene": null
         }
       ]

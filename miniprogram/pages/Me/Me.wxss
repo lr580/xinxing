@@ -69,7 +69,7 @@
 
 .myBackground1 image{
   width: 100%;
-  height: 400rpx;
+  height: 1350rpx;
   position: absolute;
   z-index: -1;
 }

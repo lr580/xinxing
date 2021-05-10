@@ -69,8 +69,8 @@ top: 50rpx;
 }
 
 .myFoot image{
-  height: 50rpx;
-  width: 50rpx;
+  height: 250rpx;
+  width: 250rpx;
   padding: 10rpx;
 }
 

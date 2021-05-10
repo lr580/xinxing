@@ -7,7 +7,8 @@
     "pages/postp/postp",
     "pages/myattra/myattra",
     "pages/advice/advice",
-    "pages/help/help"
+    "pages/help/help",
+    "pages/lbt/lbt"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -16,13 +17,13 @@
     "navigationBarTitleText": "心行FindMyself",
     "navigationBarTextStyle": "black"
   },
-
   "tabBar": {
     "backgroundColor": "#F6F6F6",
     "selectedColor": "#ffe66d",
     "color": "#000000",
     "position": "bottom",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/discover/discover",
         "text": "探索",
         "iconPath": "./img/discover.png",

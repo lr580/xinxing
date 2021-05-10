@@ -10,10 +10,9 @@
 </view>
 <view wx:else>
   <view class="myBackground1">
-    <image src="/img/white.png"></image>
-    <view class="myBackground2">
-      <image src="/img/myback.png"></image>
-    </view>
+
+      <image src="/img/myback.jpg"></image>
+
   </view>
   <view class="userInfo">
     <view class="head">
