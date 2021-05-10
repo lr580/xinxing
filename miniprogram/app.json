@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/lbt/lbt",
     "pages/Me/Me",
     "pages/diary/diary",
     "pages/discover/discover",
@@ -7,8 +8,8 @@
     "pages/postp/postp",
     "pages/myattra/myattra",
     "pages/advice/advice",
-    "pages/help/help",
-    "pages/lbt/lbt"
+    "pages/help/help"
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

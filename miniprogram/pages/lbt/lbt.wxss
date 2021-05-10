@@ -1,1 +1,53 @@
 /* miniprogram/pages/lbt/lbt.wxss */
+.guideTxt{
+  text-align: center;
+  padding: 40rpx;
+  font-weight: 800;
+  font-size: 33rpx;
+  color: rgba(0, 0, 0, 0.568);
+}
+
+.confirm{
+  width: 325rpx;
+  height: 80rpx;
+  background: linear-gradient(to right, #4cedc4, rgba(0, 255, 136, 0.767)); 
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+ }
+
+
+ .bubble{ 
+  position: relative;
+  overflow: hidden;
+  border-radius: 50rpx;
+ }
+ .bubble:after{
+  content: "";
+  background: rgba(10, 185, 10, 0.562);
+  position: absolute; 
+  width: 750rpx;
+  height: 750rpx;
+  left: calc(50% - 375rpx);
+  top: calc(50% - 375rpx);
+  opacity: 0;
+  margin: auto;
+  border-radius: 50%;
+  transition: all 0.7s ease-in-out;
+ }
+ .bubble:active:after {
+  transform: scale(0);
+  opacity: 1;
+  transition: 0s;
+  border-radius: 50rpx;
+ }
+
+ .btn{
+   margin-top: 50rpx;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+ }

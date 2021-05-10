@@ -2577,23 +2577,24 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 swiper.round-dot .wx-swiper-dot {
-	width: 10rpx;
-	height: 10rpx;
+	width: 20rpx;
+	height: 20rpx;
 	position: relative;
-	margin: 4rpx 8rpx !important;
+	margin: 0rpx 20rpx !important;
+	margin-top: 100rpx;
 }
 
 swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active::after {
 	content: "";
 	position: absolute;
-	width: 10rpx;
-	height: 10rpx;
+	width: 30rpx;
+	height: 30rpx;
 	top: 0rpx;
 	left: 0rpx;
 	right: 0;
 	bottom: 0;
 	margin: auto;
-	background-color: var(--white);
+	background-color: var(--cyan);
 	border-radius: 20rpx;
 }
 
@@ -2603,7 +2604,7 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .screen-swiper {
-	min-height: 375rpx;
+	min-height: 500rpx;
 }
 
 .screen-swiper image,
@@ -2618,7 +2619,7 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .card-swiper {
-	height: 420rpx !important;
+	height: 1200rpx !important;
 }
 
 .card-swiper swiper-item {
