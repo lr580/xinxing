@@ -22,8 +22,13 @@
     <view class="live">
       <image src="/img/liveIn.png"></image>
 
-      {{user.province}} {{user.city}}
-
+      <!-- {{user.province}} {{user.city}} -->
+      <text wx:if="{{!editi_motto}}">{{user.motto?user.motto:'您还没有设置旅行个性签名~'}}</text>
+      <input type="text" placeholder="请输入一个帅气的旅行个性签名吧~" value="{{s_motto}}" bindinput="input_s_motto" maxlength="20" wx:else/>
+      <view></view>
+      <text bindtap='edit_motto' wx:if="{{!editi_motto}}">编辑</text>
+      <text bindtap='save_motto' wx:else>保存</text>
+      <!-- {{ed}} -->
     </view>
 
   </view>

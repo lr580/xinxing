@@ -7,6 +7,8 @@ Page({
   data: {
     unRegistered: true,
     user: null,
+    editi_motto: false,
+    s_motto: '',
   },
 
   onLoad: function () {
@@ -47,6 +49,7 @@ Page({
         thee.setData({
           unRegistered: x == null,
           user: x,
+          s_motto: x == null ? '' : x.motto,
         })
       }
     )
@@ -98,6 +101,7 @@ Page({
           dislike: [],
           gone: [],
           diary: [],
+          motto: '',
         }
 
         // datax['_id'] = km.globalData.openid
@@ -113,7 +117,7 @@ Page({
           })
           km.globalData.user = datax
         }).catch(rwc => {
-          console.log('err',rwc)
+          console.log('err', rwc)
           wx.showToast({
             title: '存储用户信息失败，请重试！',
             icon: 'none',
@@ -132,7 +136,7 @@ Page({
     })
   },
 
-  onShow(){
+  onShow() {
     // console.log('qwq')
     km.cb(km.globalData.user)
   },
@@ -184,6 +188,49 @@ Page({
       url: '/pages/help/help',
     })
   },
+
+  edit_motto() {
+    this.setData({
+      editi_motto: true,
+    })
+  },
+
+  save_motto() {
+    this.setData({
+      editi_motto: false,
+    })
+    if (this.data.s_motto.trim() == '') {
+      // console.log('qwq')
+      wx.showToast({
+        title: '请不要设置空白的个性签名！',
+        icon: 'none',
+      })
+      return
+    }
+    km.globalData.user.motto = this.data.s_motto
+    km.cb(km.globalData.user)
+    var thee = this
+    db.collection('user').doc(String(km.globalData.openid)).update({
+      data: {
+        motto: thee.data.s_motto
+      }
+    }).then(res => {
+
+    }).catch(rws => {
+      console.log('F i motto sav', rws)
+      wx.showToast({
+        title: '保存失败！',
+        icon: 'none',
+      })
+    })
+  },
+
+  input_s_motto(e) {
+    this.setData({
+      s_motto: e.detail.value,
+    })
+  },
+
 })
 
 module.exports = {

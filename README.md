@@ -70,6 +70,7 @@
 - dislike array，元素为number，不喜欢的景点_id
 - gone array，元素为number，已经去过的景点_id
 - diary array，元素为number，发表的旅行日志\_id
+- motto string，个性签名
 
 
 
