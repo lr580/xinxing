@@ -33,7 +33,7 @@
 <view class="body-main-box" wx:else>
   <!-- {{front}} -->
   <!-- 第一张 -->
-  <view class="body-swiper" bindtouchstart="touchFstart1" bindtouchend="touchend1"
+  <view class="body-swiper" bindtouchstart="touchstart1" bindtouchend="touchend1"
     style="z-index:{{index1}};top:{{ballTop1}}rpx;  margin-left:{{ballLeft1}}rpx;width:{{ballWidth1}}rpx;"
     animation="{{animationData1}}">
     <!-- {{front}} -->

@@ -214,7 +214,7 @@ Page({
     let absY = Math.abs(tmY);
     //起始点的坐标(x0,y0)和手指离开时的坐标(x1,y1)之间的距离
     let delta = Math.sqrt(absX * absX + absY * absY);
-    // console.log('起始点和离开点距离:' + delta + 'px');
+    // console.log('起始点和离开点距离:' + delta + 'px', absX, absY);
     // 如果delta超过60px（可以视情况自己微调）,判定为手势触发
     if (delta >= 60) {
       // 如果 |x0-x1|>|y0-y1|,即absX>abxY,判定为左右滑动
