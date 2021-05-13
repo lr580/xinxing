@@ -1,12 +1,20 @@
-<view>足迹：{{s_att_id==-1?'其他景点':attration[s_att_id].name}}</view>
+自定义<switch class="switch-sex sm" bindchange="sele_prov"></switch>
+
+<view>{{s_att_id==-1?'其他景点':attration[s_att_id].name}}</view>
+
+
+
 <view wx:if="{{s_id_on}}">
   <view bindtap="id_offz">点我折叠选项</view>
-  <view>
+
+
+
+  <!-- <view>
     <radio-group bindchange="sele_prov">
       <radio checked value="{{0}}" checked="{{1}}">广东省</radio>
       <radio checked value="{{-1}}" checked="{{0}}">其他</radio>
     </radio-group>
-  </view>
+  </view> -->
   <view>
     <radio-group bindchange="sele_city">
       <view wx:if="{{s_pro==0}}">
@@ -17,6 +25,9 @@
     </radio-group>
   </view>
   <view wx:if="{{s_pro==0}}">分割线</view>
+
+
+
   <view>
     <view wx:if="{{s_pro==0}}">
       <radio-group bindchange="sele_attra">
@@ -31,6 +42,16 @@
 <view wx:else>
   <view bindtap="id_onz">点我展开选项</view>
 </view>
+
+<view class="cu-form-group">
+		<view class="title">景点名称</view>
+		<input placeholder="请输入景点名称" value="{{s_att_name}}" bindinput="input_s_att_name"></input>
+		<text class="cuIcon-evaluate_fill text-orange"></text>
+	</view>
+
+
+
+
 <view>景点名称：<input type="text" placeholder="请输入景点名字" value="{{s_att_name}}" bindinput="input_s_att_name" /></view>
 <view>旅行日期： {{s_time}}</view>
 <view class="page-body">
@@ -68,7 +89,9 @@
 
   </view>
 </view>
-<button bindtap="mytj">提交</button>
+
+
+<button class="cu-btn round bg-gray shadow button-hover" bindtap="mytj" style="width:150rpx">提交</button>
 <!-- <view>
   <rich-text nodes="{{articleContent}}"></rich-text>
 </view> -->

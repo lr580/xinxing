@@ -79,6 +79,18 @@
         {
           "name": "lbt",
           "pathName": "pages/lbt/lbt",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "postp",
+          "pathName": "pages/postp/postp",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "testeditor",
+          "pathName": "pages/testeditor/editor",
           "scene": null
         }
       ]

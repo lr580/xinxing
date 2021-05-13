@@ -2,7 +2,7 @@
 @import "./assets/iconfont.wxss";
  
 .wrapper {
-  padding: 5px;
+  padding: 15px;
 }
 .iconfont {
   display: inline-block;
@@ -15,6 +15,9 @@
  
 .toolbar {
   box-sizing: border-box;
+  border: 1px solid white;
+  border-radius: 20rpx;
+  background-color: rgba(134, 134, 134, 0.199);
   /* border: 1px solid #ccc; */
   /* border-bottom: 0; */
   margin-bottom: 40px;
@@ -28,12 +31,11 @@
   min-height: 30vh;
   height: 600rpx;
   border: 1px solid #ccc;
-  /* border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc; */
+  font-weight: 200;
   background: #fff;
-  margin-top: 20px;
   font-size: 16px;
   line-height: 1.5;
+  border-radius: 15rpx;
 }
  
 .ql-active {

@@ -6,6 +6,7 @@ const db = wx.cloud.database()
 const _ = db.command
 Page({
   data: {
+
     isFront1: true,
     isFront2: true,
     isFront3: true,
@@ -56,6 +57,7 @@ Page({
     this.load_attration()
     // console.log(this.data.city,getApp().globalData.city)
   },
+
 
   sele_city(p) {
     // console.log(p.detail.value)

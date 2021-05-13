@@ -38,15 +38,27 @@ Page({
     })
   },
   sele_prov(p) {
-    var pv = Number(p.detail.value)
-    this.setData({
-      s_pro: pv,
-    })
-    if (pv == -1) {
+    var pv = p.detail.value;
+    console.log(pv);
+    if(pv){
       this.setData({
+        s_pro: -1,
         s_att_id: -1,
       })
     }
+    else{
+      this.setData({
+        s_pro: 0,
+      })
+    }
+    // this.setData({
+    //   s_pro: pv,
+    // })
+    // if (pv == -1) {
+    //   this.setData({
+    //     s_att_id: -1,
+    //   })
+    // }
   },
   sele_city(p) {
     var pv = Number(p.detail.value)

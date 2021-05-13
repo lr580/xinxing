@@ -2039,8 +2039,8 @@ button.icon.lg {
 	content: "";
 	display: block;
 	position: absolute;
-	width: 1rpx;
-	background-color: #ddd;
+	width: 2rpx;
+	background-color: rgb(204, 204, 204);
 	left: 60rpx;
 	height: 100%;
 	top: 0;

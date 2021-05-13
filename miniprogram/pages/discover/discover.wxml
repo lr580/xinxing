@@ -5,9 +5,12 @@
   跳过
 </view>
 
+
+
+
 <view class="sele_range" bindtap="sele_range">
-  点我选择省市
-  <view>(当前：广东省-{{city[now_city].name}})</view>
+  选择探索区域
+  <view>广东省-{{city[now_city].name}}</view>
 </view>
 
 <view class="sele_block" wx:if="{{sele_on}}">
