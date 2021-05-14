@@ -26,6 +26,9 @@ Page({
     edit: 0,
     idx: -1,
     newed: false,
+    index: 0,
+    multiArray: ['广东省', 'tmd', 'dmt'],
+    multiIndex: [0, 0, 0],
   },
   id_onz() {
     this.setData({
@@ -40,13 +43,13 @@ Page({
   sele_prov(p) {
     var pv = p.detail.value;
     console.log(pv);
-    if(pv){
+    if (pv) {
       this.setData({
         s_pro: -1,
         s_att_id: -1,
       })
     }
-    else{
+    else {
       this.setData({
         s_pro: 0,
       })
@@ -166,6 +169,71 @@ Page({
       }, duration)
     })
 
+    this.init_picker(Number(options.edit))
+  },
+  get_attration_by_city(h) {
+    let t = [], ti = []
+    for (let i = 0; i < km.globalData.city[Number(h)].attration.length; ++i) {
+      let aid = km.globalData.city[Number(h)].attration[i]
+      let suc = false
+      for (let j = 0; j < km.globalData.attration.length; ++j) {
+        if (aid == km.globalData.attration[j]._id) {
+          t.push(km.globalData.attration[j].name)
+          ti.push(Number(km.globalData.attration[j]._id))
+        }
+      }
+    }
+    this.setData({
+      n_att_ids: ti,
+    })
+    return t
+  },
+  init_picker(ed) {
+    let cities = []
+    for (let i = 0; i < km.globalData.city.length; ++i) {
+      cities.push(km.globalData.city[i].name)
+    }
+    this.setData({
+      multiArray: [['广东省', '其他'], cities, this.get_attration_by_city(0)],
+      cities: cities,
+    })
+    // if (ed == 1) {
+
+    // }
+  },
+  bindMultiPickerChange: function (e) {
+    // console.log('bp', e.detail.value)
+    let thee = this
+    this.setData({
+      s_att_id: e.detail.value[0] == 1 ? -1 : thee.data.n_att_ids[e.detail.value[2]],
+    })
+  },
+  bindMultiPickerColumnChange: function (e) {
+    if (e.detail.column == 1) {
+      // console.log('qwq')
+      this.setData({
+        multiArray: [['广东省', '其他'], this.data.cities, this.get_attration_by_city(Number(e.detail.value))],
+        multiIndex: [0, Number(e.detail.value), 0],
+      })
+    } else if (e.detail.column == 0) {
+      if (e.detail.value == 1) {
+        this.setData({
+          multiArray: [['广东省', '其他'], ['无'], ['无']],
+          multiIndex: [1, 0, 0],
+        })
+      } else {
+        this.setData({
+          multiArray: [['广东省', '其他'], this.data.cities, this.get_attration_by_city(0)],
+          multiIndex: [0, 0, 0],
+        })
+      }
+    }
+    // } else {
+    //   let thee = this
+    //   this.setData({
+    //     s_att_id: 1 ? -1 : thee.data.n_att_ids[e.detail.value],
+    //   })
+    // }
   },
   updatePosition(keyboardHeight) {
     const toolbarHeight = 50

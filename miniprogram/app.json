@@ -5,11 +5,9 @@
     "pages/diary/diary",
     "pages/discover/discover",
     "pages/like/like",
-    "pages/postp/postp",
     "pages/myattra/myattra",
     "pages/advice/advice",
-    "pages/help/help",
-    "pages/demomulti/demomulti"
+    "pages/help/help"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

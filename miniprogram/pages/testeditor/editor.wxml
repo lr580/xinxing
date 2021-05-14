@@ -1,6 +1,15 @@
+<view class="section__title">多列选择器</view>
+<picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+  value="{{multiIndex}}" range="{{multiArray}}">
+  <view class="picker">
+    <!-- 当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}} -->
+    您选中的景点是：{{s_att_id==-1?'其他景点':attration[s_att_id].name}}
+  </view>
+</picker>
+
 自定义<switch class="switch-sex sm" bindchange="sele_prov"></switch>
 
-<view>{{s_att_id==-1?'其他景点':attration[s_att_id].name}}</view>
+<!-- <view>{{s_att_id==-1?'其他景点':attration[s_att_id].name}}</view> -->
 
 
 
