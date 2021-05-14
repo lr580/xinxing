@@ -15,23 +15,25 @@ Page({
     this.setData({
       unRegistered: getApp().globalData.user == null
     })
-    wx.createSelectorQuery().selectAll('#c1').node(res => {
-      const canvas = res[0].node
-      const context = canvas.getContext('2d')
+    if (this.data.unRegistered) {
+      wx.createSelectorQuery().selectAll('#c1').node(res => {
+        const canvas = res[0].node
+        const context = canvas.getContext('2d')
 
-      canvas.width = 1000
-      canvas.height = 1000
+        canvas.width = 1000
+        canvas.height = 1000
 
-      lottie.setup(canvas)
-      this.ani = lottie.loadAnimation({
-        loop: true,
-        autoplay: true,
-        animationData: require('../lotties/signup'),
-        rendererSettings: {
-          context,
-        },
-      })
-    }).exec()
+        lottie.setup(canvas)
+        this.ani = lottie.loadAnimation({
+          loop: true,
+          autoplay: true,
+          animationData: require('../lotties/signup'),
+          rendererSettings: {
+            context,
+          },
+        })
+      }).exec()
+    }
 
     const thee = this
     // }).then(res=>{

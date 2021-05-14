@@ -1,24 +1,25 @@
+const km = getApp();
 Page({
   data: {
 
-    
-    
+
+
     cardCur: 0,
     swiperList: [{
       id: 0,
       type: 'image',
       url: '/img/discover1.png',
-      txt:'通过指尖滑动发现未知的美。'
+      txt: '通过指尖滑动发现未知的美。'
     }, {
       id: 1,
-        type: 'image',
-        url: '/img/diary1.png',
-        txt:'记录你的足迹，写下你的旅程感受。'
+      type: 'image',
+      url: '/img/diary1.png',
+      txt: '记录你的足迹，写下你的旅程感受。'
     }, {
       id: 2,
       type: 'image',
       url: '/img/timeline.png',
-      txt:'浏览旅行时间轴，是回望也是升华。'
+      txt: '浏览旅行时间轴，是回望也是升华。'
     }],
     list: [{
       name: 'fade',
@@ -51,11 +52,23 @@ Page({
       name: 'shake',
       color: 'mauve'
     }
-  ],
-  toggleDelay: false
+    ],
+    toggleDelay: false,
+    rem: false,//是否显示该页面
   },
   onLoad() {
     this.towerSwiper('swiperList');
+    var thee = this;
+    km.jump_to_main = function () {
+      wx.switchTab({
+        url: '/pages/Me/Me'
+      })
+    }
+    km.remain_init = function () {
+      thee.setData({
+        rem: true,
+      })
+    }
     // 初始化towerSwiper 传已有的数组名即可
   },
   DotStyle(e) {
@@ -130,7 +143,7 @@ Page({
     that.setData({
       animation: anmiaton
     })
-    setTimeout(function() {
+    setTimeout(function () {
       that.setData({
         animation: ''
       })
@@ -141,18 +154,18 @@ Page({
     that.setData({
       toggleDelay: true
     })
-    setTimeout(function() {
+    setTimeout(function () {
       that.setData({
         toggleDelay: false
       })
     }, 1000)
   },
-  gotoDiscover(){
+  gotoDiscover() {
 
     setTimeout(function () {
       wx.switchTab({
-        url: '/pages/discover/discover'
+        url: '/pages/Me/Me'
       })
-     }, 700)
+    }, 700)
   }
 })

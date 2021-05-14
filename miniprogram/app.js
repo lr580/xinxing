@@ -161,6 +161,7 @@ App({
           name: 'getOpenId',
         }).then(res => {
           // console.log('operes',res)
+          
           wx.showLoading({
             title: '载入用户信息',
             mask: true,
@@ -172,6 +173,9 @@ App({
           // thee.qabo(openid)
 
           db.collection('user').doc(openid).get().then(ret => {
+            if(km.jump_to_main){
+              km.jump_to_main()
+            }
             km.globalData.user = ret.data
             km.cb(ret.data)//而不是km.fn，因为fn是绑定cb……cb才是执行函数
             var bar = 0
@@ -221,6 +225,9 @@ App({
             //   success: (res) => { },
             // })
           }).catch(rwt => {
+            if(km.remain_init){
+              km.remain_init()
+            }
             km.globalData.user = null
             console.log('用户尚未授权过头像和昵称。')
             console.log(rwt)
