@@ -4,6 +4,8 @@ const db = wx.cloud.database()
 const _ = db.command
 Page({
   data: {
+    TabCur: 0,
+    scrollLeft:0,
     articleContent: '', //文章正文
     formats: {},
     readOnly: false,
@@ -41,7 +43,8 @@ Page({
     })
   },
   sele_prov(p) {
-    var pv = p.detail.value;
+
+    var pv =e.currentTarget.dataset.id;
     console.log(pv);
     if (pv) {
       this.setData({
@@ -78,6 +81,25 @@ Page({
     // console.log(temp)
     this.setData({
       s_tg: temp,
+    })
+  },
+  tabSelect(e) {
+    var sta = e.currentTarget.dataset.id;
+    if (sta==2) {
+      this.setData({
+        s_pro: -1,
+        s_att_id: -1,
+      })
+    }
+    else {
+      this.setData({
+        s_pro: 0,
+      })
+    }
+    console.log(sta);
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id-1)*60
     })
   },
   sele_attra(p) {

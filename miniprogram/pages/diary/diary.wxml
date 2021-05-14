@@ -1,3 +1,16 @@
+<!-- <view class="btn_Suspension" bindtap="btn_Suspension_click" catchtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" style="top:{{buttonTop}}px;left:{{buttonLeft}}px;">
+    <image class="Suspension_logo" src="/img/FindMyself.png"></image>这里是按钮图标，下载地址会在文章底部说明
+    <view wx:if="{{corner_data==0}}"></view>
+    <view wx:else>
+      <view class="cornorMark">
+        <text>{{corner_data}}</text>
+      </view>
+    </view>
+  </view> -->
+
+
+
+
 <view class="myFoot">
   <image src="/img/FindMyself.png"></image>
 </view>
