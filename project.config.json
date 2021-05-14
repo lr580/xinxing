@@ -91,6 +91,12 @@
         {
           "name": "testeditor",
           "pathName": "pages/testeditor/editor",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "demomul",
+          "pathName": "pages/demomulti/demomulti",
           "scene": null
         }
       ]
