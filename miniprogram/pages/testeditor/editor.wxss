@@ -41,3 +41,13 @@
 .ql-active {
   color: #06c;
 }
+
+
+.con1{
+  display: flex;
+  align-items: center;
+}
+
+.con1 input{
+  margin-left: 30rpx;
+}

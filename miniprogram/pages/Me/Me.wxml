@@ -9,30 +9,29 @@
   </view>
 </view>
 <view wx:else>
-  <view class="myBackground1">
+  <!-- <view class="myBackground1">
 
       <image src="/img/myback.jpg"></image>
 
-  </view>
+  </view> -->
   <view class="userInfo">
     <view class="head">
       <image src="{{user.avatarUrl}}"></image>
     </view>
     <view class="name">{{user.nickName}}</view>
-    <view class="live">
-      <image src="/img/liveIn.png"></image>
-
-      <!-- {{user.province}} {{user.city}} -->
-      <text wx:if="{{!editi_motto}}">{{user.motto?user.motto:'您还没有设置旅行个性签名~'}}</text>
-      <input type="text" placeholder="请输入一个属于你自己的旅行个性签名吧~" value="{{s_motto}}" bindinput="input_s_motto" maxlength="20" wx:else/>
-      <view></view>
-      <text bindtap='edit_motto' wx:if="{{!editi_motto}}">编辑</text>
-      <text bindtap='save_motto' wx:else>保存</text>
-      <!-- {{ed}} -->
-    </view>
 
   </view>
+  <view style="display:flex;justify-content: center;flex-direction: column;">
 
+  <view class="motto">
+        <text wx:if="{{!editi_motto}}">{{user.motto?user.motto:'您还没有设置旅行个性签名~'}}</text>
+      <input type="text" placeholder="写一个属于你自己的旅行个性签名吧~" value="{{s_motto}}" bindinput="input_s_motto" maxlength="20" wx:else/>
+      </view>
+
+      <view> 
+        <button style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;" class="bg-gray shadow button-hover" bindtap='edit_motto' wx:if="{{!editi_motto}}">编辑</button>
+      <button style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;" class="bg-gray shadow button-hover" bindtap='save_motto' wx:else>保存</button></view>
+    </view>
   <van-divider />
   <view class="func">
     <!-- <view>我喜欢的景点_id(仅调试时可见)：{{user.like}}</view>

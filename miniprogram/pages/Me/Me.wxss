@@ -95,3 +95,21 @@
   /* z-index: 0; */
   /* position: fixed; */
 }
+
+.motto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: auto;
+padding: 10rpx;
+margin-left: 40rpx;
+}
+
+
+
+.motto text{
+  font-weight: 800;
+  font-size: 30rpx;
+  color: #00000062;
+}
