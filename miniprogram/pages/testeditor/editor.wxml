@@ -132,9 +132,9 @@
       <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
       <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
       <i class="iconfont icon-zitishanchuxian {{formats.strike ? 'ql-active' : ''}}" data-name="strike"></i>
-      <i class="iconfont icon-outdent" data-name="indent" data-value="-1"></i>
       <i class="iconfont icon-juzhongduiqi {{formats.align === 'center' ? 'ql-active' : ''}}" data-name="align"
         data-value="center"></i>
+      <i class="iconfont icon-outdent" data-name="indent" data-value="-1"></i>
       <i class="iconfont icon-indent" data-name="indent" data-value="+1"></i>
       <i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
       <i class="iconfont icon-charutupian" bindtap="insertImage"></i>

@@ -1,6 +1,6 @@
 <scroll-view scroll-x class="bg-green nav text-center">
   <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
-    <text class="cuIcon-likefill"></text> 感喜欢的
+    <text class="cuIcon-likefill"></text> 感兴趣的
   </view>
   <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
     <text class="cuIcon-close"></text> 不感兴趣
@@ -28,7 +28,7 @@
   <view wx:for="{{fked}}">
     <view style="display:flex;justify-content:center;">
 <view class="contentbd">
-  <view class="index">{{index}}</view>
+  <view class="index">{{index+1}}</view>
 </view>
 </view>
 

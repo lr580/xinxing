@@ -47,6 +47,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // this.upd()
+    // if(this.data.user==null){
+    //   wx.na
+    // }
+  },
+
+  upd(){
     this.setData({
       user: km.globalData.user,
       city: km.globalData.city,
@@ -59,9 +66,6 @@ Page({
       busy: false,//防止连点
     })
     this.sele_block({ detail: { value: 0 } })
-    // if(this.data.user==null){
-    //   wx.na
-    // }
   },
 
   sele_block(p) {
@@ -226,7 +230,7 @@ Page({
       })
       km.diaryz(datax)
     }
-    console.log('hg', hg)
+    // console.log('hg', hg)
     db.collection('user').doc(km.globalData.openid).update({
       data: hg
     }).then(res => {
@@ -262,7 +266,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.upd()
   },
 
   /**

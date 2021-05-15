@@ -168,7 +168,7 @@ App({
           })
           var openid = res.result.userInfo.openId
           km.globalData.openid = openid
-          console.log('open id', openid)
+          // console.log('open id', openid)
 
           // thee.qabo(openid)
 
