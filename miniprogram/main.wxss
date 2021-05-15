@@ -1251,9 +1251,16 @@ button.icon.lg {
 	right: 0;
 	display: flex;
 	width: 260rpx;
-	height: 100%;
-	transform: translateX(100%)
+	height: 121rpx;
+	transform: translateX(100%);
+
 }
+
+.cu-list>.cu-item .move image{
+	height: 70rpx;
+	width: 70rpx;
+}
+
 
 .cu-list>.cu-item .move view {
 	display: flex;

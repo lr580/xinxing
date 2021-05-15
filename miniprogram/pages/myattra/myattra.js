@@ -1,5 +1,6 @@
 // miniprogram/pages/myattra/myattra.js
 const km = getApp()
+const app = getApp();
 // import lottie from 'lottie-miniprogram'
 const db = wx.cloud.database()
 const _ = db.command
@@ -10,7 +11,8 @@ Page({
    */
   data: {
     TabCur: 0,
-    scrollLeft: 0
+    scrollLeft: 0,
+    CustomBar: app.globalData.CustomBar
   },
   tabSelect(e) {
     this.setData({
@@ -101,6 +103,11 @@ Page({
   detail_onz(v) {
     var idx = Number(v.currentTarget.id)
     var temp = []
+    this.setData({
+      modalName: v.currentTarget.dataset.target
+     
+    })
+    console.log('asd')
     for (let i = 0; i < this.data.detail_on.length; ++i) {
       temp.push(this.data.detail_on[i])
     }
@@ -252,6 +259,49 @@ Page({
         title: '修改失败，请重试！',
         icon: 'none',
       })
+    })
+  },
+
+  // ListTouch触摸开始
+  ListTouchStart(e) {
+    this.setData({
+      ListTouchStart: e.touches[0].pageX
+    })
+  },
+
+  // ListTouch计算方向
+  ListTouchMove(e) {
+    this.setData({
+      ListTouchDirection: e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left'
+    })
+  },
+
+  // ListTouch计算滚动
+  ListTouchEnd(e) {
+    if (this.data.ListTouchDirection =='left'){
+      this.setData({
+        modalName: e.currentTarget.dataset.target
+      })
+    } else {
+      this.setData({
+        modalName: null
+      })
+    }
+    this.setData({
+      ListTouchDirection: null
+    })
+  },
+
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+     
+    })
+    console.log('asd')
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
     })
   },
 

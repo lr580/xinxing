@@ -42,6 +42,7 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "disableScroll": true,
+  "style": "v2",
+  "sitemapLocation": "sitemap94.json"
 }

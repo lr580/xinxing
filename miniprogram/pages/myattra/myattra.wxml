@@ -1,3 +1,5 @@
+
+
 <scroll-view scroll-x class="bg-green nav text-center">
   <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
     <text class="cuIcon-likefill"></text> 感兴趣的
@@ -7,6 +9,16 @@
   </view>
  
 </scroll-view>
+
+
+<!-- <view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange "></text> 普通窗口
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow" bindtap="showModal" data-target="Modal">Modal</button>
+  </view>
+</view> -->
 
 
 <!-- <view>
@@ -26,22 +38,15 @@
 
 <view>
   <view wx:for="{{fked}}">
-    <view style="display:flex;justify-content:center;">
+  <view style="display:flex;justify-content:center;">
 <view class="contentbd">
-  <view class="index">{{index+1}}</view>
+  <view class="index"></view>
+  <view class="main">
+<view class="vname">{{attration[fked[index]].name}}</view>
+
+  </view>
 </view>
-</view>
-
-
-
-
- 
-    <view>景点名称：{{attration[fked[index]].name}}</view>
-    <!-- {{detail_on[index]}} -->
-    <view id="{{fked[index]}}" bindtap="deny_tag">取消设置标签“{{now_block==0?'我感兴趣':'我不感兴趣'}}”</view> 
-    <view>您{{gone[index]?'已':'未'}}去过该景点</view>
-    <view id="{{index}}" bindtap="change_gone">将该景点设置为{{gone[index]?'未':'已'}}去过</view>
-    <!-- 如有余力，还可以设置移动到对立面，但是不想弄，感觉没必要 -->
+</view> 
 
     <view wx:if="{{detail_on[index]==false}}" id="{{index}}" bindtap="detail_onz">点我展开</view>
     <view wx:else>
@@ -53,15 +58,84 @@
       <view>介绍：{{attration[fked[index]].intro}}</view>
       <view>特色：{{attration[fked[index]].special}}</view>
       <view>资质：{{attration[fked[index]].prize}}</view>
-      <view>子景点：{{attration[fked[index]].detail}}</view>
+      <view>子景点：{{attration[fked[index]].detail}}</view> 
     </view>
   </view>
   <view wx:if="{{fked.length==0}}">空空如也！</view>
 </view>
 
 
+<!-- demo -->
 
 
+
+
+
+<view class="cu-list limit">
+    <view class="cu-item leftbd {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{fked}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+    
+      <view class="contentbd">
+  <view wx:if="{{!gone[index]}}" class="index1">
+    <image wx:if="{{!gone[index]}}" src="/img/wei1.png" class="no"></image>
+    <image wx:else src="/img/even1.png" class="yes"></image>
+    
+  </view>
+  <view wx:else class="index2">
+    <image wx:if="{{!gone[index]}}" src="/img/wei1.png" class="no"></image>
+    <image wx:else src="/img/even1.png" class="yes"></image>
+    
+  </view>
+  <view class="main">
+<view class="vname">{{attration[fked[index]].name}}</view>
+<view class="haveicon">
+          <image id="{{index}}" bindtap="detail_onz" data-target="Modal" src="/img/zhankai.png">
+          </image>
+
+        </view>
+  </view>
+</view>
+<view wx:if="{{!gone[index]}}" class="move">
+        <view id="{{index}}" bindtap="change_gone" class="bg-cyan rightbd haveicon">
+          <image src="/img/ever.png"></image>
+        </view>
+        <view id="{{fked[index]}}" bindtap="deny_tag" class="bg-yellow haveicon">
+          <image src="/img/goout.png"></image>
+        </view>
+      </view>
+      <view wx:else class="move">
+        <view id="{{index}}" bindtap="change_gone" class="bg-grey rightbd haveicon">
+          <image src="/img/wei.png"></image>
+        </view>
+        <view id="{{fked[index]}}" bindtap="deny_tag" class="bg-yellow haveicon">
+          <image src="/img/goout.png"></image>
+        </view>
+      </view>   
+    </view>
+  </view>
+
+
+
+
+  <!-- <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">Modal标题</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view id="{{index}}" class="padding-xl">
+      <image src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[fked[index]].pic}}">
+      </image>
+      <view>地点：{{attration[fked[index]].position}}</view>
+      <view>评分：{{attration[fked[index]].mark}}</view>
+      <view>介绍：{{attration[fked[index]].intro}}</view>
+      <view>特色：{{attration[fked[index]].special}}</view>
+      <view>资质：{{attration[fked[index]].prize}}</view>
+      <view>子景点：{{attration[fked[index]].detail}}</view>
+    </view>
+  </view>
+</view> -->
 
 
 
