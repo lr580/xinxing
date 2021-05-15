@@ -10,12 +10,12 @@ Page({
    */
   data: {
     TabCur: 0,
-    scrollLeft:0
+    scrollLeft: 0
   },
   tabSelect(e) {
     this.setData({
       TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
     var idx = Number(e.currentTarget.dataset.id)
     var temp = []
@@ -65,7 +65,7 @@ Page({
   },
 
   sele_block(p) {
-    
+
     var idx = Number(p.detail.value)
     var temp = []
     var temd = []
@@ -188,20 +188,45 @@ Page({
     const thee = this
     this.data.busy = true
     if (this.data.user.gone.indexOf(iidx) != -1) {
-      hg['gone'] = _.pop(iidx)
+      // hg['gone'] = _.pop(iidx)
+      // console.log(this.data.user.gone, iidx)
+      while (this.data.user.gone.indexOf(iidx) != -1) {
+        this.data.user.gone.pop(iidx)
+      }
+      hg['gone'] = this.data.user.gone
+      // console.log(this.data.user.gone, iidx)
       for (let i = 0; i < this.data.user.gone.length; ++i) {
         if (iidx != this.data.user.gone[i]) {
           temp.push(this.data.user.gone[i])
         }
       }
       this.data.user.gone = temp
+      // console.log('ii',iidx)
       km.del_diaryz(iidx)
     } else {
-      hg['gone'] = _.push(iidx)
+      // hg['gone'] = _.push(iidx)
+      hg['gone'] = this.data.user.gone
       this.data.user.gone.push(iidx)
       let datax = km.empty_diaryz(iidx)
+      ++km.globalData.num_diary
+      datax["_id"] = String(Number(datax["_id"]) + 1)
+      // console.log(datax['_id'])
+      db.collection('global').doc('default').update({
+        data: {
+          num_diary: _.inc(1),
+        }
+      }).then(res => {
+        // console.log('succ')
+      }).catch(rws => {
+        console.log('fail', rws)
+        wx.showToast({
+          title: '更新数据失败',
+          icon: 'none',
+        })
+      })
       km.diaryz(datax)
     }
+    console.log('hg', hg)
     db.collection('user').doc(km.globalData.openid).update({
       data: hg
     }).then(res => {
@@ -218,6 +243,7 @@ Page({
       thee.setData({
         busy: false,
       })
+      console.log('ff', rws)
       wx.showToast({
         title: '修改失败，请重试！',
         icon: 'none',

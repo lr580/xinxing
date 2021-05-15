@@ -11,10 +11,10 @@ App({
     //this.globalData.openid = null
     const km = this//this
     var load_a = false, load_b = false
-    var deload = function(){
-      if(load_a&&load_b){
+    var deload = function () {
+      if (load_a && load_b) {
         wx.hideLoading({
-          success: (res) => {},
+          success: (res) => { },
         })
       }
     }
@@ -72,7 +72,7 @@ App({
             // console.log(attration_obj)
             // console.log()
             // wx.hideLoading()
-            load_a=true
+            load_a = true
             deload()
           }
           var progress_bar = 0
@@ -161,7 +161,7 @@ App({
           name: 'getOpenId',
         }).then(res => {
           // console.log('operes',res)
-          
+
           wx.showLoading({
             title: '载入用户信息',
             mask: true,
@@ -173,7 +173,7 @@ App({
           // thee.qabo(openid)
 
           db.collection('user').doc(openid).get().then(ret => {
-            if(km.jump_to_main){
+            if (km.jump_to_main) {
               km.jump_to_main()
             }
             km.globalData.user = ret.data
@@ -190,7 +190,7 @@ App({
               obj_diary.reverse()
               km.globalData.diary = obj_diary
               // console.log('??',obj_diary)
-              load_b=true
+              load_b = true
               deload()
               // wx.hideLoading({
               //   success: (res) => { },
@@ -225,7 +225,7 @@ App({
             //   success: (res) => { },
             // })
           }).catch(rwt => {
-            if(km.remain_init){
+            if (km.remain_init) {
               km.remain_init()
             }
             km.globalData.user = null
@@ -316,7 +316,7 @@ App({
     const km = this
     const _ = db.command
     var bar = 0
-    
+
     const tot_bar = 2
     var fin = function () {
       // console.log('fff')
@@ -359,15 +359,15 @@ App({
         var still = false
         var tgi = -1
         for (let i = 0; i < km.globalData.diary.length; ++i) {
-          if(km.globalData.diary[i]['_id']==datax['_id']){
-            tgi=i
+          if (km.globalData.diary[i]['_id'] == datax['_id']) {
+            tgi = i
             break
           }
         }
         // console.log(km.globalData.diary[tgi])
         for (let i = 0; i < km.globalData.diary.length; ++i) {
           if (tgi == i) { continue } //datax['_id']
-          if (km.globalData.diary[i]['att_id'] == km.globalData.diary[tgi]['att_id']){//datax['att_id']) {
+          if (km.globalData.diary[i]['att_id'] == km.globalData.diary[tgi]['att_id']) {//datax['att_id']) {
             still = true
             break
           }
@@ -380,13 +380,13 @@ App({
         if (!still) {
           km.globalData.user.gone.splice(km.globalData.user.gone.indexOf(km.globalData.diary[tgi]['att_id']), 1)
         }
-        if(km.globalData.user.gone.indexOf(datax['att_id'])==-1){
+        if (km.globalData.user.gone.indexOf(datax['att_id']) == -1) {
           km.globalData.user.gone.push(datax['att_id'])
         }
         newgone = km.globalData.user.gone
       } else {
         newgone = km.globalData.user.gone
-        if(newgone.indexOf(datax['att_id'])==-1){
+        if (newgone.indexOf(datax['att_id']) == -1) {
           newgone.push(datax['att_id'])
         }
       }
@@ -419,7 +419,7 @@ App({
       if (++bar == tot_bar) { fin() }
     }
 
-    if(edit != 1)km.globalData.diary.unshift(datax)
+    if (edit != 1) km.globalData.diary.unshift(datax)
     if (edit == 1) {
       km.globalData.diary[tgi]['att_id'] = datax['att_id'] //String()
       km.globalData.diary[tgi]['att_name'] = datax['att_name']
@@ -475,7 +475,8 @@ App({
     var del_id = []
     for (let i = 0; i < km.globalData.diary.length; ++i) {
       let ii = Number(km.globalData.diary[i]._id)
-      if (idx == km.globalData.diary[i].att_id && km.globalData.diary[i].content != '') {
+      // console.log(i, ii, idx, km.globalData.diary[i].att_id, km.globalData.diary[i].content)
+      if (idx == km.globalData.diary[i].att_id && km.globalData.diary[i].content == '') {
         del_id.push(ii)
       } else {
         temp_d.push(km.globalData.diary[i])

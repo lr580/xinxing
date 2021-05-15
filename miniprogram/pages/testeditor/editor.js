@@ -45,7 +45,7 @@ Page({
   sele_prov(p) {
 
     var pv = e.currentTarget.dataset.id;
-    console.log(pv);
+    // console.log(pv);
     if (pv) {
       this.setData({
         s_pro: -1,
@@ -96,7 +96,7 @@ Page({
         s_pro: 0,
       })
     }
-    console.log(sta);
+    // console.log(sta);
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
@@ -137,12 +137,12 @@ Page({
         }
       })
     } else {
-      console.log(options)//, km.globalData.diary)
+      // console.log(options)//, km.globalData.diary)
       var idx = Number(options.id)
 
       let nr = km.globalData.diary[idx].content
       let img_nr = nr.match(/<img[^>]*>/g)
-      console.log(img_nr)
+      // console.log(img_nr)
       if (img_nr == null) img_nr = []
 
       this.setData({
@@ -168,7 +168,7 @@ Page({
       // }, 10);
 
     }
-    console.log(this.data.now_id)
+    // console.log(this.data.now_id)
     this.sele_city({ detail: { value: 0 } })
 
     const platform = wx.getSystemInfoSync().platform
@@ -342,7 +342,7 @@ Page({
         var suffix = tempf[tempf.length - 1]
         var hp = 'diary/' + String(that.data.now_id) + '_' + String(that.data.img_num) + '.' + suffix
         var whp = km.globalData.pathc + hp
-        console.log(tempf, whp)
+        // console.log(tempf, whp)
         if (tempPath.length <= 0) {
           wx.showToast({
             title: '你没有选中图片！',
