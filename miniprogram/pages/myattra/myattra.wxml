@@ -1,6 +1,15 @@
-<!--miniprogram/pages/myattra/myattra.wxml-->
-<text>miniprogram/pages/myattra/myattra.wxml</text>
-<view>
+<scroll-view scroll-x class="bg-green nav text-center">
+  <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
+    <text class="cuIcon-likefill"></text> 感喜欢的
+  </view>
+  <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
+    <text class="cuIcon-close"></text> 不感兴趣
+  </view>
+ 
+</scroll-view>
+
+
+<!-- <view>
   <radio-group bindchange="sele_block">
     <view>
 
@@ -13,11 +22,20 @@
       <text wx:if="{{now_block==1}}">(现在选择)</text>
     </view>
   </radio-group>
-</view>
+</view> -->
 
 <view>
   <view wx:for="{{fked}}">
-    <view>{{index}}</view>
+    <view style="display:flex;justify-content:center;">
+<view class="contentbd">
+  <view class="index">{{index}}</view>
+</view>
+</view>
+
+
+
+
+ 
     <view>景点名称：{{attration[fked[index]].name}}</view>
     <!-- {{detail_on[index]}} -->
     <view id="{{fked[index]}}" bindtap="deny_tag">取消设置标签“{{now_block==0?'我感兴趣':'我不感兴趣'}}”</view> 

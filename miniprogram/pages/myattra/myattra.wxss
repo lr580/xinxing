@@ -1,1 +1,18 @@
-/* miniprogram/pages/myattra/myattra.wxss */
+.contentbd{
+  width: 80%;
+  height: 150rpx;
+  background-color: rgb(255, 255, 255);
+  border-radius: 16rpx;
+  padding: 10rpx;
+  margin: 8rpx;
+  display: flex;
+  align-items: center;
+}
+
+.index{
+  font-size: 60rpx;
+  font-weight: 800;
+  padding: 20rpx;
+  color: grey;
+  border-right: 10rpx solid grey;
+}

@@ -1,0 +1,125 @@
+<!--
+此文件为开发者工具生成，生成时间: 2021/5/14 下午11:44:45 
+使用方法：
+在 C:\Users\17979\Desktop\FindMyself\miniprogram\pages\diary\diary.wxml 引入模板
+
+```
+<import src="diary.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 C:\Users\17979\Desktop\FindMyself\miniprogram\pages\diary\diary.wxss 中引入样式
+```
+@import "./diary.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="myFoot">
+      <image class="sk-image"></image>
+    </view>
+    <view class="addPost">
+      <image class="sk-image"></image>
+    </view>
+    <view>
+      <view>
+        <view class="cu-timeline">
+          <view class="cu-item text-cyan cuIcon-evaluate_fill sk-pseudo sk-pseudo-circle">
+            <view class="bg-cyan shadow-blur content sk-pseudo sk-pseudo-circle">
+              <view class="cu-list menu-avatar radius">
+                <view class="AAcontent">
+                  <view style="display:flex;align-items: center;">
+                    <view class="title">
+                      <image class="sk-image"></image>
+                      <text class="sk-transparent sk-text-18-7500-566 sk-text">华南高级中学附属大学</text>
+                    </view>
+                    <button class="margin-sm shadow cu-btn round bg-gray button-hover sk-transparent sk-button sk-pseudo sk-pseudo-circle" id="0" style="margin-left:10px;padding:4px 12px;font-size:10px;font-weight:200;height:25px;width:45px">展开</button>
+                  </view>
+                  <view class="cu-tag line-cyan sk-transparent sk-text-18-7500-787 sk-text sk-pseudo sk-pseudo-circle">2021/5/13</view>
+                  <view class="cu-tag bg-cyan">
+                    <text style="width:100%" class="sk-transparent sk-text-18-7500-886 sk-text">其他景点</text>
+                  </view>
+                  <view style="height: 1px; border: none; margin-top: 5px;"></view>
+                  <view class="Astate">
+                    <view id="0">
+                      <image style="width:15px;height:15px;" class="sk-image"></image>
+                    </view>
+                    <view id="0">
+                      <image style="width:15px;height:15px;margin-left:15px" class="sk-image"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view>
+        <view class="cu-timeline">
+          <view class="cu-item text-cyan cuIcon-evaluate_fill sk-pseudo sk-pseudo-circle">
+            <view class="bg-cyan shadow-blur content sk-pseudo sk-pseudo-circle">
+              <view class="cu-list menu-avatar radius">
+                <view class="AAcontent">
+                  <view style="display:flex;align-items: center;">
+                    <view class="title">
+                      <image class="sk-image"></image>
+                      <text class="sk-transparent sk-text-18-7500-52 sk-text">哈哈</text>
+                    </view>
+                    <button class="margin-sm shadow cu-btn round bg-gray button-hover sk-transparent sk-button sk-pseudo sk-pseudo-circle" id="1" style="margin-left:10px;padding:4px 12px;font-size:10px;font-weight:200;height:25px;width:45px">展开</button>
+                  </view>
+                  <view class="cu-tag line-cyan sk-transparent sk-text-18-7500-554 sk-text sk-pseudo sk-pseudo-circle">2021/5/10</view>
+                  <view class="cu-tag bg-cyan">
+                    <text style="width:100%" class="sk-transparent sk-text-18-7500-623 sk-text">其他景点</text>
+                  </view>
+                  <view style="height: 1px; border: none; margin-top: 5px;"></view>
+                  <view class="Astate">
+                    <view id="1">
+                      <image style="width:15px;height:15px;" class="sk-image"></image>
+                    </view>
+                    <view id="1">
+                      <image style="width:15px;height:15px;margin-left:15px" class="sk-image"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view>
+        <view class="cu-timeline">
+          <view class="cu-item text-cyan cuIcon-evaluate_fill sk-pseudo sk-pseudo-circle">
+            <view class="bg-cyan shadow-blur content sk-pseudo sk-pseudo-circle">
+              <view class="cu-list menu-avatar radius">
+                <view class="AAcontent">
+                  <view style="display:flex;align-items: center;">
+                    <view class="title">
+                      <image class="sk-image"></image>
+                      <text class="sk-transparent sk-text-18-7500-500 sk-text">标题测试噢噢噢噢哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦哦</text>
+                    </view>
+                    <button class="margin-sm shadow cu-btn round bg-gray button-hover sk-transparent sk-button sk-pseudo sk-pseudo-circle" id="2" style="margin-left:10px;padding:4px 12px;font-size:10px;font-weight:200;height:25px;width:45px">展开</button>
+                  </view>
+                  <view class="cu-tag line-cyan sk-transparent sk-text-18-7500-651 sk-text sk-pseudo sk-pseudo-circle">2021/5/8</view>
+                  <view class="cu-tag bg-cyan">
+                    <text style="width:100%" class="sk-transparent sk-text-18-7500-957 sk-text">其他景点</text>
+                  </view>
+                  <view style="height: 1px; border: none; margin-top: 5px;"></view>
+                  <view class="Astate">
+                    <view id="2">
+                      <image style="width:15px;height:15px;" class="sk-image"></image>
+                    </view>
+                    <view id="2">
+                      <image style="width:15px;height:15px;margin-left:15px" class="sk-image"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -9,9 +9,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    TabCur: 0,
+    scrollLeft:0
   },
-
+  tabSelect(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id-1)*60
+    })
+    var idx = Number(e.currentTarget.dataset.id)
+    var temp = []
+    var temd = []
+    var temg = []
+    if (idx == 0) {
+      for (let i = 0; i < this.data.user.like.length; ++i) {
+        temp.push(this.data.user.like[i])
+        temd.push(false)
+        temg.push(this.data.user.gone.indexOf(temp[i]) != -1)
+      }
+    } else {
+      for (let i = 0; i < this.data.user.dislike.length; ++i) {
+        temp.push(this.data.user.dislike[i])
+        temd.push(false)
+        temg.push(this.data.user.gone.indexOf(temp[i]) != -1)
+      }
+    }
+    // console.log('temp',temp,temd,temg)
+    // console.log(idx)
+    this.setData({
+      now_block: idx,
+      fked: temp,
+      detail_on: temd,
+      gone: temg,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,6 +65,7 @@ Page({
   },
 
   sele_block(p) {
+    
     var idx = Number(p.detail.value)
     var temp = []
     var temd = []
