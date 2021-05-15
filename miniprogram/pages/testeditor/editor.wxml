@@ -3,7 +3,7 @@
     <text class="cuIcon-roundcheckfill"></text> 打卡
   </view>
   <view style="font-weight:400" class="cu-item {{2==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="2">
-    <text  class="cuIcon-edit"></text> 自定义
+    <text class="cuIcon-edit"></text> 自定义
   </view>
 </scroll-view>
 
@@ -11,24 +11,24 @@
 
 
 <view wx:if="{{!s_pro}}" class="section__title">
-<picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
-  value="{{multiIndex}}" range="{{multiArray}}">
-  <view class="cu-list  menu menuBorder sm-border card-menu margin-top">
-  <view class="cu-item arrow">
-      <view class="content">
-        <text class="cuIcon-check text-green"></text>
-        <text class="text-black">打卡景点：</text>
-      </view>
-      <view class="action">
-        <text class="text-grey text-sm">{{s_att_id==-1?'其他景点':attration[s_att_id].name}}</text>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+    value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="cu-list  menu menuBorder sm-border card-menu margin-top">
+      <view class="cu-item arrow">
+        <view class="content">
+          <text class="cuIcon-check text-green"></text>
+          <text class="text-black">打卡景点：</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{s_att_id==-1?'其他景点':attration[s_att_id].name}}</text>
+        </view>
       </view>
     </view>
-  </view>
-  <!-- <view class="picker"> -->
+    <!-- <view class="picker"> -->
     <!-- 当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}} -->
     <!-- 您选中的景点是：{{s_att_id==-1?'其他景点':attration[s_att_id].name}}
   </view> -->
-</picker>
+  </picker>
 </view>
 
 <!-- 自定义<switch class="switch-sex sm" bindchange="sele_prov"></switch> -->
@@ -38,17 +38,17 @@
 
 
 <!-- <view wx:if="{{s_id_on}}"> -->
-  <!-- <view bindtap="id_offz">点我折叠选项</view> -->
+<!-- <view bindtap="id_offz">点我折叠选项</view> -->
 
 
 
-  <!-- <view>
+<!-- <view>
     <radio-group bindchange="sele_prov">
       <radio checked value="{{0}}" checked="{{1}}">广东省</radio>
       <radio checked value="{{-1}}" checked="{{0}}">其他</radio>
     </radio-group>
   </view> -->
-  <!-- <view>
+<!-- <view>
     <radio-group bindchange="sele_city">
       <view wx:if="{{s_pro==0}}">
         <view wx:for="{{city}}">
@@ -57,17 +57,17 @@
       </view>
     </radio-group>
   </view> -->
-  <!-- <view wx:if="{{s_pro==0}}">分割线</view> -->
+<!-- <view wx:if="{{s_pro==0}}">分割线</view> -->
 
 
 
-  <!-- <view>
+<!-- <view>
     <view wx:if="{{s_pro==0}}">
       <radio-group bindchange="sele_attra">
         <view wx:for="{{s_tg}}">
           <radio value="{{item}}">{{attration[item].name}}</radio> -->
-          <!--hs xl bug-->
-        <!-- </view>
+<!--hs xl bug-->
+<!-- </view>
       </radio-group>
     </view>
   </view>
@@ -77,36 +77,36 @@
 </view> -->
 
 <view wx:if="{{s_pro}}">
-  
-    <view class="cu-list menu menuBorder sm-border card-menu margin-top"> 
-      <view class="cu-item">
+
+  <view class="cu-list menu menuBorder sm-border card-menu margin-top">
+    <view class="cu-item">
       <view class="content con1">
         <text class="cuIcon-evaluate_fill text-orange"></text>
         <text class="text-black">景点名称：</text>
-		  <input placeholder="请输入景点名称" value="{{s_att_name}}" bindinput="input_s_att_name"></input>
+        <input placeholder="请输入景点名称" value="{{s_att_name}}" bindinput="input_s_att_name"></input>
+      </view>
+    </view>
+
   </view>
 </view>
 
-  </view>
-  </view>
-  
-  
 
 
 
 
 
-  <view class="cu-list menu menuBorder sm-border card-menu margin-top">
+
+<view class="cu-list menu menuBorder sm-border card-menu margin-top">
   <view class="cu-item">
     <view class="content">
-        <text class="cuIcon-time text-green"></text>
-        <text class="text-black">旅行日期：</text>
-        <text style="margin-left:250rpx;font-weight:400;font-size:25rpx;color:grey"> {{s_time}}</text>
-        <view></view>
-      </view>
-    
+      <text class="cuIcon-time text-green"></text>
+      <text class="text-black">旅行日期：</text>
+      <text style="margin-left:250rpx;font-weight:400;font-size:25rpx;color:grey"> {{s_time}}</text>
+      <view></view>
     </view>
+
   </view>
+</view>
 
 
 <!-- 

@@ -5,7 +5,7 @@ const _ = db.command
 Page({
   data: {
     TabCur: 0,
-    scrollLeft:0,
+    scrollLeft: 0,
     articleContent: '', //文章正文
     formats: {},
     readOnly: false,
@@ -44,7 +44,7 @@ Page({
   },
   sele_prov(p) {
 
-    var pv =e.currentTarget.dataset.id;
+    var pv = e.currentTarget.dataset.id;
     console.log(pv);
     if (pv) {
       this.setData({
@@ -85,7 +85,7 @@ Page({
   },
   tabSelect(e) {
     var sta = e.currentTarget.dataset.id;
-    if (sta==2) {
+    if (sta == 2) {
       this.setData({
         s_pro: -1,
         s_att_id: -1,
@@ -99,7 +99,7 @@ Page({
     console.log(sta);
     this.setData({
       TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
   },
   sele_attra(p) {
@@ -153,6 +153,8 @@ Page({
         articleContent: km.globalData.diary[idx].content,
         img_num: img_nr.length,
         idx: idx,
+        s_pro: km.globalData.diary[idx].att_id == -1 ? -1 : 0,
+        TabCur: km.globalData.diary[idx].att_id == -1 ? 2 : 0,
       })
       // var that = this
       // var thee = this

@@ -1,9 +1,10 @@
 @import "../../common/lib/weui.wxss";
 @import "./assets/iconfont.wxss";
- 
+
 .wrapper {
   padding: 15px;
 }
+
 .iconfont {
   display: inline-block;
   padding: 8px 8px;
@@ -12,7 +13,7 @@
   cursor: pointer;
   font-size: 20px;
 }
- 
+
 .toolbar {
   box-sizing: border-box;
   border: 1px solid white;
@@ -37,17 +38,17 @@
   line-height: 1.5;
   border-radius: 15rpx;
 }
- 
+
 .ql-active {
   color: #06c;
 }
 
 
-.con1{
+.con1 {
   display: flex;
   align-items: center;
 }
 
-.con1 input{
+.con1 input {
   margin-left: 30rpx;
 }
