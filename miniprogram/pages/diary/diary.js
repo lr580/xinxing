@@ -55,7 +55,7 @@ Page({
     this.hg=hg
     km.cb2 = hg
     km.cb2()
-    console.log(km.globalData.user)
+    // console.log(km.globalData.user)
     // thee.setData({
     //   user: km.globalData.user,
     //   diary: km.globalData.diary,
