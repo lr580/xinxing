@@ -193,6 +193,7 @@ Page({
           // console.log(thee.data.diary)
         } else {
           // console.log('false')
+          thee.data.busy = false
         }
       }
     })
