@@ -6,7 +6,8 @@ const db = wx.cloud.database()
 const _ = db.command
 Page({
   data: {
-
+    TabCur: 0,
+    scrollLeft:0,
     isFront1: true,
     isFront2: true,
     isFront3: true,
@@ -34,7 +35,12 @@ Page({
   onLoad(options) {
     this.update_sele()
   },
-
+  tabSelect(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id-1)*60
+    })
+  },
   update_sele() {
     // console.log(this.data.city)
     // var tcopy=[]

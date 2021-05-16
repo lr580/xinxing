@@ -1,7 +1,7 @@
 
 
 .sele_range {
-  position: absolute;
+
   top: 5px;
   left: 20px;
   background-color: wheat;
@@ -10,7 +10,7 @@
 }
 
 .sele_block {
-  position: absolute;
+
   top: 40px;
   left: 10px;
   background-color: wheat;
@@ -19,7 +19,7 @@
 }
 
 .sele_skip{
-  position: absolute;
+
   top: 20px;
   left: 260px;
   background-color: wheat;

@@ -131,7 +131,7 @@
   </view>
 
   <van-popup custom-style="height: 85%" id="{{index}}" position="bottom" round class="pop" show="{{ show }}" bind:close="onClose">
-
+<scroll-view>
     <view class="jdimg">  <image src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[fked[thisIndex]].pic}}">
       </image></view>
     
@@ -186,6 +186,7 @@
        </view>
      
     </view>
+  </scroll-view>
 </van-popup>
 
 </view>

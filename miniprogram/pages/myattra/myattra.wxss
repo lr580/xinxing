@@ -6,8 +6,8 @@
   display: flex;
   align-items: center;
   margin-left: 40rpx;
-  margin-top: 30rpx;
-  margin-bottom: 20rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
 }
 
 .main

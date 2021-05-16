@@ -102,8 +102,8 @@
   align-items: center;
   width: 90%;
   height: auto;
-padding: 10rpx;
-margin-left: 40rpx;
+  padding: 10rpx;
+  margin-left: 40rpx;
 }
 
 
