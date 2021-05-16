@@ -11,11 +11,20 @@
 
 
 
-<view class="myFoot">
+<!-- <view class="myFoot">
   <image src="/img/FindMyself.png"></image>
+</view> -->
+<view class="topstate">
+<view class="cu-bar justify-center bg-white">
+    <view class="action sub-title">
+      <text class="text-xxl text-bold text-cyan">心  路</text>
+      <text class="text-ABC text-cyan">Timeline</text>
+      <!-- last-child选择器-->
+    </view>
+  </view>
+<view  class="addPost bg-gray shadow" bindtap="postz">
+  <image class="shadow" src="/img/addPost.png"></image>
 </view>
-<view  class="addPost" bindtap="postz">
-  <image src="/img/addPost.png"></image>
 </view>
 <view style="flex-direction: column;" wx:if="{{!diary.length}}">
 
@@ -61,10 +70,10 @@
               <view class="Astate">
              
                 <view id="{{index}}" bindtap="edit">
-                  <image style="width:30rpx;height:30rpx;" src="/img/editor.png"></image>
+                  <image style="width:40rpx;height:40rpx;" src="/img/editor.png"></image>
                 </view>
                 <view id="{{index}}" bindtap="del">
-                  <image style="width:30rpx;height:30rpx;margin-left:30rpx" src="/img/delete.png"></image>
+                  <image style="width:40rpx;height:40rpx;margin-left:30rpx" src="/img/delete.png"></image>
                 </view>
               </view>
             </view>
@@ -84,10 +93,10 @@
           <view class="Astate">
              
              <view id="{{index}}" bindtap="edit">
-               <image style="width:30rpx;height:30rpx;" src="/img/editor.png"></image>
+               <image style="width:40rpx;height:40rpx;" src="/img/editor.png"></image>
              </view>
              <view id="{{index}}" bindtap="del">
-               <image style="width:30rpx;height:30rpx;margin-left:30rpx" src="/img/delete.png"></image>
+               <image style="width:40rpx;height:40rpx;margin-left:30rpx" src="/img/delete.png"></image>
              </view>
            </view>
 

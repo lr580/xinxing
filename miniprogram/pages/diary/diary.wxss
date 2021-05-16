@@ -47,10 +47,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position:absolute;
-left: 620rpx;
-top: 50rpx;
-  background-color: #b7dadb9c;
+  background-color: #ffffff9c;
+  margin-left: 480rpx;
 }
 
 .addPost image{
@@ -145,6 +143,13 @@ flex-wrap: nowrap;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.topstate{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
 }
 
 /* .btn_Suspension{
