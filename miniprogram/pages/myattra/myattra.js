@@ -1,18 +1,44 @@
 // miniprogram/pages/myattra/myattra.js
+
 const km = getApp()
 const app = getApp();
 // import lottie from 'lottie-miniprogram'
 const db = wx.cloud.database()
 const _ = db.command
+var fkindex = 0;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    show: false,
     TabCur: 0,
     scrollLeft: 0,
-    CustomBar: app.globalData.CustomBar
+    CustomBar: app.globalData.CustomBar,
+    thisIndex:''
+  },
+  showPopup() {
+    this.setData({ show: true });
+    console.log('弹出')
+  },
+
+  onClose(v) {
+    this.setData({ show: false });
+    var idx = Number(v.currentTarget.id)
+    var temp = []
+    for (let i = 0; i < this.data.detail_on.length; ++i) {
+      // temp.push(false)
+      temp.push(this.data.detail_on[i])
+    }
+    temp[idx] = false
+    this.setData({
+      detail_on: temp
+    })
+
+      this.setData({
+        modalName: null
+      })
   },
   tabSelect(e) {
     this.setData({
@@ -103,10 +129,11 @@ Page({
   detail_onz(v) {
     var idx = Number(v.currentTarget.id)
     var temp = []
-    this.setData({
-      modalName: v.currentTarget.dataset.target
-     
-    })
+    console.log('弹出')
+    console.log(idx)
+    fkindex=Number(v.currentTarget.id)
+      this.setData({ show: true });
+      this.setData({thisIndex:fkindex});
     console.log('asd')
     for (let i = 0; i < this.data.detail_on.length; ++i) {
       temp.push(this.data.detail_on[i])
@@ -118,6 +145,7 @@ Page({
   },
 
   detail_offz(v) {
+
     var idx = Number(v.currentTarget.id)
     var temp = []
     for (let i = 0; i < this.data.detail_on.length; ++i) {
@@ -128,6 +156,11 @@ Page({
     this.setData({
       detail_on: temp
     })
+
+      this.setData({
+        modalName: null
+      })
+   
   },
 
   deny_tag(v) {
@@ -292,19 +325,7 @@ Page({
     })
   },
 
-  showModal(e) {
-    this.setData({
-      modalName: e.currentTarget.dataset.target
-     
-    })
-    console.log('asd')
-  },
-  hideModal(e) {
-    this.setData({
-      modalName: null
-    })
-  },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -14,7 +14,7 @@
 <view class="myFoot">
   <image src="/img/FindMyself.png"></image>
 </view>
-<view class="addPost" bindtap="postz">
+<view  class="addPost" bindtap="postz">
   <image src="/img/addPost.png"></image>
 </view>
 <view style="flex-direction: column;" wx:if="{{!diary.length}}">

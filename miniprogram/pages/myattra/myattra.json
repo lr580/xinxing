@@ -1,4 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-dialog": "/dist/dialog/index",
+    "van-popup": "/dist/popup/index",
+    "van-cell": "/dist/cell/index",
+    "van-divider": "/dist/divider/index"
+  }
+
   
 }

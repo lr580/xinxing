@@ -1,12 +1,12 @@
 .contentbd{
-  width: 92%;
-  height: 120rpx;
+  width: 85%;
+  height: 100rpx;
   background-color: rgb(255, 255, 255);
-  border-radius: 16rpx;
+  border-radius: 25rpx;
   display: flex;
   align-items: center;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
+  margin-left: 40rpx;
+  margin-top: 30rpx;
   margin-bottom: 20rpx;
 }
 
@@ -38,10 +38,10 @@
 }
 
 .vname{
-  font-weight:800 ;
-  font-size: 40rpx;
+  font-weight:400 ;
+  font-size: 35rpx;
   padding: 20rpx;
-  color: #495060;
+  color: #555657c9;
   width: 450rpx;
   overflow: hidden;
   white-space: nowrap;
@@ -66,10 +66,10 @@ align-items: center;
 }
 
 .haveicon{
-  width: 120rpx;
+  width: 100rpx;
   display: flex;
   align-items: center;
-  height: 120rpx;
+  height: 100rpx;
   justify-content: center;
 }
 
@@ -91,4 +91,99 @@ align-items: center;
 .limit{
   overflow:hidden; 
   white-space:nowrap;
+}
+
+.jdimg{
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.jdimg image{
+  width: 600rpx;
+  height: 450rpx;
+  border-radius: 16rpx;
+}
+
+.jdcontent{
+  padding: 30rpx;
+}
+
+.dd{
+  display: flex;
+  align-items: center;
+
+}
+
+.dd image{
+  padding: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.pf{
+  display: flex;
+  align-items: center;
+
+}
+
+.pf image{
+  padding: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.js{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.js image{
+  padding: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+
+}
+
+.ts{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ts image{
+  padding: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.zz{
+  display: flex;
+  align-items: center;
+
+}
+
+.zz image{
+  padding: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.bh{
+  display: flex;
+  align-items: center;
+
+}
+
+.bh image{
+  padding: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.txtc{
+width: 700rpx;
+  text-indent:2em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }

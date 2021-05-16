@@ -1243,15 +1243,15 @@ button.icon.lg {
 }
 
 .cu-list>.cu-item.move-cur {
-	transform: translateX(-260rpx)
+	transform: translateX(-230rpx)
 }
 
 .cu-list>.cu-item .move {
 	position: absolute;
 	right: 0;
 	display: flex;
-	width: 260rpx;
-	height: 121rpx;
+	width: 230rpx;
+	height: 95rpx;
 	transform: translateX(100%);
 
 }
