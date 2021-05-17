@@ -1,6 +1,6 @@
 let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
-let BALLTOP = 100;
+let BALLTOP = 30;
 import lottie from 'lottie-miniprogram'
 const km = getApp()
 const db = wx.cloud.database()
@@ -39,6 +39,40 @@ Page({
   onLoad(options) {
     this.update_sele()
     this.init_tips()
+    wx.createSelectorQuery().selectAll('#like').node(res => {
+      const canvas = res[0].node
+      const context = canvas.getContext('2d')
+
+      canvas.width = 1000
+      canvas.height = 1000
+
+      lottie.setup(canvas)
+      this.ani = lottie.loadAnimation({
+        loop: false,
+        autoplay: true,
+        animationData: require('../lotties/dislike'),
+        rendererSettings: {
+          context,
+        },
+      })
+    }).exec()
+    wx.createSelectorQuery().selectAll('#dislike').node(res => {
+      const canvas = res[0].node
+      const context = canvas.getContext('2d')
+
+      canvas.width = 1000
+      canvas.height = 1000
+
+      lottie.setup(canvas)
+      this.ani = lottie.loadAnimation({
+        loop: false,
+        autoplay: true,
+        animationData: require('../lotties/like'),
+        rendererSettings: {
+          context,
+        },
+      })
+    }).exec()
   },
   onShow(options) {
     this.switch_tip()
@@ -298,7 +332,7 @@ Page({
             this.ani = lottie.loadAnimation({
               loop: false,
               autoplay: true,
-              animationData: require('../lotties/like'),
+              animationData: require('../lotties/dislike'),
               rendererSettings: {
                 context,
               },
@@ -325,7 +359,7 @@ Page({
             this.ani = lottie.loadAnimation({
               loop: false,
               autoplay: true,
-              animationData: require('../lotties/dislike'),
+              animationData: require('../lotties/like'),
               rendererSettings: {
                 context,
               },

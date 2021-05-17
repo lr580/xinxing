@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "van-divider": "/dist/divider/index"
-  }
+    
+  },
+  "disableScroll":true
  
 }
