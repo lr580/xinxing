@@ -1,9 +1,11 @@
 let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
 let BALLTOP = 100;
+import lottie from 'lottie-miniprogram'
 const km = getApp()
 const db = wx.cloud.database()
 const _ = db.command
+var lottieState = false;
 Page({
   data: {
     TabCur: 0,
@@ -36,11 +38,24 @@ Page({
     this.update_sele()
   },
   tabSelect(e) {
+   console.log(e)
     this.setData({
+      sele_on: false,
       TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
+      scrollLeft: (e.currentTarget.dataset.id-1)*60,
+      now_city:Number(e.currentTarget.dataset.id) 
     })
+    this.load_attration()
   },
+  tabSelect1(e) {
+     this.setData({
+       sele_on: false,
+       TabCur: e.currentTarget.dataset.id,
+       scrollLeft: (e.currentTarget.dataset.id-1)*60,
+       now_province:Number(e.currentTarget.dataset.id) 
+     })
+     this.load_attration()
+   },
   update_sele() {
     // console.log(this.data.city)
     // var tcopy=[]
@@ -116,6 +131,7 @@ Page({
   sele_range() {
     // console.log('123',x)
     var x = this.data.sele_on
+    console.log(x)
     this.setData({ sele_on: !x })
   },
 
@@ -208,6 +224,7 @@ Page({
     touchDotY = event.touches[0].pageY;
     // console.log("起始点的坐标X:" + touchDotX);
     // console.log("起始点的坐标Y:" + touchDotY);
+    
   },
   // 移动结束处理动画
   touchend1: function (event) {
@@ -224,7 +241,14 @@ Page({
     let delta = Math.sqrt(absX * absX + absY * absY);
     // console.log('起始点和离开点距离:' + delta + 'px', absX, absY);
     // 如果delta超过60px（可以视情况自己微调）,判定为手势触发
+    lottieState = true
+
+    //lottie动画
+    
+
+
     if (delta >= 60) {
+
       // 如果 |x0-x1|>|y0-y1|,即absX>abxY,判定为左右滑动
       if (absX > absY) {
         // 如更tmX<0，即(离开点的X)-(起始点X)小于0 ，判定为左滑
@@ -236,6 +260,24 @@ Page({
           }, 450);
           // 执行左滑动画
           this.Animation1(-500);
+           wx.createSelectorQuery().selectAll('#like').node(res => {
+        const canvas = res[0].node
+        const context = canvas.getContext('2d')
+  
+        canvas.width = 1000
+        canvas.height = 1000
+  
+        lottie.setup(canvas)
+        this.ani = lottie.loadAnimation({
+          loop: false,
+          autoplay: true,
+          animationData: require('../lotties/like'),
+          rendererSettings: {
+            context,
+          },
+        })
+      }).exec()
+      lottieState = false
           // 如更tmX>0，即(离开点的X)-(起始点X)大于0 ，判定为右滑
         } else {
           // console.log("右滑=====");
@@ -245,6 +287,24 @@ Page({
           }, 450);
           // 执行右滑动画
           this.Animation1(500);
+          wx.createSelectorQuery().selectAll('#dislike').node(res => {
+            const canvas = res[0].node
+            const context = canvas.getContext('2d')
+      
+            canvas.width = 1000
+            canvas.height = 1000
+      
+            lottie.setup(canvas)
+            this.ani = lottie.loadAnimation({
+              loop: false,
+              autoplay: true,
+              animationData: require('../lotties/dislike'),
+              rendererSettings: {
+                context,
+              },
+            })
+          }).exec()
+          lottieState = false
         }
         // 如果 |x0-x1|<|y0-y1|,即absX<abxY,判定为上下滑动
       } else {
@@ -262,6 +322,7 @@ Page({
           });
         }
       }
+     
     } else {
       // console.log("手势未触发=====");
     }
@@ -516,4 +577,27 @@ Page({
       })
     }, 500);
   },
+
+  // 动效函数
+  goLo:function(){
+    lottieState = true
+    wx.createSelectorQuery().selectAll('#like').node(res => {
+      const canvas = res[0].node
+      const context = canvas.getContext('2d')
+
+      canvas.width = 1000
+      canvas.height = 1000
+
+      lottie.setup(canvas)
+      this.ani = lottie.loadAnimation({
+        loop: false,
+        autoplay: true,
+        animationData: require('../lotties/like'),
+        rendererSettings: {
+          context,
+        },
+      })
+    }).exec()
+    lottieState = false
+  }
 })

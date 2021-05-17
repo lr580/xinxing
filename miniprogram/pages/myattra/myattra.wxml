@@ -140,8 +140,10 @@
       <view class="dd">
         <image src="/img/jddd.png"></image>
         {{attration[fked[thisIndex]].position}}</view>
+        <view class="PF">
       <view class="pf">
         <view wx:for="{{attration[fked[thisIndex]].mark}}"><image src="/img/jdpf.png"></image> </view>
+</view>
 </view>
       <view class="js">
         <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
