@@ -9,7 +9,7 @@ var lottieState = false;
 Page({
   data: {
     TabCur: 0,
-    scrollLeft:0,
+    scrollLeft: 0,
     isFront1: true,
     isFront2: true,
     isFront3: true,
@@ -33,29 +33,57 @@ Page({
     now_city: 0,//现在选择的city的_id
     now_attration: [],
     front: -1,//当前能看到的景点卡片_id，-1代表无
+    tips: [],
+    now_tips: '',
   },
   onLoad(options) {
     this.update_sele()
+    this.init_tips()
+  },
+  onShow(options) {
+    this.switch_tip()
+  },
+  init_tips() {
+    var t = [
+      ['tips1 给本程序三连有助于旅行愉悦'],
+      ['tips2 旅行有益健康'],
+      ['tips3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eos error maiores id reiciendis mollitia exercitationem repudiandae cumque odio accusantium.'],
+    ]
+    this.setData({
+      tips: t,
+    })
+    this.switch_tip()
+  },
+  switch_tip() {
+    let thee = this
+    var nr
+    do {
+      let idx = Math.floor(thee.data.tips.length * Math.random())
+      nr = thee.data.tips[idx]
+    } while (nr == thee.data.now_tips)
+    this.setData({
+      now_tips: nr,
+    })
   },
   tabSelect(e) {
-   console.log(e)
+    console.log(e)
     this.setData({
       sele_on: false,
       TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60,
-      now_city:Number(e.currentTarget.dataset.id) 
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60,
+      now_city: Number(e.currentTarget.dataset.id)
     })
     this.load_attration()
   },
   tabSelect1(e) {
-     this.setData({
-       sele_on: false,
-       TabCur: e.currentTarget.dataset.id,
-       scrollLeft: (e.currentTarget.dataset.id-1)*60,
-       now_province:Number(e.currentTarget.dataset.id) 
-     })
-     this.load_attration()
-   },
+    this.setData({
+      sele_on: false,
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60,
+      now_province: Number(e.currentTarget.dataset.id)
+    })
+    this.load_attration()
+  },
   update_sele() {
     // console.log(this.data.city)
     // var tcopy=[]
@@ -78,7 +106,6 @@ Page({
     this.load_attration()
     // console.log(this.data.city,getApp().globalData.city)
   },
-
 
   sele_city(p) {
     // console.log(p.detail.value)
@@ -224,7 +251,7 @@ Page({
     touchDotY = event.touches[0].pageY;
     // console.log("起始点的坐标X:" + touchDotX);
     // console.log("起始点的坐标Y:" + touchDotY);
-    
+
   },
   // 移动结束处理动画
   touchend1: function (event) {
@@ -244,7 +271,7 @@ Page({
     lottieState = true
 
     //lottie动画
-    
+
 
 
     if (delta >= 60) {
@@ -260,24 +287,24 @@ Page({
           }, 450);
           // 执行左滑动画
           this.Animation1(-500);
-           wx.createSelectorQuery().selectAll('#like').node(res => {
-        const canvas = res[0].node
-        const context = canvas.getContext('2d')
-  
-        canvas.width = 1000
-        canvas.height = 1000
-  
-        lottie.setup(canvas)
-        this.ani = lottie.loadAnimation({
-          loop: false,
-          autoplay: true,
-          animationData: require('../lotties/like'),
-          rendererSettings: {
-            context,
-          },
-        })
-      }).exec()
-      lottieState = false
+          wx.createSelectorQuery().selectAll('#like').node(res => {
+            const canvas = res[0].node
+            const context = canvas.getContext('2d')
+
+            canvas.width = 1000
+            canvas.height = 1000
+
+            lottie.setup(canvas)
+            this.ani = lottie.loadAnimation({
+              loop: false,
+              autoplay: true,
+              animationData: require('../lotties/like'),
+              rendererSettings: {
+                context,
+              },
+            })
+          }).exec()
+          lottieState = false
           // 如更tmX>0，即(离开点的X)-(起始点X)大于0 ，判定为右滑
         } else {
           // console.log("右滑=====");
@@ -290,10 +317,10 @@ Page({
           wx.createSelectorQuery().selectAll('#dislike').node(res => {
             const canvas = res[0].node
             const context = canvas.getContext('2d')
-      
+
             canvas.width = 1000
             canvas.height = 1000
-      
+
             lottie.setup(canvas)
             this.ani = lottie.loadAnimation({
               loop: false,
@@ -322,7 +349,7 @@ Page({
           });
         }
       }
-     
+
     } else {
       // console.log("手势未触发=====");
     }
@@ -579,7 +606,7 @@ Page({
   },
 
   // 动效函数
-  goLo:function(){
+  goLo: function () {
     lottieState = true
     wx.createSelectorQuery().selectAll('#like').node(res => {
       const canvas = res[0].node
