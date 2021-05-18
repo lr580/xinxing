@@ -1,5 +1,3 @@
-
-
 <scroll-view scroll-x class="bg-green nav text-center">
   <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
     <text class="cuIcon-likefill"></text> 感兴趣的
@@ -7,119 +5,131 @@
   <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
     <text class="cuIcon-close"></text> 不感兴趣
   </view>
- 
+
 </scroll-view>
 
 <scroll-view>
 
-  
-<view wx:for="{{fked}}">
-<view class="cu-list">
-    <view id="{{index}}" class="cu-item leftbd {{modalName=='move-box-'+ index?'move-cur':''}}"  wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
 
-      
-    <view id="{{index}}" class="contentbd">
-  <view wx:if="{{!gone[index]}}" class="index1">
-    <image wx:if="{{!gone[index]}}" src="/img/wei1.png" class="no"></image>
-    <image wx:else src="/img/even1.png" class="yes"></image>
-    
-  </view>
-  <view wx:else class="index2">
-    <image wx:if="{{!gone[index]}}" src="/img/wei1.png" class="no"></image>
-    <image wx:else src="/img/even1.png" class="yes"></image>
-    
-  </view>
-  <view class="main">
-<view class="vname">{{attration[fked[index]].name}}</view>
-<view class="haveicon">
-          <image id="{{index}}" bindtap="detail_onz"  src="/img/zhankai.png">
-          </image>
+  <view wx:for="{{fked}}">
+    <view class="cu-list">
+      <view id="{{index}}" class="cu-item leftbd {{modalName=='move-box-'+ index?'move-cur':''}}" wx:key
+        bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd"
+        data-target="move-box-{{index}}">
 
+
+        <view id="{{index}}" class="contentbd">
+          <view wx:if="{{!gone[index]}}" class="index1">
+            <image wx:if="{{!gone[index]}}" src="/img/wei1.png" class="no"></image>
+            <image wx:else src="/img/even1.png" class="yes"></image>
+
+          </view>
+          <view wx:else class="index2">
+            <image wx:if="{{!gone[index]}}" src="/img/wei1.png" class="no"></image>
+            <image wx:else src="/img/even1.png" class="yes"></image>
+
+          </view>
+          <view class="main">
+            <view class="vname">{{attration[fked[index]].name}}</view>
+            <view class="haveicon">
+              <image id="{{index}}" bindtap="detail_onz" src="/img/zhankai.png">
+              </image>
+
+            </view>
+          </view>
         </view>
-  </view>
-</view>
 
-<view wx:if="{{!gone[index]}}" class="move">
-        <view id="{{index}}" bindtap="change_gone" class="bg-cyan rightbd haveicon">
-          <image src="/img/ever.png"></image>
+        <view wx:if="{{!gone[index]}}" class="move">
+          <view id="{{index}}" bindtap="change_gone" class="bg-cyan rightbd haveicon">
+            <image src="/img/ever.png"></image>
+          </view>
+          <view id="{{fked[index]}}" bindtap="deny_tag" class="bg-yellow haveicon">
+            <image src="/img/goout.png"></image>
+          </view>
         </view>
-        <view id="{{fked[index]}}" bindtap="deny_tag" class="bg-yellow haveicon">
-          <image src="/img/goout.png"></image>
+        <view wx:else class="move">
+          <view id="{{index}}" bindtap="change_gone" class="bg-grey rightbd haveicon">
+            <image src="/img/wei.png"></image>
+          </view>
+          <view id="{{fked[index]}}" bindtap="deny_tag" class="bg-yellow haveicon">
+            <image src="/img/goout.png"></image>
+          </view>
         </view>
       </view>
-      <view wx:else class="move">
-        <view id="{{index}}" bindtap="change_gone" class="bg-grey rightbd haveicon">
-          <image src="/img/wei.png"></image>
-        </view>
-        <view id="{{fked[index]}}" bindtap="deny_tag" class="bg-yellow haveicon">
-          <image src="/img/goout.png"></image>
-        </view>
-      </view>   
     </view>
+
+    <van-popup custom-style="height: 85%" id="{{index}}" position="bottom" round class="pop" show="{{ show }}"
+      bind:close="onClose">
+      <scroll-view>
+        <view class="jdimg">
+          <view wx:if="{{attration[fked[thisIndex]].pic}}">
+            <image
+              src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[fked[thisIndex]].pic}}">
+            </image>
+          </view>
+          <view wx:else>图片找不到qwq</view>
+        </view>
+
+        <view class="jdcontent">
+          <van-divider />
+          <view class="dd">
+            <image src="/img/jddd.png"></image>
+            {{attration[fked[thisIndex]].position}}
+          </view>
+          <view class="PF">
+            <view class="pf">
+              <view wx:for="{{attration[fked[thisIndex]].mark}}">
+                <image src="/img/jdpf.png"></image>
+              </view>
+            </view>
+          </view>
+          <view class="js">
+            <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
+              <image src="/img/jdjs.png"></image>
+              介绍：
+            </view>
+            <view>{{attration[fked[thisIndex]].intro}}</view>
+
+          </view>
+          <view class="ts">
+            <view class="js">
+              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
+                <image src="/img/jdts.png"></image>
+                特色：
+              </view>
+              <view class="txtc">{{attration[fked[thisIndex]].special}}</view>
+            </view>
+          </view>
+
+
+
+
+          <view class="ts">
+            <view class="js">
+              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
+                <image src="/img/jdzz.png"></image>
+                资质：
+              </view>
+              <view class="txtc">{{attration[fked[thisIndex]].prize}}</view>
+            </view>
+          </view>
+
+
+          <view class="ts">
+            <view class="js">
+              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
+                <image src="/img/jdbh.png"></image>
+                内有：
+              </view>
+              <view class="txtc">{{attration[fked[thisIndex]].detail}}</view>
+            </view>
+          </view>
+
+        </view>
+      </scroll-view>
+    </van-popup>
+
   </view>
-
-  <van-popup custom-style="height: 85%" id="{{index}}" position="bottom" round class="pop" show="{{ show }}" bind:close="onClose">
-<scroll-view>
-    <view class="jdimg">  <image src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[fked[thisIndex]].pic}}">
-      </image></view>
-    
-<view class="jdcontent">
-  <van-divider />
-      <view class="dd">
-        <image src="/img/jddd.png"></image>
-        {{attration[fked[thisIndex]].position}}</view>
-        <view class="PF">
-      <view class="pf">
-        <view wx:for="{{attration[fked[thisIndex]].mark}}"><image src="/img/jdpf.png"></image> </view>
-</view>
-</view>
-      <view class="js">
-        <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
-        <image src="/img/jdjs.png"></image>
-        介绍：
-      </view>
-      <view>{{attration[fked[thisIndex]].intro}}</view>
-        
-      </view>
-      <view class="ts">
-        <view class="js">
-        <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
-          <image src="/img/jdts.png"></image>  
-        特色：
-      </view>
-      <view class="txtc">{{attration[fked[thisIndex]].special}}</view>
-      </view>
-       </view>
-
-
-
-
-       <view class="ts">
-        <view class="js">
-        <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
-          <image src="/img/jdzz.png"></image>  
-        资质：
-      </view>
-      <view class="txtc">{{attration[fked[thisIndex]].prize}}</view>
-      </view>
-       </view>
-
-
-       <view class="ts">
-        <view class="js">
-        <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
-          <image src="/img/jdbh.png"></image>
-        内有：
-      </view>
-      <view class="txtc">{{attration[fked[thisIndex]].detail}}</view>
-      </view>
-       </view>
-     
-    </view>
-  </scroll-view>
-</van-popup>
-
-</view>
 
 </scroll-view>
 <!-- <view class="cu-bar bg-white margin-top">
@@ -190,7 +200,7 @@
 
 
 
-  <!-- <view wx:if="{{detail_on[index]==false}}" id="{{index}}" bindtap="detail_onz">展开</view>
+<!-- <view wx:if="{{detail_on[index]==false}}" id="{{index}}" bindtap="detail_onz">展开</view>
     <view wx:else>
       <view id="{{index}}" bindtap="detail_offz">关闭</view>
   
@@ -202,7 +212,7 @@
 
 
 
-  <!-- <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+<!-- <view class="cu-modal {{modalName=='Modal'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
       <view class="content">Modal标题</view>
@@ -246,6 +256,3 @@
     </view>
   </view> -->
 <!-- </view> -->
-
-
-
