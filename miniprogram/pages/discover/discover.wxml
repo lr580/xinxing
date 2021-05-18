@@ -83,9 +83,11 @@
       </view>
       
       <view wx:else class="body-container">
-        <image class="avatar"
-          src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png">
-        </image>
+        <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="已经没有景点啦"
+/>
       </view>
     </block>
     <!-- 反面 -->
@@ -153,9 +155,11 @@
         </view>
       </view>
       <view wx:else class="body-container">
-        <image class="avatar"
-          src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/over.png">
-        </image>
+        <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="已经没有景点啦"
+/>
       </view>
     </block>
   </view>

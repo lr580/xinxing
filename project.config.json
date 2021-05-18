@@ -97,6 +97,12 @@
         {
           "name": "demomul",
           "pathName": "pages/demomulti/demomulti",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "help",
+          "pathName": "pages/help/help",
           "scene": null
         }
       ]

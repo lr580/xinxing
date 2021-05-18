@@ -21,6 +21,8 @@
     <view class="confirm bubble">进入心行FindMyself</view>
   </view>
 </view>
-<view wx:else>
-  加载中……
+<view class="bg-white fff" wx:else>
+  <view class="bg-white flex-sub radius shadow-lg" style="margin-top:100rpx">
+    <image src="https://image.weilanwl.com/gif/loading-white.gif" mode="aspectFit" class="gif-white response" style="height:700rpx"></image>
+  </view>
 </view>

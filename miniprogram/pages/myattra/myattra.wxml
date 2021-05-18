@@ -1,4 +1,4 @@
-<scroll-view scroll-x class="bg-green nav text-center">
+<scroll-view scroll-x class="bg-cyan nav text-center">
   <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
     <text class="cuIcon-likefill"></text> 感兴趣的
   </view>
@@ -7,6 +7,13 @@
   </view>
 
 </scroll-view>
+
+<van-divider
+  contentPosition="center"
+  customStyle="color: #4ecdc4; border-color: #1989fa; font-size: 18px;"
+>
+  共有{{fked.length}}个景点
+</van-divider>
 
 <scroll-view>
 
@@ -40,7 +47,7 @@
         </view>
 
         <view wx:if="{{!gone[index]}}" class="move">
-          <view id="{{index}}" bindtap="change_gone" class="bg-cyan rightbd haveicon">
+          <view id="{{index}}" bindtap="change_gone" class="bg-blue rightbd haveicon">
             <image src="/img/ever.png"></image>
           </view>
           <view id="{{fked[index]}}" bindtap="deny_tag" class="bg-yellow haveicon">
@@ -58,76 +65,7 @@
       </view>
     </view>
 
-    <van-popup custom-style="height: 85%" id="{{index}}" position="bottom" round class="pop" show="{{ show }}"
-      bind:close="onClose">
-      <scroll-view>
-        <view class="jdimg">
-          <view wx:if="{{attration[fked[thisIndex]].pic}}">
-            <image
-              src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[fked[thisIndex]].pic}}">
-            </image>
-          </view>
-          <view wx:else>图片找不到qwq</view>
-        </view>
-
-        <view class="jdcontent">
-          <van-divider />
-          <view class="dd">
-            <image src="/img/jddd.png"></image>
-            {{attration[fked[thisIndex]].position}}
-          </view>
-          <view class="PF">
-            <view class="pf">
-              <view wx:for="{{attration[fked[thisIndex]].mark}}">
-                <image src="/img/jdpf.png"></image>
-              </view>
-            </view>
-          </view>
-          <view class="js">
-            <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
-              <image src="/img/jdjs.png"></image>
-              介绍：
-            </view>
-            <view>{{attration[fked[thisIndex]].intro}}</view>
-
-          </view>
-          <view class="ts">
-            <view class="js">
-              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
-                <image src="/img/jdts.png"></image>
-                特色：
-              </view>
-              <view class="txtc">{{attration[fked[thisIndex]].special}}</view>
-            </view>
-          </view>
-
-
-
-
-          <view class="ts">
-            <view class="js">
-              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
-                <image src="/img/jdzz.png"></image>
-                资质：
-              </view>
-              <view class="txtc">{{attration[fked[thisIndex]].prize}}</view>
-            </view>
-          </view>
-
-
-          <view class="ts">
-            <view class="js">
-              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
-                <image src="/img/jdbh.png"></image>
-                内有：
-              </view>
-              <view class="txtc">{{attration[fked[thisIndex]].detail}}</view>
-            </view>
-          </view>
-
-        </view>
-      </scroll-view>
-    </van-popup>
+  
 
   </view>
 
@@ -206,7 +144,76 @@
   
     </view> -->
 
+    <van-popup custom-style="height: 85%" position="bottom" round class="pop" show="{{ show }}"
+      bind:close="onClose">
+      <scroll-view>
+        <view class="jdimg">
+          <view wx:if="{{attration[fked[thisIndex]].pic}}">
+            <image
+              src="{{'cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/attra/'+attration[fked[thisIndex]].pic}}">
+            </image>
+          </view>
+          <view wx:else>图片找不到qwq</view>
+        </view>
 
+        <view class="jdcontent">
+          <van-divider />
+          <view class="dd">
+            <image src="/img/jddd.png"></image>
+            {{attration[fked[thisIndex]].position}}
+          </view>
+          <view class="PF">
+            <view class="pf">
+              <view wx:for="{{attration[fked[thisIndex]].mark}}">
+                <image src="/img/jdpf.png"></image>
+              </view>
+            </view>
+          </view>
+          <view class="js">
+            <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
+              <image src="/img/jdjs.png"></image>
+              介绍：
+            </view>
+            <view>{{attration[fked[thisIndex]].intro}}</view>
+
+          </view>
+          <view class="ts">
+            <view class="js">
+              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
+                <image src="/img/jdts.png"></image>
+                特色：
+              </view>
+              <view class="txtc">{{attration[fked[thisIndex]].special}}</view>
+            </view>
+          </view>
+
+
+
+
+          <view class="ts">
+            <view class="js">
+              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
+                <image src="/img/jdzz.png"></image>
+                资质：
+              </view>
+              <view class="txtc">{{attration[fked[thisIndex]].prize}}</view>
+            </view>
+          </view>
+
+
+          <view class="ts">
+            <view class="js">
+              <view style="display:flex;align-items: center;font-weight:800;width:1500rpx;">
+                <image src="/img/jdbh.png"></image>
+                内有：
+              </view>
+              <view class="txtc">{{attration[fked[thisIndex]].detail}}</view>
+            </view>
+          </view>
+
+        </view>
+      </scroll-view>
+    </van-popup>
 
 
 

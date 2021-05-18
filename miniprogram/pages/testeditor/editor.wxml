@@ -19,16 +19,29 @@
           <text class="cuIcon-check text-green"></text>
           <text class="text-black">打卡景点：</text>
         </view>
+        
         <view class="action">
           <text class="text-grey text-sm">{{s_att_id==-1?'其他景点':attration[s_att_id].name}}</text>
         </view>
       </view>
+      
     </view>
+    
     <!-- <view class="picker"> -->
     <!-- 当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}} -->
     <!-- 您选中的景点是：{{s_att_id==-1?'其他景点':attration[s_att_id].name}}
   </view> -->
   </picker>
+  <view class="cu-list menu menuBorder sm-border card-menu margin-top">
+    <view class="cu-item">
+      <view class="content con1">
+        <text class="cuIcon-evaluate_fill text-orange"></text>
+        <text class="text-black">日记标题：</text>
+        <input placeholder="请输入日记标题" value="{{s_att_name}}" bindinput="input_s_att_name"></input>
+      </view>
+    </view>
+
+  </view>
 </view>
 
 <!-- 自定义<switch class="switch-sex sm" bindchange="sele_prov"></switch> -->
@@ -82,8 +95,8 @@
     <view class="cu-item">
       <view class="content con1">
         <text class="cuIcon-evaluate_fill text-orange"></text>
-        <text class="text-black">景点名称：</text>
-        <input placeholder="请输入景点名称" value="{{s_att_name}}" bindinput="input_s_att_name"></input>
+        <text class="text-black">日记标题：</text>
+        <input placeholder="请输入日记标题" value="{{s_att_name}}" bindinput="input_s_att_name"></input>
       </view>
     </view>
 

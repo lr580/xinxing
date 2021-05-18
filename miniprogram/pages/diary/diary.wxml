@@ -17,8 +17,8 @@
 <view class="topstate">
 <view class="cu-bar justify-center bg-white">
     <view class="action sub-title">
-      <text class="text-xxl text-bold text-cyan">心  路</text>
-      <text class="text-ABC text-cyan">Timeline</text>
+      <text class="text-xxl text-bold text-blue">心  路</text>
+      <text class="text-ABC text-nlue">Timeline</text>
       <!-- last-child选择器-->
     </view>
   </view>
@@ -42,8 +42,8 @@
    
  
 
-      <view wx:if="{{diary[index].content}}" class="cu-item text-cyan cuIcon-evaluate_fill">
-        <view class="bg-cyan  shadow-blur content">
+      <view wx:if="{{diary[index].content}}" class="cu-item text-blue cuIcon-evaluate_fill">
+        <view class="bg-blue  shadow-blur content">
           <view class="cu-list menu-avatar radius">
             <view class="AAcontent">
             
@@ -58,8 +58,8 @@
               </view>
               <button style="margin-left:20rpx;padding:8rpx 24rpx;font-size:20rpx;font-weight:200;height:50rpx;width:90rpx" bindtap="look" id="{{index}}" class="margin-sm shadow cu-btn round bg-gray shadow button-hover">{{looking[index]?'收起':'展开'}}</button>
             </view>
-              <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
-            <view class="cu-tag bg-cyan">
+              <view class="cu-tag line-blue">{{diaryDate[index]}}</view>
+            <view class="cu-tag bg-blue">
              <text style="width:100%">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</text> 
             </view>
               <view class="margin-top" wx:if="{{looking[index]}}">
@@ -84,8 +84,8 @@
       <view wx:else class="cu-item">
         <view class="padding-xl radius shadow margin-top content">
           
-            <view class="cu-tag line-cyan">{{diaryDate[index]}}</view>
-            <view class="cu-tag bg-cyan">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
+            <view class="cu-tag line-blue">{{diaryDate[index]}}</view>
+            <view class="cu-tag bg-blue">{{diary[index].att_id==-1?'其他景点':attration[diary[index].att_id].name}}</view>
 
         
           <view class="margin-top text-sm text-grey">这个景点只有足迹没有日记呢，快去记录吧</view>

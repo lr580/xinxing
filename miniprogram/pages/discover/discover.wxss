@@ -178,14 +178,14 @@
 .ff1{
   position: absolute;
   bottom: -100rpx;
-  left: 350rpx;
+  left: 300rpx;
 
 }
 
 .ff2{
   position: absolute;
   bottom: 30rpx;
-  left: 30rpx;
+  left: 80rpx;
 }
 
 .tips
@@ -270,6 +270,6 @@ align-items: center;
   border-radius: 16rpx;
   background-color: white;
   bottom: 10rpx;
-  left: 130rpx;
+  left: 120rpx;
   z-index: -1000;
 }

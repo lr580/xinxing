@@ -18,10 +18,10 @@ Page({
     CustomBar: app.globalData.CustomBar,
     thisIndex:''
   },
-  showPopup() {
-    this.setData({ show: true });
-    console.log('弹出')
-  },
+  // showPopup() {
+  //   this.setData({ show: true });
+  //   console.log('弹出')
+  // },
 
   onClose(v) {
     this.setData({ show: false });
@@ -134,7 +134,8 @@ Page({
     fkindex=Number(v.currentTarget.id)
       this.setData({ show: true });
       this.setData({thisIndex:fkindex});
-    console.log('asd')
+      console.log('fkindex'+fkindex);
+
     for (let i = 0; i < this.data.detail_on.length; ++i) {
       temp.push(this.data.detail_on[i])
     }

@@ -51,3 +51,11 @@
    display: flex;
    justify-content: center;
  }
+
+ .fff{
+   height: 1600rpx;
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }

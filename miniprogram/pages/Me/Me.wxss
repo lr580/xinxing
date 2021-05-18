@@ -41,6 +41,9 @@
   margin-top: 20rpx;
   font-weight: 800;
   font-size: 35rpx;
+  width: 90%;
+  overflow: hidden;
+  text-align: center;
 }
 
 .live{
@@ -104,6 +107,9 @@
   height: auto;
   padding: 10rpx;
   margin-left: 40rpx;
+  border-radius: 16rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
 }
 
 
@@ -111,5 +117,5 @@
 .motto text{
   font-weight: 800;
   font-size: 30rpx;
-  color: #00000062;
+  color: #ffffff;
 }

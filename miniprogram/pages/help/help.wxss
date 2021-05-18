@@ -1,1 +1,11 @@
 /* miniprogram/pages/help/help.wxss */
+.con{
+  font-weight: 200;
+  font-size: 30rpx;
+  color: darkgrey;
+}
+
+.ff{
+padding: 20rpx;
+line-height: 1.5;
+}

@@ -23,8 +23,8 @@
   </view>
   <view style="display:flex;justify-content: center;flex-direction: column;">
 
-  <view class="motto">
-        <text wx:if="{{!editi_motto}}">{{user.motto?user.motto:'您还没有设置旅行个性签名~'}}</text>
+  <view class="motto  bg-gradual-blue">
+        <text class="qm" wx:if="{{!editi_motto}}">{{user.motto?user.motto:'您还没有设置旅行个性签名~'}}</text>
       <input style="width:800rpx;text-align:center;" type="text" placeholder="写一个属于你自己的旅行个性签名吧~" value="{{s_motto}}" bindinput="input_s_motto" maxlength="20" wx:else/>
       </view>
 

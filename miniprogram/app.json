@@ -12,13 +12,13 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#4ecdc4",
+    "navigationBarBackgroundColor": "#6EB6FF",
     "navigationBarTitleText": "心行FindMyself",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "backgroundColor": "#F6F6F6",
-    "selectedColor": "#ffe66d",
+    "backgroundColor": "#FFFFFF",
+    "selectedColor": "#7098DA",
     "color": "#000000",
     "position": "bottom",
     "list": [
