@@ -129,12 +129,12 @@ Page({
   detail_onz(v) {
     var idx = Number(v.currentTarget.id)
     var temp = []
-    console.log('弹出')
-    console.log(idx)
+    // console.log('弹出')
+    // console.log(idx)
     fkindex=Number(v.currentTarget.id)
       this.setData({ show: true });
       this.setData({thisIndex:fkindex});
-      console.log('fkindex'+fkindex);
+      // console.log('fkindex'+fkindex);
 
     for (let i = 0; i < this.data.detail_on.length; ++i) {
       temp.push(this.data.detail_on[i])

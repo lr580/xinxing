@@ -401,8 +401,8 @@ Page({
     touchDotX = event.touches[0].pageX; // 获取触摸时的原点
     touchDotY = event.touches[0].pageY;
 
-    console.log("起始点的坐标X:" + touchDotX);
-    console.log("起始点的坐标Y:" + touchDotY);
+    // console.log("起始点的坐标X:" + touchDotX);
+    // console.log("起始点的坐标Y:" + touchDotY);
 
   },
   // 移动结束处理动画
@@ -414,24 +414,24 @@ Page({
     let absX = Math.abs(tmX);
     let absY = Math.abs(tmY);
     let delta = Math.sqrt(absX * absX + absY * absY);
-    console.log('起始点和离开点距离:' + delta + 'px');
+    // console.log('起始点和离开点距离:' + delta + 'px');
     if (delta >= 60) {
       if (absX > absY) {
         if (tmX < 0) {
-          console.log("左滑=====");
+          // console.log("左滑=====");
           this.Animation2(-500);
         } else {
-          console.log("右滑=====");
+          // console.log("右滑=====");
           this.Animation2(500);
         }
       } else {
         if (tmY < 0) {
-          console.log("上滑动=====");
+          // console.log("上滑动=====");
           this.setData({
             isFront2: !this.data.isFront2
           });
         } else {
-          console.log("下滑动=====");
+          // console.log("下滑动=====");
           this.setData({
             isFront2: !this.data.isFront2
           });
@@ -439,7 +439,7 @@ Page({
 
       }
     } else {
-      console.log("手势未触发=====");
+      // console.log("手势未触发=====");
     }
 
     this.setData({
@@ -454,8 +454,8 @@ Page({
   touchstart3: function (event) {
     touchDotX = event.touches[0].pageX; // 获取触摸时的原点
     touchDotY = event.touches[0].pageY;
-    console.log("起始点的坐标X:" + touchDotX);
-    console.log("起始点的坐标Y:" + touchDotY);
+    // console.log("起始点的坐标X:" + touchDotX);
+    // console.log("起始点的坐标Y:" + touchDotY);
   },
   // 移动结束处理动画
   touchend3: function (event) {
@@ -466,32 +466,32 @@ Page({
     let absX = Math.abs(tmX);
     let absY = Math.abs(tmY);
     let delta = Math.sqrt(absX * absX + absY * absY);
-    console.log('起始点和离开点距离:' + delta + 'px');
+    // console.log('起始点和离开点距离:' + delta + 'px');
     if (delta >= 60) {
       if (absX > absY) {
         if (tmX < 0) {
-          console.log("左滑=====");
+          // console.log("左滑=====");
           this.Animation3(-500);
         } else {
-          console.log("右滑=====");
+          // console.log("右滑=====");
           this.Animation3(500);
         }
       } else {
 
         if (tmY < 0) {
-          console.log("上滑动=====");
+          // console.log("上滑动=====");
           this.setData({
             isFront3: !this.data.isFront3
           });
         } else {
-          console.log("下滑动=====");
+          // console.log("下滑动=====");
           this.setData({
             isFront3: !this.data.isFront3
           });
         }
       }
     } else {
-      console.log("手势未触发=====");
+      // console.log("手势未触发=====");
     }
 
     this.setData({

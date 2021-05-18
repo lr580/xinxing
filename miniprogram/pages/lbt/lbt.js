@@ -137,7 +137,7 @@ Page({
     }
   },
   toggle(e) {
-    console.log(e);
+    // console.log(e);
     var anmiaton = e.currentTarget.dataset.class;
     var that = this;
     that.setData({

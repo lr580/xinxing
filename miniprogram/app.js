@@ -230,7 +230,7 @@ App({
             }
             km.globalData.user = null
             console.log('用户尚未授权过头像和昵称。')
-            console.log(rwt)
+            // console.log(rwt)
             if (deban) wx.hideLoading({
               success: (res) => { },
             })

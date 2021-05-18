@@ -46,6 +46,14 @@ Page({
     //   title: '加载中……',
     // })
 
+    // for (let i = 101; i <= 154; ++i) {
+    //   db.collection('diary').doc(String(i)).remove().then(res => {
+    //     console.log('suc', i)
+    //   }).catch(rws => {
+    //     console.log('rws', i, rws)
+    //   })
+    // }
+
     app.fn(
       function (x) {
         thee.setData({
@@ -63,20 +71,20 @@ Page({
     )*/
 
     return
-    wx.cloud.callFunction({
-      name: 'getOpenId',
-    }).then(res => {
-      // console.log('res',res)
-      var openid = res.result.userInfo.openId
-      console.log('open id', openid)
-      // thee.qabo(openid)
-    }).catch(rws => {
-      console.log('shit it broke down', rws)
-      wx.showToast({
-        title: '请求获取用户信息失败！',
-        icon: 'none',
-      })
-    }) //aaaa
+    // wx.cloud.callFunction({
+    //   name: 'getOpenId',
+    // }).then(res => {
+    //   // console.log('res',res)
+    //   var openid = res.result.userInfo.openId
+    //   console.log('open id', openid)
+    //   // thee.qabo(openid)
+    // }).catch(rws => {
+    //   console.log('shit it broke down', rws)
+    //   wx.showToast({
+    //     title: '请求获取用户信息失败！',
+    //     icon: 'none',
+    //   })
+    // }) //aaaa
   },
 
   qabo(openid) {
@@ -86,7 +94,7 @@ Page({
       desc: '请授权获取您的昵称和头像',
       success: function (res) {
         // console.log('why', res)
-        console.log('oks', res.userInfo)
+        // console.log('oks', res.userInfo)
         // const {userinfo} = res
         // console.log(userinfo)
         // thee.setData({user})

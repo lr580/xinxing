@@ -6,7 +6,6 @@
     "pages/discover/discover",
     "pages/like/like",
     "pages/myattra/myattra",
-    "pages/advice/advice",
     "pages/help/help"
   ],
   "window": {
