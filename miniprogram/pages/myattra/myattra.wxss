@@ -38,8 +38,8 @@
 }
 
 .vname{
-  font-weight:400 ;
-  font-size: 35rpx;
+  font-weight:800 ;
+  font-size: 30rpx;
   padding: 20rpx;
   color: #555657c9;
   width: 450rpx;

@@ -79,7 +79,7 @@
             <image src="/img/jddd.png"></image>{{attration[front].position}}
           </view>
         </view>
-        {{now_tips}}
+       <viw class="tips">{{now_tips}}</viw> 
       </view>
       
       <view wx:else class="body-container">
@@ -91,14 +91,66 @@
     <!-- 反面 -->
     <block wx:else>
       <view class="body-container" wx:if="{{front!=-1}}">
-        <text style="text-align:center">{{attration[front].name}}</text>
+       
+        <text class="jdname" style="text-align:center">{{attration[front].name}}</text>
+        <view class="back">
+          <scroll-view>
         <!-- <image class="avatar2" src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/normal/test (4).png"></image> -->
-        <view>评分：{{attration[front].mark}}</view>
-        <view>特色：{{attration[front].special}}</view>
-        <view>地点：{{attration[front].position}}</view>
-        <view>详细介绍：{{attration[front].intro}}</view>
-        <view>分布：{{attration[front].detail}}</view>
-        <view>资质：{{attration[front].prize}}</view>
+        <view class="jscon">
+        <view class="jdjs">
+          <image src="/img/jdjs.png"></image> 简介
+
+          
+          </view>
+          <view class="txtt1">{{attration[front].intro}}</view>
+        </view>
+        <view class="jscon">
+        <view class="jdjs">
+          <image src="/img/jddd.png"></image> 位置
+
+          
+          </view>
+          <view class="txtt">{{attration[front].position}}</view>
+        </view>
+        <!-- <view>地点：{{attration[front].position}}</view> -->
+        <view class="jscon">
+        <view class="jdjs">
+          <image src="/img/jdts.png"></image> 位置
+
+          
+          </view>
+          <view class="txtt">{{attration[front].special}}</view>
+        </view>
+        <!-- <view>特色：{{attration[front].special}}</view> -->
+        
+        <view class="jscon">
+        <view class="jdjs">
+          <image src="/img/jdbh.png"></image> 内含
+
+          
+          </view>
+          <view class="txtt">{{attration[front].detail}}</view>
+        </view>
+
+        <!-- <view>分布：{{attration[front].detail}}</view> -->
+
+        <view class="jscon">
+        <view class="jdjs">
+          <image src="/img/jdzz.png"></image>资质
+
+          
+          </view>
+          <view class="txtt">{{attration[front].prize}}</view>
+        </view>
+        <!-- <view>资质：{{attration[front].prize}}</view> -->
+        <view class="PF">
+      <view class="pf">
+        <view wx:for="{{attration[front].mark}}"><image src="/img/jdpf.png"></image> </view>
+</view>
+</view>
+        <!-- <view>评分：{{attration[front].mark}}</view> -->
+      </scroll-view>
+        </view>
       </view>
       <view wx:else class="body-container">
         <image class="avatar"
@@ -119,4 +171,8 @@
 <view class="ff1">
   <canvas  id="dislike" type="2d" style="width:400rpx; height: 400rpx;">
   </canvas>
+</view>
+
+<view class="stateBg">
+  
 </view>

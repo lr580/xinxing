@@ -111,9 +111,11 @@
 }
 
 .jdname {
+  width: 100%;
   padding: 20rpx;
   font-weight: 600;
   color: #1c2438;
+  text-align: center;
 }
 
 .pf {
@@ -175,13 +177,99 @@
 
 .ff1{
   position: absolute;
-  bottom: -70rpx;
-  left: 380rpx;
+  bottom: -100rpx;
+  left: 350rpx;
 
 }
 
 .ff2{
   position: absolute;
-  bottom: 50rpx;
-  left: 0rpx;
+  bottom: 30rpx;
+  left: 30rpx;
+}
+
+.tips
+{
+  padding: 10rpx;
+  text-align: center;
+width: 90%;
+color: #bbbec4;
+font-weight: 400;
+font-size: 30rpx;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+flex-wrap: nowrap;
+}
+
+.tips text{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.back{
+  height: 800rpx;
+  padding: 20rpx;
+  overflow: hidden;
+}
+
+.jscon{
+  display: flex;
+  flex-direction: column;
+}
+
+.jdjs{
+display: flex;
+align-items: center;
+}
+
+.jdjs image{
+  height: 40rpx;
+  width: 40rpx;
+  padding: 5rpx;
+}
+
+.txtt{
+  font-weight: 400;
+  font-size: 30rpx;
+  color: darkgray;
+
+}
+
+
+
+.txtt1{
+  font-weight: 400;
+  font-size: 30rpx;
+  color: darkgray;
+  text-indent:2em;
+  height: 240rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pf{
+  display: flex;
+  align-items: center;
+
+}
+
+.pf image{
+  padding: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.stateBg{
+  display: flex;
+  justify-content: center;
+  height: 200rpx;
+  position: absolute;
+  width: 500rpx;
+  border-radius: 16rpx;
+  background-color: white;
+  bottom: 10rpx;
+  left: 130rpx;
+  z-index: -1000;
 }
