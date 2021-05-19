@@ -195,7 +195,7 @@
 width: 90%;
 color: #bbbec4;
 font-weight: 400;
-font-size: 30rpx;
+font-size: 22rpx;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;

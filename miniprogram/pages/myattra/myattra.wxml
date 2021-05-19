@@ -19,13 +19,13 @@
 
 
   <view wx:for="{{fked}}">
-    <view class="cu-list">
-      <view id="{{index}}" class="cu-item leftbd {{modalName=='move-box-'+ index?'move-cur':''}}" wx:key
+    <view class="cu-list shadow">
+      <view id="{{index}}" class="cu-item shadow leftbd {{modalName=='move-box-'+ index?'move-cur':''}}" wx:key
         bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd"
         data-target="move-box-{{index}}">
 
 
-        <view id="{{index}}" class="contentbd">
+        <view id="{{index}}" class="contentbd shadow">
           <view wx:if="{{!gone[index]}}" class="index1">
             <image wx:if="{{!gone[index]}}" src="/img/wei1.png" class="no"></image>
             <image wx:else src="/img/even1.png" class="yes"></image>
