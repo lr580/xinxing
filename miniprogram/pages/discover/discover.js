@@ -122,7 +122,7 @@ Page({
     })
   },
   tabSelect(e) {
-    console.log(e)
+    // console.log(e)
     this.setData({
       sele_on: false,
       TabCur: e.currentTarget.dataset.id,

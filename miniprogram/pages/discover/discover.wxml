@@ -14,14 +14,14 @@
   </view>
 </scroll-view>
 
-<!-- 
+
 <view class="sele_skip" bindtap="go_skip">
   跳过
 </view>
 
 
 
-
+<!-- 
 <view class="sele_range" bindtap="sele_range">
   选择探索区域
   <view>广东省-{{city[now_city].name}}</view>
