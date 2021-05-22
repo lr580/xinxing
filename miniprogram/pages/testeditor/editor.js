@@ -431,6 +431,14 @@ Page({
       })
       return
     }
+    // console.log(this.data.s_att_name)
+    // if (this.data.s_att_name == '') {
+    //   wx.showToast({
+    //     title: '日志标题不得为空！',
+    //     icon: 'none',
+    //   })
+    //   return
+    // }
 
     var thee = this
 
