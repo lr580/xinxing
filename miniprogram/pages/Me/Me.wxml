@@ -6,7 +6,9 @@
         <view class="signupTxt">登录</view>
       </canvas>
     </view>
+
   </view>
+
 </view>
 <view wx:else>
   <!-- <view class="myBackground1">
@@ -23,15 +25,21 @@
   </view>
   <view style="display:flex;justify-content: center;flex-direction: column;">
 
-  <view class="motto  bg-gradual-blue">
-        <text class="qm" wx:if="{{!editi_motto}}">{{user.motto?user.motto:'您还没有设置旅行个性签名~'}}</text>
-      <input style="width:800rpx;text-align:center;" type="text" placeholder="写一个属于你自己的旅行个性签名吧~" value="{{s_motto}}" bindinput="input_s_motto" maxlength="20" wx:else/>
-      </view>
-
-      <view> 
-        <button style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;" class="bg-gray shadow button-hover" bindtap='edit_motto' wx:if="{{!editi_motto}}">编辑</button>
-      <button style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;" class="bg-gray shadow button-hover" bindtap='save_motto' wx:else>保存</button></view>
+    <view class="motto  bg-gradual-blue">
+      <text class="qm" wx:if="{{!editi_motto}}">{{user.motto?user.motto:'您还没有设置旅行个性签名~'}}</text>
+      <input style="width:800rpx;text-align:center;" type="text" placeholder="写一个属于你自己的旅行个性签名吧~" value="{{s_motto}}"
+        bindinput="input_s_motto" maxlength="20" wx:else />
     </view>
+
+    <view>
+      <button
+        style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;"
+        class="bg-gray shadow button-hover" bindtap='edit_motto' wx:if="{{!editi_motto}}">编辑</button>
+      <button
+        style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;"
+        class="bg-gray shadow button-hover" bindtap='save_motto' wx:else>保存</button>
+    </view>
+  </view>
   <van-divider />
   <view class="func">
     <!-- <view>我喜欢的景点_id(仅调试时可见)：{{user.like}}</view>
@@ -43,10 +51,13 @@
         <van-cell size="large" bindtap='to_myattra' wx:if="{{!nwInfo}}" icon="/img/scene.png" title="我的景点" is-link />
         <button open-type="feedback" style="width:500px" class="feedback"></button>
       </view>
-      <van-cell size="large" wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link class="feedback2" />
+      <!-- <van-cell size="large" wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link class="feedback2" />
 
-      <van-cell size="large" bindtap='to_help' wx:if="{{!nwInfo}}" icon="/img/help.png" title="帮助" is-link />
+      <van-cell size="large" bindtap='to_help' wx:if="{{!nwInfo}}" icon="/img/help.png" title="帮助" is-link /> -->
     </van-cell-group>
 
   </view>
 </view>
+<van-cell size="large" wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link class="feedback2" />
+
+<van-cell size="large" bindtap='to_help' wx:if="{{!nwInfo}}" icon="/img/help.png" title="帮助" is-link />
