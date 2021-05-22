@@ -51,13 +51,14 @@
         <van-cell size="large" bindtap='to_myattra' wx:if="{{!nwInfo}}" icon="/img/scene.png" title="我的景点" is-link />
         <button open-type="feedback" style="width:500px" class="feedback"></button>
       </view>
-      <!-- <van-cell size="large" wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link class="feedback2" />
+       <van-cell size="large" wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link class="feedback2" />
 
-      <van-cell size="large" bindtap='to_help' wx:if="{{!nwInfo}}" icon="/img/help.png" title="帮助" is-link /> -->
+      <!-- <van-cell size="large" bindtap='to_help' wx:if="{{!nwInfo}}" icon="/img/help.png" title="帮助" is-link /> -->
     </van-cell-group>
 
   </view>
 </view>
-<van-cell size="large" wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link class="feedback2" />
+<!-- <button open-type="feedback" style="width:500px" class="feedback"></button>
+<van-cell size="large" wx:if="{{!nwInfo}}" icon="/img/advice.png" title="意见反馈" is-link class="feedback2" /> -->
 
 <van-cell size="large" bindtap='to_help' wx:if="{{!nwInfo}}" icon="/img/help.png" title="帮助" is-link />
