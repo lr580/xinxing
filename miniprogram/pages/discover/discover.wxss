@@ -274,3 +274,10 @@ align-items: center;
   left: 120rpx;
   z-index: -1000;
 }
+
+.tgb{
+  position: absolute;
+  top: 220rpx;
+  right: 100rpx;
+  z-index: 10;
+}

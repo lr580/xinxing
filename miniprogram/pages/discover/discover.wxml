@@ -14,10 +14,11 @@
   </view>
 </scroll-view>
 
-<!-- 
-<view class="sele_skip" bindtap="go_skip">
-  跳过
-</view> -->
+
+<button
+        style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;"
+        class="bg-gray shadow button-hover tgb" bindtap="go_skip" wx:if="{{!editi_motto}}">跳过</button>
+
 
 
 
