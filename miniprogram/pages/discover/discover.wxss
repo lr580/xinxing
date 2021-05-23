@@ -245,8 +245,9 @@ align-items: center;
   color: darkgray;
   text-indent:2em;
   height: 240rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* overflow: hidden;
+  text-overflow: ellipsis; */
+
 }
 
 .pf{

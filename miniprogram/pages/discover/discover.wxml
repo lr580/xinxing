@@ -14,10 +14,10 @@
   </view>
 </scroll-view>
 
-
+<!-- 
 <view class="sele_skip" bindtap="go_skip">
   跳过
-</view>
+</view> -->
 
 
 
@@ -104,7 +104,8 @@
 
           
           </view>
-          <view class="txtt1">{{attration[front].intro}}</view>
+          <view class="txtt1">
+            <scroll-view bindscroll="scroll" scroll-into-view="true" scroll-top="0" scroll-y="true" style="height: 240rpx;">{{attration[front].intro}}</scroll-view></view>
         </view>
         <view class="jscon">
         <view class="jdjs">

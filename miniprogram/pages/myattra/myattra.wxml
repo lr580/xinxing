@@ -33,7 +33,7 @@
             <image wx:else src="/img/even1.png" class="yes"></image>
 
           </view>
-          <view class="main" bindtap="detail_onz">
+          <view id="{{index}}" bindtap="detail_onz" class="main">
             <view class="vname">{{attration[fked[index]].name}}</view>
             <view class="haveicon">
               <image id="{{index}}" bindtap="detail_onz" src="/img/zhankai.png">
