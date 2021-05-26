@@ -2,8 +2,7 @@
 <!-- <text>miniprogram/pages/discover/discover.wxml</text> -->
 
 <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-  <view class="cu-item bg-white nav text-center text-blue cur" wx:for="{{province}}" wx:key
-    data-id="{{index}}">
+  <view class="cu-item bg-white nav text-center text-blue cur" wx:for="{{province}}" wx:key data-id="{{index}}">
     {{item.name}}
   </view>
 </scroll-view>
@@ -16,8 +15,8 @@
 
 
 <button
-        style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;"
-        class="bg-gray shadow button-hover tgb" bindtap="go_skip" wx:if="{{!editi_motto}}">跳过</button>
+  style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;"
+  class="bg-gray shadow button-hover tgb" bindtap="go_skip" wx:if="{{!editi_motto}}">跳过</button>
 
 
 
@@ -80,88 +79,86 @@
             <image src="/img/jddd.png"></image>{{attration[front].position}}
           </view>
         </view>
-       <viw class="tips">{{now_tips}}</viw> 
+        <viw class="tips">{{now_tips}}</viw>
       </view>
-      
+
       <view wx:else class="body-container">
-        <van-empty
-  class="custom-image"
-  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
-  description="已经没有景点啦"
-/>
+        <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+          description="已经没有景点啦" />
       </view>
     </block>
     <!-- 反面 -->
     <block wx:else>
       <view class="body-container" wx:if="{{front!=-1}}">
-       
+
         <text class="jdname" style="text-align:center">{{attration[front].name}}</text>
         <view class="back">
           <scroll-view>
-        <!-- <image class="avatar2" src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/normal/test (4).png"></image> -->
-        <view class="jscon">
-        <view class="jdjs">
-          <image src="/img/jdjs.png"></image> 简介
+            <!-- <image class="avatar2" src="cloud://lr580c-6gotth6z00871312.6c72-lr580c-6gotth6z00871312-1304870229/normal/test (4).png"></image> -->
+            <view class="jscon">
+              <view class="jdjs">
+                <image src="/img/jdjs.png"></image> 简介
 
-          
-          </view>
-          <view class="txtt1">
-            <scroll-view bindscroll="scroll" scroll-into-view="true" scroll-top="0" scroll-y="true" style="height: 240rpx;">{{attration[front].intro}}</scroll-view></view>
-        </view>
-        <view class="jscon">
-        <view class="jdjs">
-          <image src="/img/jddd.png"></image> 位置
 
-          
-          </view>
-          <view class="txtt">{{attration[front].position}}</view>
-        </view>
-        <!-- <view>地点：{{attration[front].position}}</view> -->
-        <view class="jscon">
-        <view class="jdjs">
-          <image src="/img/jdts.png"></image> 位置
+              </view>
+              <view class="txtt1">
+                <scroll-view bindscroll="scroll" scroll-into-view="true" scroll-top="0" scroll-y="true"
+                  style="height: 240rpx;">{{attration[front].intro}}</scroll-view>
+              </view>
+            </view>
+            <view class="jscon">
+              <view class="jdjs">
+                <image src="/img/jddd.png"></image> 位置
 
-          
-          </view>
-          <view class="txtt">{{attration[front].special}}</view>
-        </view>
-        <!-- <view>特色：{{attration[front].special}}</view> -->
-        
-        <view class="jscon">
-        <view class="jdjs">
-          <image src="/img/jdbh.png"></image> 内含
 
-          
-          </view>
-          <view class="txtt">{{attration[front].detail}}</view>
-        </view>
+              </view>
+              <view class="txtt">{{attration[front].position}}</view>
+            </view>
+            <!-- <view>地点：{{attration[front].position}}</view> -->
+            <view class="jscon">
+              <view class="jdjs">
+                <image src="/img/jdts.png"></image> 位置
 
-        <!-- <view>分布：{{attration[front].detail}}</view> -->
 
-        <view class="jscon">
-        <view class="jdjs">
-          <image src="/img/jdzz.png"></image>资质
+              </view>
+              <view class="txtt">{{attration[front].special}}</view>
+            </view>
+            <!-- <view>特色：{{attration[front].special}}</view> -->
 
-          
-          </view>
-          <view class="txtt">{{attration[front].prize}}</view>
-        </view>
-        <!-- <view>资质：{{attration[front].prize}}</view> -->
-        <view class="PF">
-      <view class="pf">
-        <view wx:for="{{attration[front].mark}}"><image src="/img/jdpf.png"></image> </view>
-</view>
-</view>
-        <!-- <view>评分：{{attration[front].mark}}</view> -->
-      </scroll-view>
+            <view class="jscon">
+              <view class="jdjs">
+                <image src="/img/jdbh.png"></image> 内含
+
+
+              </view>
+              <view class="txtt">{{attration[front].detail}}</view>
+            </view>
+
+            <!-- <view>分布：{{attration[front].detail}}</view> -->
+
+            <view class="jscon">
+              <view class="jdjs">
+                <image src="/img/jdzz.png"></image>资质
+
+
+              </view>
+              <view class="txtt">{{attration[front].prize}}</view>
+            </view>
+            <!-- <view>资质：{{attration[front].prize}}</view> -->
+            <view class="PF">
+              <view class="pf">
+                <view wx:for="{{attration[front].mark}}">
+                  <image src="/img/jdpf.png"></image>
+                </view>
+              </view>
+            </view>
+            <!-- <view>评分：{{attration[front].mark}}</view> -->
+          </scroll-view>
         </view>
       </view>
       <view wx:else class="body-container">
-        <van-empty
-  class="custom-image"
-  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
-  description="已经没有景点啦"
-/>
+        <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+          description="已经没有景点啦" />
       </view>
     </block>
   </view>
@@ -175,10 +172,18 @@
   </canvas>
 </view>
 <view class="ff1">
-  <canvas  id="dislike" type="2d" style="width:400rpx; height: 400rpx;">
+  <canvas id="dislike" type="2d" style="width:400rpx; height: 400rpx;">
   </canvas>
 </view>
 
 <view class="stateBg">
-  
+
 </view>
+
+<view class="shadow help" bindtap="showhelp">
+  <image src="/img/dishelp.png"></image>
+</view>
+
+<van-dialog use-slot title="教程" show="{{ show }}" bind:close="onClose">
+  <image class="helpimg" src="/img/dishelpimg.png" />
+</van-dialog>
