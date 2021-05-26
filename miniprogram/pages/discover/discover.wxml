@@ -182,3 +182,16 @@
 <view class="stateBg">
   
 </view>
+
+<view class="shadow help" bindtap="showhelp">
+  <image src="/img/dishelp.png"></image>
+</view>
+
+<van-dialog
+  use-slot
+  title="教程"
+  show="{{ show }}"
+  bind:close="onClose"
+>
+  <image class="helpimg" src="/img/dishelpimg.png" />
+</van-dialog>

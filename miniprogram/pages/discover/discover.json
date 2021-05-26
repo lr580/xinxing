@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "van-divider": "/dist/divider/index",
-    "van-empty": "/dist/empty/index"
+    "van-empty": "/dist/empty/index",
+    "van-dialog": "/dist/dialog/index"
     
   },
   "disableScroll":true

@@ -8,6 +8,7 @@ const _ = db.command
 var lottieState = false;
 Page({
   data: {
+    show: false,
     TabCur: 0,
     scrollLeft: 0,
     isFront1: true,
@@ -73,6 +74,16 @@ Page({
         },
       })
     }).exec()
+  },
+  showhelp(){
+    this.setData({ show: true });
+  },
+  getUserInfo(event) {
+    console.log(event.detail);
+  },
+
+  onClose() {
+    this.setData({ show: false });
   },
   onShow(options) {
     this.switch_tip()
@@ -359,6 +370,7 @@ Page({
                 context,
               },
             })
+            wx.vibrateShort();
           }).exec()
           lottieState = false
           // 如更tmX>0，即(离开点的X)-(起始点X)大于0 ，判定为右滑
@@ -370,6 +382,10 @@ Page({
           }, 450);
           // 执行右滑动画
           this.Animation1(500);
+
+
+          
+
           wx.createSelectorQuery().selectAll('#dislike').node(res => {
             const canvas = res[0].node
             const context = canvas.getContext('2d')
@@ -386,6 +402,7 @@ Page({
                 context,
               },
             })
+            wx.vibrateShort();
           }).exec()
           lottieState = false
         }
