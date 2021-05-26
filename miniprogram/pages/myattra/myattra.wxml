@@ -259,3 +259,15 @@
     </view>
   </view> -->
 <!-- </view> -->
+<view class="shadow help" bindtap="showhelp">
+  <image src="/img/dishelp.png"></image>
+</view>
+
+<van-dialog
+  use-slot
+  title="教程"
+  show="{{ show2 }}"
+  bind:close="onClose2"
+>
+  <image class="helpimg" src="/img/myhelp.png" />
+</van-dialog>

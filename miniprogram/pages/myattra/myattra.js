@@ -12,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show2: false,
     show: false,
     TabCur: 0,
     scrollLeft: 0,
@@ -22,6 +23,12 @@ Page({
   //   this.setData({ show: true });
   //   console.log('弹出')
   // },
+  showhelp(){
+    this.setData({ show2: true });
+  },
+  onClose2() {
+    this.setData({ show2: false });
+  },
 
   onClose(v) {
     this.setData({ show: false });

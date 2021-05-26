@@ -193,5 +193,5 @@
   show="{{ show }}"
   bind:close="onClose"
 >
-  <image class="helpimg" src="/img/dishelpimg.png" />
+  <image class="helpimg" src="/img/dishelpimg1.png" />
 </van-dialog>

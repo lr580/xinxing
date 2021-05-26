@@ -78,10 +78,6 @@ Page({
   showhelp(){
     this.setData({ show: true });
   },
-  getUserInfo(event) {
-    console.log(event.detail);
-  },
-
   onClose() {
     this.setData({ show: false });
   },
