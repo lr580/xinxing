@@ -187,3 +187,22 @@ width: 700rpx;
   flex-wrap: wrap;
   flex-direction: column;
 }
+
+.help{
+  position: absolute;
+  top: 110rpx;
+ left: 650rpx;
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.help image{
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.helpimg{
+  height: 1000rpx;
+}

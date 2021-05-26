@@ -184,6 +184,16 @@
   <image src="/img/dishelp.png"></image>
 </view>
 
+<!-- <<<<<<< HEAD -->
 <van-dialog use-slot title="教程" show="{{ show }}" bind:close="onClose">
-  <image class="helpimg" src="/img/dishelpimg.png" />
+  <image class="helpimg" src="/img/dishelpimg1.png" />
+<!-- ======= -->
+<!-- <van-dialog
+  use-slot
+  title="教程"
+  show="{{ show }}"
+  bind:close="onClose"
+>
+  <image class="helpimg" src="/img/dishelpimg1.png" />
+>>>>>>> e4ffd2587f2ca7ee9fb10322e07a496360d32170 -->
 </van-dialog>

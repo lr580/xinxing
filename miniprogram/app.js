@@ -7,13 +7,13 @@ const cmp = function () {
 }
 App({
   onLaunch: function () {
-    // wx.setEnableDebug({
-    //   enableDebug: true
-    // }).then(res => {
-    //   // console.log(res)
-    // }).catch(rws => {
-    //   console.log('www', rws)
-    // })
+    wx.setEnableDebug({
+      enableDebug: false
+    }).then(res => {
+      // console.log(res)
+    }).catch(rws => {
+      console.log('www', rws)
+    })
     //this.globalData.user = null
     //this.globalData.openid = null
     const km = this//this
