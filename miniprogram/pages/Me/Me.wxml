@@ -16,6 +16,12 @@
       <image src="/img/myback.jpg"></image>
 
   </view> -->
+  <view>
+      <canvas  class="headL" id="c2" type="2d" style="width:1500rpx; height: 400rpx;">
+  
+      </canvas>
+    </view>
+
   <view class="userInfo">
     <view class="head">
       <image src="{{user.avatarUrl}}"></image>
@@ -34,7 +40,7 @@
     <view>
       <button
         style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;"
-        class="bg-gray shadow button-hover" bindtap='edit_motto' wx:if="{{!editi_motto}}">编辑</button>
+        class="bg-white shadow button-hover" bindtap='edit_motto' wx:if="{{!editi_motto}}">编辑</button>
       <button
         style="width:80rpx;height:60rpx;padding: 0;font-size: 25rpx;text-align: center;display: flex;justify-content: center;align-items: center;border-radius: 30rpx;"
         class="bg-gray shadow button-hover" bindtap='save_motto' wx:else>保存</button>

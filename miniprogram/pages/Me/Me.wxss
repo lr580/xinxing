@@ -119,3 +119,10 @@
   font-size: 30rpx;
   color: #ffffff;
 }
+
+
+.headL{
+  position: absolute;
+  left: -400rpx;
+  top: -50rpx;
+ }

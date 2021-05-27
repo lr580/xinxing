@@ -117,7 +117,7 @@
             <!-- <view>地点：{{attration[front].position}}</view> -->
             <view class="jscon">
               <view class="jdjs">
-                <image src="/img/jdts.png"></image> 位置
+                <image src="/img/jdts.png"></image> 特色
 
 
               </view>
