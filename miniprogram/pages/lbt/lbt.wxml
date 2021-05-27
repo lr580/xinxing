@@ -26,3 +26,9 @@
     <image src="https://image.weilanwl.com/gif/loading-white.gif" mode="aspectFit" class="gif-white response" style="height:700rpx"></image>
   </view>
 </view>
+
+<view class="loadingtip" wx:if="{{showtip}}">
+<text>
+若页面加载时间过长，可点击右上角“更多”重新进入小程序。
+</text>
+</view>

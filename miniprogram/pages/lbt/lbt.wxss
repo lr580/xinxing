@@ -59,3 +59,15 @@
    justify-content: center;
    align-items: center;
  }
+
+ .loadingtip{
+   position: absolute;
+   bottom: 400rpx;
+   left: 60rpx;
+ }
+
+ .loadingtip text{
+   font-size: 25rpx;
+   font-weight: 600;
+   color: gray;
+ }

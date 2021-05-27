@@ -3,7 +3,7 @@ Page({
   data: {
 
 
-
+    showtip:false,
     cardCur: 0,
     swiperList: [{
       id: 0,
@@ -57,6 +57,12 @@ Page({
     rem: false,//是否显示该页面
   },
   onLoad() {
+    const that = this
+    setTimeout(function () {
+      that.setData({
+        showtip: true
+      })
+    }, 5000)
     this.towerSwiper('swiperList');
     var thee = this;
     km.jump_to_main = function () {
