@@ -6,6 +6,10 @@
   text-indent: 2em;
 }
 
+.con text{
+  text-indent: 2em;
+}
+
 .ff {
   padding: 20rpx;
   line-height: 1.5;
