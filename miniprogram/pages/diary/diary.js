@@ -11,9 +11,10 @@ Page({
   data: {
     user: null,
     diary: null,
-    attration:null,
+    attration: null,
     looking: [],
     diaryDate: [],
+    spj: false,
   },
 
   /**
@@ -28,7 +29,7 @@ Page({
     return temp
   },
 
-  upd_look(){
+  upd_look() {
     var temp = []
     for (let i = 0; i < km.globalData.diary.length; ++i) {
       temp.push(false)
@@ -40,8 +41,11 @@ Page({
 
   onLoad: function (options) {
     var thee = this
+    thee.setData({
+      spj: km.globalData.spj,
+    })
     // var temp = []
-    
+
     var hg = function () {
       // console.log('qwqq', km.globalData.diary)
       thee.setData({
@@ -53,7 +57,7 @@ Page({
       })
       // console.log('oh yes')
     }
-    this.hg=hg
+    this.hg = hg
     km.cb2 = hg
     km.cb2()
     // console.log(km.globalData.user)
@@ -70,7 +74,7 @@ Page({
     // console.log('this')
     // km.cb2()
     // console.log(this.)
-    if(typeof this.hg == 'function'){
+    if (typeof this.hg == 'function') {
       // console.log('123')
       this.hg()
     }
@@ -91,9 +95,9 @@ Page({
   look(v) {
     var idx = Number(v.currentTarget.id)
     // console.log(idx)
-    this.data.looking[idx]=!this.data.looking[idx]
+    this.data.looking[idx] = !this.data.looking[idx]
     this.setData({
-      looking:this.data.looking,
+      looking: this.data.looking,
     })
   },
 
@@ -112,7 +116,7 @@ Page({
       // url: '/pages/testeditor/editor?edit=1&s_att_id='+String(this.data.diary[idx].att_id)
       // +'&s_att_name='+String(this.data.diary[idx].att_name)+'&s_time='+km.date2str(this.data.diary[idx].time)+
       // '&s_content='+String(this.data.diary[idx].content)+'&s_id='+String(this.data.diary[idx]._id),
-      url: '/pages/testeditor/editor?edit=1&id='+String(idx),//+String(this.data.diary[idx]._id),
+      url: '/pages/testeditor/editor?edit=1&id=' + String(idx),//+String(this.data.diary[idx]._id),
     })
     // km.cb2()
     // console.log('qwq')

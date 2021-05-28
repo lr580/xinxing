@@ -1,9 +1,10 @@
 @import "../../common/lib/weui.wxss";
 @import "./assets/iconfont.wxss";
- 
+
 .wrapper {
   padding: 5px;
 }
+
 .iconfont {
   display: inline-block;
   padding: 8px 8px;
@@ -12,7 +13,7 @@
   cursor: pointer;
   font-size: 20px;
 }
- 
+
 .toolbar {
   box-sizing: border-box;
   /* border: 1px solid #ccc; */
@@ -35,12 +36,12 @@
   font-size: 16px;
   line-height: 1.5;
 }
- 
+
 .ql-active {
   color: #06c;
 }
 
-.addPost{
+.addPost {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
@@ -51,12 +52,12 @@
   margin-left: 480rpx;
 }
 
-.addPost image{
+.addPost image {
   width: 70rpx;
   height: 70rpx;
 }
 
-.myFoot{
+.myFoot {
   height: 100rpx;
   width: 100%;
   display: flex;
@@ -66,64 +67,67 @@
   padding: 40rpx;
 }
 
-.myFoot image{
+.myFoot image {
   height: 250rpx;
   width: 250rpx;
   padding: 10rpx;
 }
 
-.empty{
+.empty {
   height: 400rpx;
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top:300rpx;
+  margin-top: 300rpx;
 }
 
-.empty image{
+.empty image {
   height: 350rpx;
   width: 350rpx;
 }
 
-.emptyTxt{
+.emptyTxt {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size:30rpx;
+  font-size: 30rpx;
   color: gray;
   font-weight: 200;
 }
 
-.Astate{
+.Astate {
 
   display: flex;
   align-items: center;
- padding: 10rpx;
- margin-left:400rpx
+  padding: 10rpx;
+  margin-left: 400rpx
 }
 
-.AAcontent{
+.AAcontent {
   height: auto;
   width: 100%;
   background-color: rgb(255, 255, 255);
   border-radius: 10rpx;
   padding: 10rpx;
 }
-.title{
+
+.title {
   width: 75%;
-height: 50rpx;
-color: rgba(0, 0, 0, 0.589);
-display: flex;
-align-items: center;
-flex-wrap: nowrap;
+  height: 50rpx;
+  color: rgba(0, 0, 0, 0.589);
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
 
 }
-.title image{
+
+.title image {
   padding: 5rpx;
   width: 40rpx;
   height: 40rpx;
 }
-.title text{
+
+.title text {
   width: 90%;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -132,12 +136,11 @@ flex-wrap: nowrap;
   text-overflow: ellipsis;
 }
 
-.scene-text
-{
+.scene-text {
   width: 70%;
 }
 
-.scene-text text{
+.scene-text text {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -145,7 +148,7 @@ flex-wrap: nowrap;
   text-overflow: ellipsis;
 }
 
-.topstate{
+.topstate {
   display: flex;
   align-items: center;
   width: 100%;

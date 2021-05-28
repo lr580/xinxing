@@ -1,17 +1,21 @@
 // miniprogram/pages/help/help.js
+const km = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    spj: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      spj:km.globalData.spj
+    })
     //做一点测试：下面的代码可删掉
     // wx.showToast({
     //   title: '加载1',

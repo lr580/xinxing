@@ -54,6 +54,7 @@ App({
           km.globalData.num_province = res.data.num_province
           km.globalData.num_attration = res.data.num_attration
           km.globalData.num_diary = res.data.num_diary
+          km.globalData.spj = res.data.spj
 
           const epoch = 20
           const batch_city = Math.ceil(res.data.num_city / epoch)

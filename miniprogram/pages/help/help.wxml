@@ -1,11 +1,11 @@
-<view class="cu-bar bg-white">
+<view class="cu-bar bg-white" wx:if="{{!spj}}">
   <view class="action border-title">
     <text class="text-xl text-bold text-blue">这是一个什么小程序？</text>
     <text class="bg-gradual-blue" style="width:8rem"></text>
   </view>
 
 </view>
-<view class="bg-white ff">
+<view class="bg-white ff" wx:if="{{!spj}}">
   <view class="con">
     心行FindMyself是一款提供旅游景点介绍和记录旅行日记功能的小程序。本程序致力于为用户提供多样的景点信息，以供用户发现新奇有趣的旅游去向。在用户旅行过程中，本程序还支持用户记录旅行时的所感所得，形成由旅行足迹和旅行日志串联成的时间轴，以便用户回顾自我的旅游过程，在旅行中更好地随心而行，发现旅行之美和自我真谛。
   </view>
@@ -48,14 +48,14 @@
   <view class="con">对于未去过的景点，可以为已经去过，标记之后，在心路板块可以看到一条新的足迹。也可以重新设置为未去过，设置之后，在心路板块可以看到足迹被撤销。</view>
 </view>
 
-<view class="cu-bar bg-white">
+<view class="cu-bar bg-white" wx:if="{{!spj}}">
   <view class="action">
     <text class="cuIcon-titles text-blue"></text>
     <text class="text-xl text-bold">“心路”</text>
   </view>
 </view>
 
-<view class="bg-white ff">
+<view class="bg-white ff" wx:if="{{!spj}}">
   <view class="con">
     首先在主界面点击下方栏目，进入“心路”板块。有两种方法可以在“心路”板块发布“旅行日记”，一是点击右上角的发帖按钮，二是编辑一个通过在“我的景点”设置为已去过的一条足迹。之后便会弹出一个发帖页面，此时可以在上面自由地记载旅行日记。
   </view>
