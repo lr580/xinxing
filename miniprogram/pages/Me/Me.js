@@ -48,7 +48,7 @@ Page({
         this.ani = lottie.loadAnimation({
           loop: true,
           autoplay: true,
-          animationData: require('../lotties/userhead'),
+          animationData: require('../lotties/uh'),
           rendererSettings: {
             context,
           },
